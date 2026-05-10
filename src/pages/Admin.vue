@@ -9,12 +9,12 @@ const latestUsers = ref([])
 const latestTournaments = ref([])
 
 const statCards = computed(() => [
-  { label: 'Total users', value: stats.value?.total_users ?? 0 },
-  { label: 'Total games', value: stats.value?.total_games ?? 0 },
-  { label: 'Active games', value: stats.value?.active_games ?? 0 },
-  { label: 'Total tournaments', value: stats.value?.total_tournaments ?? 0 },
-  { label: 'Active tournaments', value: stats.value?.active_tournaments ?? 0 },
-  { label: 'Finished tournaments', value: stats.value?.finished_tournaments ?? 0 },
+  { label: 'Total users', value: stats.value?.total_users ?? 0, icon: 'USR' },
+  { label: 'Total games', value: stats.value?.total_games ?? 0, icon: 'GM' },
+  { label: 'Active games', value: stats.value?.active_games ?? 0, icon: 'LIVE' },
+  { label: 'Total tournaments', value: stats.value?.total_tournaments ?? 0, icon: 'TRN' },
+  { label: 'Active tournaments', value: stats.value?.active_tournaments ?? 0, icon: 'ACT' },
+  { label: 'Finished tournaments', value: stats.value?.finished_tournaments ?? 0, icon: 'FIN' },
 ])
 
 async function loadAdminStats() {
@@ -52,10 +52,10 @@ onMounted(loadAdminStats)
   <main class="dashboard-page admin-page">
     <header class="app-header">
       <div>
-        <p class="eyebrow">Owner</p>
+        <p class="eyebrow">Operations</p>
         <h1>Admin</h1>
         <p class="app-header-description">
-          Monitor core GambitForge activity without adding full platform operations yet.
+          Monitor core GambitForge activity across users, games, tournaments, and recent platform movement.
         </p>
       </div>
 
@@ -79,6 +79,7 @@ onMounted(loadAdminStats)
     <template v-if="stats">
       <section class="admin-stats-grid" aria-label="Platform stats">
         <article v-for="card in statCards" :key="card.label" class="admin-stat-card">
+          <div class="admin-stat-icon" aria-hidden="true">{{ card.icon }}</div>
           <p class="panel-label">{{ card.label }}</p>
           <strong>{{ card.value }}</strong>
         </article>

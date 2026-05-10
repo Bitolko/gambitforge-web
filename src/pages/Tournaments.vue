@@ -53,6 +53,14 @@ function playerStatus(tournament) {
     : 'Open'
 }
 
+function statusBadgeClass(status) {
+  return `badge-${status === 'registration' ? 'waiting' : status || 'waiting'}`
+}
+
+function openTournament(tournament) {
+  router.push({ name: 'tournament', params: { id: tournament.id } })
+}
+
 onMounted(async () => {
   if (!auth.user) {
     await auth.fetchUser()
@@ -63,14 +71,15 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main class="dashboard-page">
+  <main class="dashboard-page tournaments-page">
     <header class="app-header">
       <div>
-        <p class="eyebrow">GambitForge</p>
+        <p class="eyebrow">Control center</p>
         <h1>Tournaments</h1>
+        <p class="app-header-description">Create events, track registration, and open the room where pairings and standings move.</p>
       </div>
 
-      <RouterLink class="text-link" to="/dashboard">Dashboard</RouterLink>
+      <RouterLink class="button-link secondary-link" to="/dashboard">Dashboard</RouterLink>
     </header>
 
     <div v-if="error" class="state-panel error-state">
@@ -80,25 +89,31 @@ onMounted(async () => {
     </div>
 
     <section class="dashboard-grid">
-      <article class="profile-panel">
+      <article class="profile-panel tournament-create-card">
         <p class="panel-label">Create</p>
         <h2>New tournament</h2>
+        <p>Set up an organiser workspace with registration, pairings, standings, and live result entry.</p>
         <form class="auth-form" @submit.prevent="createTournament">
           <label>
             Name
             <input v-model="name" required maxlength="255" />
           </label>
 
-          <button type="submit" :disabled="creating">
-            {{ creating ? 'Creating...' : 'Create tournament' }}
+          <button class="gold-button" type="submit" :disabled="creating">
+            {{ creating ? 'Creating...' : 'Create Tournament' }}
           </button>
         </form>
       </article>
 
-      <article class="next-module">
-        <p class="panel-label">Format</p>
-        <h2>Round 1 MVP</h2>
-        <p>Players join, the organizer starts round 1, and pairings create live chess games.</p>
+      <article class="next-module tournament-control-preview">
+        <p class="panel-label">Organizer flow</p>
+        <h2>Round control</h2>
+        <div class="control-preview-list">
+          <span>Registration open</span>
+          <span>Pairings generated</span>
+          <span>Results entered</span>
+          <span>Standings updated</span>
+        </div>
       </article>
     </section>
 
@@ -127,14 +142,44 @@ onMounted(async () => {
       </div>
 
       <div v-else class="games-list">
-        <article v-for="tournament in tournaments" :key="tournament.id" class="game-card">
-          <div>
-            <p class="panel-label">{{ playerStatus(tournament) }} / {{ tournament.status }}</p>
-            <h3>{{ tournament.name }}</h3>
-            <p>{{ tournament.players_count }} players / {{ tournament.time_control }}</p>
+        <article
+          v-for="tournament in tournaments"
+          :key="tournament.id"
+          class="tournament-card"
+          role="link"
+          tabindex="0"
+          @click="openTournament(tournament)"
+          @keydown.enter.prevent="openTournament(tournament)"
+          @keydown.space.prevent="openTournament(tournament)"
+        >
+          <div class="tournament-row-main">
+            <span class="tournament-mark" aria-hidden="true">
+              <img src="/gambitforge-logo-web.png" alt="" />
+            </span>
+
+            <div class="tournament-row-copy">
+              <div class="tournament-row-kicker">
+                <span>{{ playerStatus(tournament) }}</span>
+                <span class="status-badge" :class="statusBadgeClass(tournament.status)">
+                  {{ tournament.status }}
+                </span>
+              </div>
+              <h3>{{ tournament.name }}</h3>
+              <p>{{ tournament.players_count }} players / {{ tournament.time_control }}</p>
+            </div>
           </div>
 
-          <RouterLink class="button-link" :to="{ name: 'tournament', params: { id: tournament.id } }">
+          <div class="tournament-row-metrics" aria-label="Tournament tools">
+            <span>Standings</span>
+            <span>Pairings</span>
+            <span>Results</span>
+          </div>
+
+          <RouterLink
+            class="button-link hero-primary"
+            :to="{ name: 'tournament', params: { id: tournament.id } }"
+            @click.stop
+          >
             Open
           </RouterLink>
         </article>

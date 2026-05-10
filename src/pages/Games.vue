@@ -14,7 +14,10 @@ const error = ref('')
 const copiedGameId = ref(null)
 
 const activeGames = computed(() => (
-  games.value.filter((game) => ['waiting', 'active'].includes(game.status))
+  games.value.filter((game) => game.status === 'active')
+))
+const waitingGames = computed(() => (
+  games.value.filter((game) => game.status === 'waiting')
 ))
 const completedGames = computed(() => (
   games.value.filter((game) => game.status === 'finished')
@@ -72,6 +75,10 @@ function turnLabel(game) {
   return `${game.turn.charAt(0).toUpperCase()}${game.turn.slice(1)} to move`
 }
 
+function statusBadgeClass(status) {
+  return `badge-${status || 'waiting'}`
+}
+
 function inviteUrl(game) {
   return `${window.location.origin}/games/${game.id}`
 }
@@ -104,9 +111,9 @@ onMounted(async () => {
   <main class="dashboard-page games-page">
     <header class="app-header">
       <div>
-        <p class="eyebrow">Chess</p>
+        <p class="eyebrow">Live games hub</p>
         <h1>Games</h1>
-        <p class="app-header-description">Create, join, and continue your live chess games.</p>
+        <p class="app-header-description">Create invites, monitor active boards, and return to completed game records.</p>
       </div>
 
       <button type="button" :disabled="creating" @click="createGame">
@@ -131,8 +138,8 @@ onMounted(async () => {
         <div class="section-header">
           <div>
             <p class="eyebrow">Live boards</p>
-            <h2 id="active-games-heading">Active Games</h2>
-          </div>
+          <h2 id="active-games-heading">Active Games</h2>
+        </div>
 
           <button class="secondary-button" type="button" :disabled="loading" @click="loadGames">
             Refresh
@@ -146,16 +153,20 @@ onMounted(async () => {
         </div>
 
         <div v-else class="games-list">
-          <article v-for="game in activeGames" :key="game.id" class="game-card enhanced-game-card">
-            <div>
-              <p class="panel-label">{{ game.status }}</p>
+          <article v-for="game in activeGames" :key="game.id" class="live-game-row">
+            <div class="live-game-main">
+              <span class="live-game-mark" aria-hidden="true">
+                <img src="/gambitforge-logo-web.png" alt="" />
+              </span>
+              <div class="live-game-copy">
+                <div class="live-game-kicker">
+                  <span class="status-badge" :class="statusBadgeClass(game.status)">{{ game.status }}</span>
+                  <span>{{ moveCount(game) }} moves</span>
+                </div>
               <h3>{{ game.title || 'Chess game' }}</h3>
-              <p>White: {{ playerName(game.white_user) }}</p>
-              <p>Black: {{ blackPlayerLabel(game) }}</p>
-              <p>
-                {{ moveCount(game) }} moves
-                <span v-if="turnLabel(game)"> / {{ turnLabel(game) }}</span>
-              </p>
+                <p>{{ playerName(game.white_user) }} vs {{ blackPlayerLabel(game) }}</p>
+                <p v-if="turnLabel(game)">{{ turnLabel(game) }}</p>
+              </div>
             </div>
 
             <div class="game-card-actions">
@@ -168,6 +179,49 @@ onMounted(async () => {
                 type="button"
                 @click="copyInvite(game)"
               >
+                {{ copiedGameId === game.id ? 'Copied' : 'Copy Invite' }}
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="games-section" aria-labelledby="waiting-games-heading">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Invite queue</p>
+            <h2 id="waiting-games-heading">Waiting Games</h2>
+          </div>
+        </div>
+
+        <div v-if="!waitingGames.length" class="state-panel compact-state">
+          <p class="panel-label">Clear</p>
+          <h2>No open invites</h2>
+          <p>Waiting games with shareable links appear here.</p>
+        </div>
+
+        <div v-else class="games-list">
+          <article v-for="game in waitingGames" :key="game.id" class="live-game-row waiting-card">
+            <div class="live-game-main">
+              <span class="live-game-mark" aria-hidden="true">
+                <img src="/gambitforge-logo-web.png" alt="" />
+              </span>
+              <div class="live-game-copy">
+                <div class="live-game-kicker">
+                  <span class="status-badge" :class="statusBadgeClass(game.status)">{{ game.status }}</span>
+                  <span>Invite ready</span>
+                </div>
+              <h3>{{ game.title || 'Chess game' }}</h3>
+                <p>{{ playerName(game.white_user) }} vs {{ blackPlayerLabel(game) }}</p>
+                <p>{{ moveCount(game) }} moves</p>
+              </div>
+            </div>
+
+            <div class="game-card-actions">
+              <RouterLink class="button-link" :to="{ name: 'game', params: { id: game.id } }">
+                Open Game
+              </RouterLink>
+              <button class="secondary-button" type="button" @click="copyInvite(game)">
                 {{ copiedGameId === game.id ? 'Copied' : 'Copy Invite' }}
               </button>
             </div>
@@ -190,16 +244,20 @@ onMounted(async () => {
         </div>
 
         <div v-else class="games-list">
-          <article v-for="game in completedGames" :key="game.id" class="game-card enhanced-game-card">
-            <div>
-              <p class="panel-label">{{ game.status }}</p>
+          <article v-for="game in completedGames" :key="game.id" class="live-game-row">
+            <div class="live-game-main">
+              <span class="live-game-mark" aria-hidden="true">
+                <img src="/gambitforge-logo-web.png" alt="" />
+              </span>
+              <div class="live-game-copy">
+                <div class="live-game-kicker">
+                  <span class="status-badge" :class="statusBadgeClass(game.status)">{{ game.status }}</span>
+                  <span>{{ moveCount(game) }} moves</span>
+                </div>
               <h3>{{ game.title || 'Chess game' }}</h3>
-              <p>White: {{ playerName(game.white_user) }}</p>
-              <p>Black: {{ blackPlayerLabel(game) }}</p>
-              <p>
-                {{ moveCount(game) }} moves
-                <span v-if="turnLabel(game)"> / {{ turnLabel(game) }}</span>
-              </p>
+                <p>{{ playerName(game.white_user) }} vs {{ blackPlayerLabel(game) }}</p>
+                <p v-if="turnLabel(game)">{{ turnLabel(game) }}</p>
+              </div>
             </div>
 
             <div class="game-card-actions">

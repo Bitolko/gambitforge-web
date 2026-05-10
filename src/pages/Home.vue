@@ -6,16 +6,22 @@ const productCards = [
     label: 'Play',
     title: 'Live Games',
     description: 'Create invite links, join boards, play legal moves, track clocks, and continue games in one focused space.',
+    badge: 'Live',
+    meta: ['10:00', '09:42', '24 moves'],
   },
   {
     label: 'Events',
     title: 'Tournament Assistant',
     description: 'Create tournaments, register players, generate rounds, enter results, and keep standings moving.',
+    badge: 'Active',
+    meta: ['Round 3', '16 players', '4 boards'],
   },
   {
     label: 'Training',
     title: 'Coaching Tools',
     description: 'Prepare student plans, review games, assign training work, and keep progress visible as the platform grows.',
+    badge: 'Coming Soon',
+    meta: ['82% tactics', '3 reviews', '5 tasks'],
   },
 ]
 
@@ -70,11 +76,24 @@ const userTypes = [
         </p>
       </div>
 
-      <aside class="hero-board" aria-label="GambitForge product snapshot">
-        <div class="hero-logo-panel">
-          <span class="hero-logo-frame">
-            <img src="/gambitforge-logo-web.png" alt="GambitForge logo" />
+      <aside class="hero-board premium-mockup-card" aria-label="GambitForge product snapshot">
+        <div class="mockup-topbar">
+          <span class="mockup-brand">
+            <img src="/gambitforge-logo-web.png" alt="" />
+            GambitForge
           </span>
+          <span class="status-badge badge-live">Live preview</span>
+        </div>
+
+        <div class="mockup-sidebar" aria-hidden="true">
+          <span class="active">Tournaments</span>
+          <span>Players</span>
+          <span>Pairings</span>
+          <span>Standings</span>
+          <span>Analytics</span>
+        </div>
+
+        <div class="hero-logo-panel">
           <div>
             <p class="panel-label">GambitForge</p>
             <strong>Chess command center</strong>
@@ -83,21 +102,49 @@ const userTypes = [
         </div>
 
         <div class="hero-snapshot-grid">
-          <article>
-            <p class="panel-label">Tournament</p>
-            <strong>Round 1</strong>
-            <span>Pairings ready</span>
+          <article class="hero-preview-card board-preview-card">
+            <div class="preview-card-heading">
+              <p class="panel-label">Live board</p>
+              <span class="status-badge badge-live">Live</span>
+            </div>
+            <div class="mini-board" aria-hidden="true">
+              <span>&#9820;</span><span></span><span>&#9821;</span><span>&#9819;</span>
+              <span></span><span>&#9823;</span><span></span><span>&#9822;</span>
+              <span>&#9817;</span><span></span><span>&#9816;</span><span></span>
+              <span></span><span>&#9812;</span><span></span><span>&#9814;</span>
+            </div>
+            <strong>Board 1 / 10+0</strong>
+            <span>White to move after 24 moves</span>
           </article>
-          <article>
-            <p class="panel-label">Game</p>
-            <strong>Board 1</strong>
-            <span>White to move / 10+0</span>
+          <article class="hero-preview-card standings-preview">
+            <div class="preview-card-heading">
+              <p class="panel-label">Standings</p>
+              <span class="status-badge badge-active">Active</span>
+            </div>
+            <ol class="mock-standings">
+              <li><span>1. A. Novak</span><strong>3.0</strong></li>
+              <li><span>2. M. Petrov</span><strong>2.5</strong></li>
+              <li><span>3. S. Chen</span><strong>2.0</strong></li>
+            </ol>
           </article>
-          <article>
+          <article class="hero-preview-card">
+            <p class="panel-label">Activity</p>
+            <strong>Round 3</strong>
+            <span>Pairings generated / 4 results pending</span>
+            <div class="progress-track"><span style="width: 68%"></span></div>
+          </article>
+          <article class="hero-preview-card">
             <p class="panel-label">Coaching</p>
-            <strong>Training block</strong>
-            <span>Review and assign work</span>
+            <strong>82% progress</strong>
+            <span>Endgame review and tactics assigned</span>
+            <div class="progress-track blue"><span style="width: 82%"></span></div>
           </article>
+        </div>
+
+        <div class="mockup-activity-strip">
+          <span><strong>Pairings published</strong><small>Round 6</small></span>
+          <span><strong>Game finished</strong><small>Board 7</small></span>
+          <span><strong>Result submitted</strong><small>Board 2</small></span>
         </div>
       </aside>
     </section>
@@ -115,9 +162,35 @@ const userTypes = [
           class="landing-card"
           :class="`stagger-${index + 1}`"
         >
-          <p class="panel-label">{{ card.label }}</p>
+          <div class="preview-card-heading">
+            <p class="panel-label">{{ card.label }}</p>
+            <span class="status-badge" :class="`badge-${card.badge.toLowerCase().replace(' ', '-')}`">
+              {{ card.badge }}
+            </span>
+          </div>
+          <div class="feature-visual" :class="`feature-visual-${index + 1}`" aria-hidden="true">
+            <div v-if="index === 0" class="mini-board small-board">
+              <span>&#9820;</span><span></span><span>&#9821;</span><span></span>
+              <span></span><span>&#9823;</span><span></span><span>&#9822;</span>
+              <span>&#9817;</span><span></span><span>&#9816;</span><span></span>
+              <span></span><span>&#9812;</span><span></span><span>&#9814;</span>
+            </div>
+            <ol v-else-if="index === 1" class="mock-standings compact">
+              <li><span>Board 1</span><strong>1-0</strong></li>
+              <li><span>Board 2</span><strong>Live</strong></li>
+              <li><span>Board 3</span><strong>Draw</strong></li>
+            </ol>
+            <div v-else class="coach-bars">
+              <span style="width: 82%"></span>
+              <span style="width: 64%"></span>
+              <span style="width: 76%"></span>
+            </div>
+          </div>
           <h3>{{ card.title }}</h3>
           <p>{{ card.description }}</p>
+          <div class="feature-meta-row">
+            <span v-for="item in card.meta" :key="item">{{ item }}</span>
+          </div>
         </article>
       </div>
     </section>

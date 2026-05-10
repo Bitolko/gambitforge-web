@@ -47,7 +47,9 @@ function closeMenu() {
       <span class="brand-logo">
         <img :src="logoUrl" alt="GambitForge logo" />
       </span>
-      <span class="brand-name">GambitForge</span>
+      <span class="brand-wordmark">
+        <span class="brand-name">GambitForge</span>
+      </span>
     </RouterLink>
 
     <button

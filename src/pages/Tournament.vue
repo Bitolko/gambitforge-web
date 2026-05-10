@@ -57,6 +57,9 @@ const statusLabel = computed(() => {
 
   return labels[tournament.value?.status] || tournament.value?.status || ''
 })
+const statusBadgeClass = computed(() => (
+  `badge-${tournament.value?.status === 'registration' ? 'waiting' : tournament.value?.status || 'waiting'}`
+))
 const standings = computed(() => (
   [...(tournament.value?.players || [])].sort((a, b) => {
     if (Number(b.score) !== Number(a.score)) {
@@ -233,14 +236,17 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <main class="dashboard-page">
+  <main class="dashboard-page tournament-room-page">
     <header class="app-header">
       <div>
-        <p class="eyebrow">Tournament</p>
+        <p class="eyebrow">Tournament room</p>
         <h1>{{ tournament?.name || 'Tournament' }}</h1>
+        <p v-if="tournament" class="app-header-description">
+          Pairings, standings, live updates, and organiser controls in one operational view.
+        </p>
       </div>
 
-      <RouterLink class="text-link" to="/tournaments">Tournaments</RouterLink>
+      <RouterLink class="button-link secondary-link" to="/tournaments">Tournaments</RouterLink>
     </header>
 
     <div v-if="loading" class="state-panel">
@@ -257,15 +263,18 @@ onBeforeUnmount(() => {
 
     <template v-if="tournament && !loading">
       <section class="dashboard-grid">
-        <article class="profile-panel">
-          <p class="panel-label">Status</p>
+        <article class="profile-panel tournament-status-card">
+          <div class="preview-card-heading">
+            <p class="panel-label">Status</p>
+            <span class="status-badge" :class="statusBadgeClass">{{ statusLabel }}</span>
+          </div>
           <h2>{{ statusLabel }}</h2>
           <p>{{ tournament.players.length }} players / {{ tournament.time_control }}</p>
           <p v-if="realtimeAction" class="page-note compact-note">
             Live update: {{ realtimeAction.replace('_', ' ') }}
           </p>
 
-          <button v-if="canJoin" type="button" :disabled="joining" @click="joinTournament">
+          <button v-if="canJoin" class="gold-button" type="button" :disabled="joining" @click="joinTournament">
             {{ joining ? 'Joining...' : 'Join tournament' }}
           </button>
 
@@ -277,7 +286,7 @@ onBeforeUnmount(() => {
           </div>
         </article>
 
-        <article v-if="isOwner" class="organizer-panel">
+        <article v-if="isOwner" class="organizer-panel tournament-director-panel">
           <p class="panel-label">Organizer Controls</p>
           <h2>Director tools</h2>
           <button v-if="canStart" type="button" :disabled="starting" @click="startTournament">
@@ -316,7 +325,7 @@ onBeforeUnmount(() => {
           </p>
         </article>
 
-        <article class="profile-panel">
+        <article class="profile-panel standings-panel">
           <p class="panel-label">Standings</p>
           <p v-if="!standings.length" class="page-note compact-note">
             Players appear here after they join the invite link.
@@ -351,16 +360,21 @@ onBeforeUnmount(() => {
               <span>{{ round.status }}</span>
             </div>
 
-            <article v-for="pairing in round.pairings" :key="pairing.id" class="game-card">
-              <div>
-                <p class="panel-label">
-                  {{ pairing.is_bye ? 'Bye' : `Round ${round.round_number}` }}
-                </p>
-                <h3 v-if="pairing.is_bye">{{ pairing.white_user?.name }} gets a bye</h3>
-                <h3 v-else>
-                  {{ pairing.white_user?.name }} vs {{ pairing.black_user?.name }}
-                </h3>
-                <p>Result: {{ resultLabel(pairing.result) }}</p>
+            <article v-for="pairing in round.pairings" :key="pairing.id" class="pairing-row">
+              <div class="pairing-main">
+                <span class="tournament-mark" aria-hidden="true">
+                  <img src="/gambitforge-logo-web.png" alt="" />
+                </span>
+                <div class="pairing-copy">
+                  <p class="panel-label">
+                    {{ pairing.is_bye ? 'Bye' : `Round ${round.round_number}` }}
+                  </p>
+                  <h3 v-if="pairing.is_bye">{{ pairing.white_user?.name }} gets a bye</h3>
+                  <h3 v-else>
+                    {{ pairing.white_user?.name }} vs {{ pairing.black_user?.name }}
+                  </h3>
+                  <p>Result: {{ resultLabel(pairing.result) }}</p>
+                </div>
               </div>
 
               <div class="game-card-actions">
