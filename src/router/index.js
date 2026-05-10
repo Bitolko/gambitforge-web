@@ -101,12 +101,10 @@ router.beforeEach(async (to) => {
   }
 
   if (to.meta.requiresAdmin) {
-    if (!auth.user) {
-      try {
-        await auth.fetchUser()
-      } catch {
-        return { name: 'login' }
-      }
+    try {
+      await auth.fetchUser()
+    } catch {
+      return { name: 'login' }
     }
 
     if (auth.user?.role !== 'admin') {
