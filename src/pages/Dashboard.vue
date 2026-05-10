@@ -120,7 +120,7 @@ onMounted(async () => {
         <p>{{ auth.user?.email || 'Checking authentication...' }}</p>
         <p v-if="error" class="form-error">{{ error }}</p>
         <button class="secondary-button" type="button" :disabled="loading" @click="loadUser">
-          {{ loading ? 'Refreshing...' : 'Refresh /api/me' }}
+          {{ loading ? 'Updating...' : 'Refresh profile' }}
         </button>
       </article>
 

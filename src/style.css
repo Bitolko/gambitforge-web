@@ -398,6 +398,10 @@ h3 {
   background: var(--panel-bg);
 }
 
+.profile-panel .secondary-button {
+  width: fit-content;
+}
+
 .next-module {
   color: #e5e7eb;
   background: linear-gradient(135deg, var(--surface-strong), var(--burgundy));
@@ -742,7 +746,7 @@ h3 {
 
 .hero-logo-panel {
   display: grid;
-  grid-template-columns: 132px minmax(0, 1fr);
+  grid-template-columns: 124px minmax(0, 1fr);
   gap: 18px;
   align-items: center;
   padding: 16px;
@@ -751,14 +755,23 @@ h3 {
   background: rgba(9, 11, 15, 0.36);
 }
 
-.hero-logo-panel img {
-  width: 132px;
-  height: 132px;
+.hero-logo-frame {
+  display: inline-grid;
+  width: 124px;
+  height: 124px;
+  place-items: center;
   overflow: hidden;
   border: 1px solid rgba(215, 169, 77, 0.32);
   border-radius: 8px;
+  background: var(--surface);
+}
+
+.hero-logo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transform: scale(1.16);
+  transform: scale(1.42);
 }
 
 .hero-logo-panel div,
@@ -1184,6 +1197,7 @@ h3 {
   .game-card-actions,
   .game-card-actions .button-link,
   .game-card-actions button,
+  .profile-panel .secondary-button,
   .invite-box,
   .invite-box button {
     width: 100%;
@@ -1261,7 +1275,7 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .hero-logo-panel img {
+  .hero-logo-frame {
     width: 112px;
     height: 112px;
   }

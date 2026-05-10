@@ -81,7 +81,9 @@ const calendarEvents = [
 
       <aside class="hero-board" aria-label="GambitForge platform snapshot">
         <div class="hero-logo-panel">
-          <img src="/gambitforge-logo-web.png" alt="GambitForge logo" />
+          <span class="hero-logo-frame">
+            <img src="/gambitforge-logo-web.png" alt="GambitForge logo" />
+          </span>
           <div>
             <p class="panel-label">GambitForge</p>
             <strong>Chess command center</strong>
