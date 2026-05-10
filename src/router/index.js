@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
+import Admin from '../pages/Admin.vue'
 import Blog from '../pages/Blog.vue'
 import Calendar from '../pages/Calendar.vue'
 import Dashboard from '../pages/Dashboard.vue'
@@ -55,6 +56,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/admin',
+      name: 'admin',
+      component: Admin,
+      meta: { requiresAuth: true, requiresAdmin: true },
+    },
+    {
       path: '/games',
       name: 'games',
       component: Games,
@@ -91,6 +98,20 @@ router.beforeEach(async (to) => {
 
   if (to.meta.requiresAuth && !auth.token) {
     return { name: 'login' }
+  }
+
+  if (to.meta.requiresAdmin) {
+    if (!auth.user) {
+      try {
+        await auth.fetchUser()
+      } catch {
+        return { name: 'login' }
+      }
+    }
+
+    if (auth.user?.role !== 'admin') {
+      return { name: 'dashboard' }
+    }
   }
 
   if (to.meta.guest && auth.token) {

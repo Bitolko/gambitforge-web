@@ -83,6 +83,8 @@ Only `.env.example` should be committed for each project.
 - `/login`
 - `/register`
 - `/dashboard`
+- `/admin`
+- `/games`
 - `/games/:id`
 - `/tournaments`
 - `/tournaments/:id`

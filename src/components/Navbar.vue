@@ -11,6 +11,7 @@ const theme = ref(document.documentElement.dataset.theme || 'dark')
 
 const logoUrl = '/gambitforge-logo-web.png'
 const isAuthenticated = computed(() => Boolean(auth.token))
+const isAdmin = computed(() => auth.user?.role === 'admin')
 const isLightTheme = computed(() => theme.value === 'light')
 
 function setTheme(nextTheme) {
@@ -69,6 +70,7 @@ function closeMenu() {
         <RouterLink to="/coaching" @click="closeMenu">Coaching</RouterLink>
         <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
         <RouterLink to="/blog" @click="closeMenu">Blog</RouterLink>
+        <RouterLink v-if="isAdmin" to="/admin" @click="closeMenu">Admin</RouterLink>
         <button class="nav-button secondary-button" type="button" :disabled="loggingOut" @click="logout">
           {{ loggingOut ? 'Logging out...' : 'Logout' }}
         </button>
