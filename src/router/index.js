@@ -3,6 +3,7 @@ import { useAuthStore } from '../stores/auth'
 import Dashboard from '../pages/Dashboard.vue'
 import Game from '../pages/Game.vue'
 import Home from '../pages/Home.vue'
+import Coaching from '../pages/Coaching.vue'
 import Login from '../pages/Login.vue'
 import Register from '../pages/Register.vue'
 import Tournament from '../pages/Tournament.vue'
@@ -15,6 +16,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: Home,
+    },
+    {
+      path: '/coaching',
+      name: 'coaching',
+      component: Coaching,
     },
     {
       path: '/login',

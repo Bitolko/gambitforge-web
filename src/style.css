@@ -257,7 +257,8 @@ h3 {
 
 .auth-page,
 .dashboard-page,
-.game-page {
+.game-page,
+.coaching-page {
   width: min(100% - 32px, 1040px);
   margin: 0 auto;
 }
@@ -331,7 +332,8 @@ h3 {
 }
 
 .dashboard-page,
-.game-page {
+.game-page,
+.coaching-page {
   padding: 42px 0;
 }
 
@@ -895,6 +897,72 @@ h3 {
   margin-top: 18px;
 }
 
+.coaching-page {
+  display: grid;
+  gap: 28px;
+}
+
+.coaching-hero {
+  display: grid;
+  gap: 16px;
+  max-width: 820px;
+  padding: 42px 0 10px;
+}
+
+.coaching-hero h1 {
+  max-width: 900px;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 0.98;
+}
+
+.coaching-hero p:last-child {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.coaching-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.coaching-feature-card {
+  display: grid;
+  gap: 14px;
+  min-height: 260px;
+  align-content: start;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(145deg, var(--panel-bg), rgba(183, 121, 31, 0.1));
+  box-shadow: 0 20px 45px var(--shadow);
+}
+
+.coaching-feature-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.coaching-feature-card button {
+  align-self: end;
+  width: fit-content;
+  margin-top: auto;
+}
+
+.coming-soon-badge {
+  width: fit-content;
+  border: 1px solid rgba(215, 169, 77, 0.38);
+  border-radius: 999px;
+  color: var(--gold);
+  background: rgba(215, 169, 77, 0.1);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .seat-list {
   display: grid;
   gap: 8px;
@@ -1025,7 +1093,8 @@ h3 {
   .club-section,
   .calendar-section,
   .coaching-grid,
-  .coach-workbench {
+  .coach-workbench,
+  .coaching-feature-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1039,6 +1108,18 @@ h3 {
   }
 
   .hero-description {
+    font-size: 17px;
+  }
+
+  .coaching-hero {
+    padding-top: 18px;
+  }
+
+  .coaching-hero h1 {
+    font-size: 44px;
+  }
+
+  .coaching-hero p:last-child {
     font-size: 17px;
   }
 
