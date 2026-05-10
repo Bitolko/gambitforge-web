@@ -109,7 +109,12 @@ const userTypes = [
       </div>
 
       <div class="landing-card-grid">
-        <article v-for="card in productCards" :key="card.title" class="landing-card">
+        <article
+          v-for="(card, index) in productCards"
+          :key="card.title"
+          class="landing-card"
+          :class="`stagger-${index + 1}`"
+        >
           <p class="panel-label">{{ card.label }}</p>
           <h3>{{ card.title }}</h3>
           <p>{{ card.description }}</p>
@@ -124,7 +129,12 @@ const userTypes = [
       </div>
 
       <div class="landing-card-grid">
-        <article v-for="reason in reasons" :key="reason.title" class="landing-card subtle-card">
+        <article
+          v-for="(reason, index) in reasons"
+          :key="reason.title"
+          class="landing-card subtle-card"
+          :class="`stagger-${index + 1}`"
+        >
           <h3>{{ reason.title }}</h3>
           <p>{{ reason.description }}</p>
         </article>
@@ -138,7 +148,12 @@ const userTypes = [
       </div>
 
       <div class="landing-card-grid">
-        <article v-for="type in userTypes" :key="type.title" class="landing-card audience-card">
+        <article
+          v-for="(type, index) in userTypes"
+          :key="type.title"
+          class="landing-card audience-card"
+          :class="`stagger-${index + 1}`"
+        >
           <h3>{{ type.title }}</h3>
           <p>{{ type.description }}</p>
         </article>
