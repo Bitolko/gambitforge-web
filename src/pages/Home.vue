@@ -1,64 +1,51 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import FeatureCard from '../components/FeatureCard.vue'
 
-const features = [
+const productCards = [
   {
-    label: 'Director tools',
-    title: 'Live Tournament Assistant',
-    description: 'Create events, accept players, generate pairings, record results, and keep standings moving round by round.',
+    label: 'Play',
+    title: 'Live Games',
+    description: 'Create invite links, join boards, play legal moves, track clocks, and continue games in one focused space.',
+  },
+  {
+    label: 'Events',
+    title: 'Tournament Assistant',
+    description: 'Create tournaments, register players, generate rounds, enter results, and keep standings moving.',
   },
   {
     label: 'Training',
-    title: 'Coaching Platform',
-    description: 'Keep students, game notes, improvement plans, and session workflows in one focused chess workspace.',
-  },
-  {
-    label: 'Play',
-    title: 'Live Chess Games',
-    description: 'Invite opponents, play legal moves on a real board, sync FEN, track clocks, and follow games in realtime.',
+    title: 'Coaching Tools',
+    description: 'Prepare student plans, review games, assign training work, and keep progress visible as the platform grows.',
   },
 ]
 
-const coachingTracks = [
+const reasons = [
   {
-    label: 'Assessment',
-    title: 'Find the pattern',
-    description: 'Review recent games, tag repeated mistakes, and turn scattered notes into a practical improvement map.',
+    title: 'Designed for real chess events',
+    description: 'Built around club nights, school tournaments, coaching academies, and the operational work behind them.',
   },
   {
-    label: 'Training plan',
-    title: 'Build the next block',
-    description: 'Plan openings, calculation drills, endgame themes, and homework around the exact needs of each player.',
+    title: 'Simple tournament flow',
+    description: 'Start with registration, generate pairings, record results, and move from round to round without spreadsheet friction.',
   },
   {
-    label: 'Review',
-    title: 'Measure progress',
-    description: 'Keep session notes, assigned games, and next steps attached to the player instead of lost in messages.',
+    title: 'Ready for growth',
+    description: 'A clean foundation for calendars, content, admin tools, coaching workflows, and richer player histories.',
   },
 ]
 
-const calendarEvents = [
+const userTypes = [
   {
-    date: 'May 14',
-    type: 'Club night',
-    title: 'Rapid Arena',
-    time: '7:00 PM',
-    detail: 'Four rounds, 10+0, open pairing desk.',
+    title: 'For Players',
+    description: 'Join games, follow tournament boards, review results, and keep your chess activity in one place.',
   },
   {
-    date: 'May 18',
-    type: 'Coaching',
-    title: 'Calculation Lab',
-    time: '6:30 PM',
-    detail: 'Candidate moves, forcing lines, and post-game review.',
+    title: 'For Coaches',
+    description: 'Organize students, connect training to games, and build structured improvement plans around real play.',
   },
   {
-    date: 'May 24',
-    type: 'Tournament',
-    title: 'Weekend Swiss',
-    time: '10:00 AM',
-    detail: 'Rated classical event with live standings.',
+    title: 'For Organisers',
+    description: 'Run events, manage participants, publish pairings, enter results, and keep standings transparent.',
   },
 ]
 </script>
@@ -70,16 +57,20 @@ const calendarEvents = [
         <p class="eyebrow">Chess operations platform</p>
         <h1>Run chess tournaments. Coach players. Manage live games.</h1>
         <p class="hero-description">
-          GambitForge brings club tournaments, player development, and live chess infrastructure into one polished workspace for organizers, coaches, and serious players.
+          GambitForge is a modern chess platform for clubs, coaches, players, and tournament organisers.
         </p>
 
         <div class="hero-actions">
           <RouterLink class="button-link hero-primary" to="/register">Get Started</RouterLink>
           <RouterLink class="button-link secondary-link" to="/tournaments">View Tournaments</RouterLink>
         </div>
+
+        <p class="hero-supporting-line">
+          Built for local clubs, coaching academies, schools, and tournament directors.
+        </p>
       </div>
 
-      <aside class="hero-board" aria-label="GambitForge platform snapshot">
+      <aside class="hero-board" aria-label="GambitForge product snapshot">
         <div class="hero-logo-panel">
           <span class="hero-logo-frame">
             <img src="/gambitforge-logo-web.png" alt="GambitForge logo" />
@@ -111,86 +102,59 @@ const calendarEvents = [
       </aside>
     </section>
 
-    <section class="features-section" aria-labelledby="platform-features">
+    <section class="landing-section" aria-labelledby="product-snapshot-heading">
       <div class="section-kicker">
-        <p class="eyebrow">Platform</p>
-        <h2 id="platform-features">Built for the work behind strong chess rooms</h2>
+        <p class="eyebrow">Product snapshot</p>
+        <h2 id="product-snapshot-heading">The core tools your chess room needs first</h2>
       </div>
 
-      <div class="feature-grid">
-        <FeatureCard
-          v-for="feature in features"
-          :key="feature.title"
-          :label="feature.label"
-          :title="feature.title"
-          :description="feature.description"
-        />
-      </div>
-    </section>
-
-    <section id="calendar" class="calendar-section" aria-labelledby="calendar-heading">
-      <div>
-        <p class="eyebrow">Calendar</p>
-        <h2 id="calendar-heading">Keep club events, coaching sessions, and tournament rounds in one view.</h2>
-        <p>
-          Plan upcoming chess activity without making players hunt through separate chats, spreadsheets, and sign-up links.
-        </p>
-      </div>
-
-      <div class="calendar-list" aria-label="Upcoming events">
-        <article v-for="event in calendarEvents" :key="event.title" class="calendar-event">
-          <div class="calendar-date">
-            <span>{{ event.date.split(' ')[0] }}</span>
-            <strong>{{ event.date.split(' ')[1] }}</strong>
-          </div>
-          <div>
-            <p class="panel-label">{{ event.type }} / {{ event.time }}</p>
-            <h3>{{ event.title }}</h3>
-            <p>{{ event.detail }}</p>
-          </div>
+      <div class="landing-card-grid">
+        <article v-for="card in productCards" :key="card.title" class="landing-card">
+          <p class="panel-label">{{ card.label }}</p>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.description }}</p>
         </article>
       </div>
     </section>
 
-    <section id="coaching" class="coaching-section" aria-labelledby="coaching-heading">
+    <section class="landing-section landing-band" aria-labelledby="why-heading">
       <div class="section-kicker">
-        <p class="eyebrow">Coaching</p>
-        <h2 id="coaching-heading">Coach players with the same system that records their games.</h2>
-        <p>
-          A focused coaching workspace for turning live games, tournament results, and study sessions into visible progress.
-        </p>
+        <p class="eyebrow">Why GambitForge</p>
+        <h2 id="why-heading">A practical platform for the work behind better chess events</h2>
       </div>
 
-      <div class="coaching-grid">
-        <article v-for="track in coachingTracks" :key="track.title" class="coaching-card">
-          <p class="panel-label">{{ track.label }}</p>
-          <h3>{{ track.title }}</h3>
-          <p>{{ track.description }}</p>
+      <div class="landing-card-grid">
+        <article v-for="reason in reasons" :key="reason.title" class="landing-card subtle-card">
+          <h3>{{ reason.title }}</h3>
+          <p>{{ reason.description }}</p>
         </article>
       </div>
-
-      <aside class="coach-workbench" aria-label="Coaching workflow preview">
-        <div>
-          <p class="panel-label">Student focus</p>
-          <h3>Improve attacking decisions</h3>
-          <p>Current block: king safety, open files, and conversion after material gains.</p>
-        </div>
-        <div class="coach-checklist">
-          <p><span></span> Review last tournament loss</p>
-          <p><span></span> Assign 12 calculation puzzles</p>
-          <p><span></span> Schedule follow-up game analysis</p>
-        </div>
-      </aside>
     </section>
 
-    <section id="blog" class="club-section split-section">
-      <div>
-        <p class="eyebrow">Blog</p>
-        <h2>Share tournament notes, training ideas, and club updates.</h2>
+    <section class="landing-section" aria-labelledby="user-types-heading">
+      <div class="section-kicker">
+        <p class="eyebrow">Who it is for</p>
+        <h2 id="user-types-heading">One workspace for the people who make chess happen</h2>
       </div>
-      <p>
-        The blog link is reserved for future club news, coaching articles, release notes, and tournament reports.
-      </p>
+
+      <div class="landing-card-grid">
+        <article v-for="type in userTypes" :key="type.title" class="landing-card audience-card">
+          <h3>{{ type.title }}</h3>
+          <p>{{ type.description }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="final-cta-section" aria-labelledby="final-cta-heading">
+      <div>
+        <p class="eyebrow">Start building</p>
+        <h2 id="final-cta-heading">Ready to forge your next chess event?</h2>
+      </div>
+
+      <div class="hero-actions final-cta-actions">
+        <RouterLink class="button-link hero-primary" to="/register">Create Account</RouterLink>
+        <RouterLink class="button-link secondary-link" to="/tournaments">Explore Tournaments</RouterLink>
+      </div>
     </section>
   </main>
 </template>
