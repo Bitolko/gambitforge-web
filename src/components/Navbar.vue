@@ -7,9 +7,21 @@ const auth = useAuthStore()
 const router = useRouter()
 const menuOpen = ref(false)
 const loggingOut = ref(false)
+const theme = ref(document.documentElement.dataset.theme || 'dark')
 
-const logoUrl = 'http://127.0.0.1:8000/ChatGPT%20Image%20May%2010%2C%202026%2C%2002_47_31%20AM%20(1).png'
+const logoUrl = '/gambitforge-logo.png'
 const isAuthenticated = computed(() => Boolean(auth.token))
+const isLightTheme = computed(() => theme.value === 'light')
+
+function setTheme(nextTheme) {
+  theme.value = nextTheme
+  document.documentElement.dataset.theme = nextTheme
+  localStorage.setItem('gambitforge-theme', nextTheme)
+}
+
+function toggleTheme() {
+  setTheme(isLightTheme.value ? 'dark' : 'light')
+}
 
 async function logout() {
   loggingOut.value = true
@@ -31,8 +43,10 @@ function closeMenu() {
 <template>
   <header class="site-navbar">
     <RouterLink class="brand-link" to="/" @click="closeMenu">
-      <img :src="logoUrl" alt="GambitForge logo" />
-      <span>GambitForge</span>
+      <span class="brand-logo">
+        <img :src="logoUrl" alt="GambitForge logo" />
+      </span>
+      <span class="brand-name">GambitForge</span>
     </RouterLink>
 
     <button
@@ -53,7 +67,7 @@ function closeMenu() {
         <RouterLink to="/dashboard#games" @click="closeMenu">Games</RouterLink>
         <RouterLink to="/tournaments" @click="closeMenu">Tournaments</RouterLink>
         <RouterLink to="/#coaching" @click="closeMenu">Coaching</RouterLink>
-        <RouterLink to="/#clubs" @click="closeMenu">Calendar</RouterLink>
+        <RouterLink to="/#calendar" @click="closeMenu">Calendar</RouterLink>
         <button class="nav-button secondary-button" type="button" :disabled="loggingOut" @click="logout">
           {{ loggingOut ? 'Logging out...' : 'Logout' }}
         </button>
@@ -63,10 +77,21 @@ function closeMenu() {
         <RouterLink to="/" @click="closeMenu">Home</RouterLink>
         <RouterLink to="/tournaments" @click="closeMenu">Tournaments</RouterLink>
         <RouterLink to="/#coaching" @click="closeMenu">Coaching</RouterLink>
+        <RouterLink to="/#calendar" @click="closeMenu">Calendar</RouterLink>
         <RouterLink to="/#blog" @click="closeMenu">Blog</RouterLink>
         <RouterLink to="/login" @click="closeMenu">Login</RouterLink>
         <RouterLink class="nav-cta" to="/register" @click="closeMenu">Get Started</RouterLink>
       </template>
+
+      <button
+        class="theme-toggle"
+        type="button"
+        :aria-label="isLightTheme ? 'Switch to dark mode' : 'Switch to light mode'"
+        :title="isLightTheme ? 'Dark mode' : 'Light mode'"
+        @click="toggleTheme"
+      >
+        <span aria-hidden="true">{{ isLightTheme ? '☾' : '☀' }}</span>
+      </button>
     </nav>
   </header>
 </template>
