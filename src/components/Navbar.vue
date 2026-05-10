@@ -67,7 +67,8 @@ function closeMenu() {
         <RouterLink to="/dashboard#games" @click="closeMenu">Games</RouterLink>
         <RouterLink to="/tournaments" @click="closeMenu">Tournaments</RouterLink>
         <RouterLink to="/coaching" @click="closeMenu">Coaching</RouterLink>
-        <RouterLink to="/#calendar" @click="closeMenu">Calendar</RouterLink>
+        <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
+        <RouterLink to="/blog" @click="closeMenu">Blog</RouterLink>
         <button class="nav-button secondary-button" type="button" :disabled="loggingOut" @click="logout">
           {{ loggingOut ? 'Logging out...' : 'Logout' }}
         </button>
@@ -77,8 +78,8 @@ function closeMenu() {
         <RouterLink to="/" @click="closeMenu">Home</RouterLink>
         <RouterLink to="/tournaments" @click="closeMenu">Tournaments</RouterLink>
         <RouterLink to="/coaching" @click="closeMenu">Coaching</RouterLink>
-        <RouterLink to="/#calendar" @click="closeMenu">Calendar</RouterLink>
-        <RouterLink to="/#blog" @click="closeMenu">Blog</RouterLink>
+        <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
+        <RouterLink to="/blog" @click="closeMenu">Blog</RouterLink>
         <RouterLink to="/login" @click="closeMenu">Login</RouterLink>
         <RouterLink class="nav-cta" to="/register" @click="closeMenu">Get Started</RouterLink>
       </template>

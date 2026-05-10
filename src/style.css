@@ -258,7 +258,7 @@ h3 {
 .auth-page,
 .dashboard-page,
 .game-page,
-.coaching-page {
+.platform-page {
   width: min(100% - 32px, 1040px);
   margin: 0 auto;
 }
@@ -333,7 +333,7 @@ h3 {
 
 .dashboard-page,
 .game-page,
-.coaching-page {
+.platform-page {
   padding: 42px 0;
 }
 
@@ -897,38 +897,38 @@ h3 {
   margin-top: 18px;
 }
 
-.coaching-page {
+.platform-page {
   display: grid;
   gap: 28px;
 }
 
-.coaching-hero {
+.platform-hero {
   display: grid;
   gap: 16px;
   max-width: 820px;
   padding: 42px 0 10px;
 }
 
-.coaching-hero h1 {
+.platform-hero h1 {
   max-width: 900px;
   font-size: clamp(42px, 6vw, 72px);
   line-height: 0.98;
 }
 
-.coaching-hero p:last-child {
+.platform-hero p:last-child {
   max-width: 720px;
   color: var(--muted);
   font-size: 18px;
   line-height: 1.7;
 }
 
-.coaching-feature-grid {
+.platform-feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-.coaching-feature-card {
+.platform-feature-card {
   display: grid;
   gap: 14px;
   min-height: 260px;
@@ -940,12 +940,12 @@ h3 {
   box-shadow: 0 20px 45px var(--shadow);
 }
 
-.coaching-feature-card p {
+.platform-feature-card p {
   color: var(--muted);
   line-height: 1.7;
 }
 
-.coaching-feature-card button {
+.platform-feature-card button {
   align-self: end;
   width: fit-content;
   margin-top: auto;
@@ -1094,7 +1094,7 @@ h3 {
   .calendar-section,
   .coaching-grid,
   .coach-workbench,
-  .coaching-feature-grid {
+  .platform-feature-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1111,15 +1111,15 @@ h3 {
     font-size: 17px;
   }
 
-  .coaching-hero {
+  .platform-hero {
     padding-top: 18px;
   }
 
-  .coaching-hero h1 {
+  .platform-hero h1 {
     font-size: 44px;
   }
 
-  .coaching-hero p:last-child {
+  .platform-hero p:last-child {
     font-size: 17px;
   }
 

@@ -16,8 +16,8 @@ const coachingFeatures = [
 </script>
 
 <template>
-  <main class="coaching-page">
-    <section class="coaching-hero" aria-labelledby="coaching-title">
+  <main class="platform-page">
+    <section class="platform-hero" aria-labelledby="coaching-title">
       <p class="eyebrow">Coaching</p>
       <h1 id="coaching-title">Coaching Tools for Serious Chess Improvement</h1>
       <p>
@@ -25,8 +25,8 @@ const coachingFeatures = [
       </p>
     </section>
 
-    <section class="coaching-feature-grid" aria-label="Coaching features">
-      <article v-for="feature in coachingFeatures" :key="feature.title" class="coaching-feature-card">
+    <section class="platform-feature-grid" aria-label="Coaching features">
+      <article v-for="feature in coachingFeatures" :key="feature.title" class="platform-feature-card">
         <span class="coming-soon-badge">Coming soon</span>
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.description }}</p>
