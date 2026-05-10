@@ -21,7 +21,7 @@ const coachingFeatures = [
       <p class="eyebrow">Coaching</p>
       <h1 id="coaching-title">Coaching Tools for Serious Chess Improvement</h1>
       <p>
-        Manage students, assign focused training work, review games, and track progress across every stage of a player&apos;s development.
+        Manage students, assign focused training work, review games, and track progress across every stage of a player's development.
       </p>
     </section>
 

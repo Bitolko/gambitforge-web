@@ -64,7 +64,7 @@ function closeMenu() {
     <nav class="nav-links" :class="{ open: menuOpen }" aria-label="Primary navigation">
       <template v-if="isAuthenticated">
         <RouterLink to="/dashboard" @click="closeMenu">Dashboard</RouterLink>
-        <RouterLink to="/dashboard#games" @click="closeMenu">Games</RouterLink>
+        <RouterLink to="/games" @click="closeMenu">Games</RouterLink>
         <RouterLink to="/tournaments" @click="closeMenu">Tournaments</RouterLink>
         <RouterLink to="/coaching" @click="closeMenu">Coaching</RouterLink>
         <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
@@ -91,7 +91,7 @@ function closeMenu() {
         :title="isLightTheme ? 'Dark mode' : 'Light mode'"
         @click="toggleTheme"
       >
-        <span aria-hidden="true">{{ isLightTheme ? '☾' : '☀' }}</span>
+        <span aria-hidden="true" v-html="isLightTheme ? '&#9789;' : '&#9728;'"></span>
       </button>
     </nav>
   </header>

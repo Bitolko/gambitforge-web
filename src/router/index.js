@@ -4,6 +4,7 @@ import Blog from '../pages/Blog.vue'
 import Calendar from '../pages/Calendar.vue'
 import Dashboard from '../pages/Dashboard.vue'
 import Game from '../pages/Game.vue'
+import Games from '../pages/Games.vue'
 import Home from '../pages/Home.vue'
 import Coaching from '../pages/Coaching.vue'
 import Login from '../pages/Login.vue'
@@ -51,6 +52,12 @@ const router = createRouter({
       path: '/dashboard',
       name: 'dashboard',
       component: Dashboard,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/games',
+      name: 'games',
+      component: Games,
       meta: { requiresAuth: true },
     },
     {
