@@ -7,6 +7,7 @@ import Game from '../pages/Game.vue'
 import Home from '../pages/Home.vue'
 import Coaching from '../pages/Coaching.vue'
 import Login from '../pages/Login.vue'
+import NotFound from '../pages/NotFound.vue'
 import Register from '../pages/Register.vue'
 import Tournament from '../pages/Tournament.vue'
 import Tournaments from '../pages/Tournaments.vue'
@@ -69,6 +70,11 @@ const router = createRouter({
       name: 'tournament',
       component: Tournament,
       meta: { requiresAuth: true },
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFound,
     },
   ],
 })
