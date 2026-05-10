@@ -600,6 +600,10 @@ h3 {
   padding: 12px;
 }
 
+.fen-toggle {
+  width: fit-content;
+}
+
 .result-banner {
   border-radius: 6px;
   background: rgba(183, 121, 31, 0.14);
@@ -727,42 +731,78 @@ h3 {
 .hero-board {
   display: grid;
   gap: 18px;
-  padding: 20px;
+  padding: 18px;
   border: 1px solid rgba(215, 169, 77, 0.32);
   border-radius: 8px;
-  background: var(--panel-bg);
+  background:
+    linear-gradient(145deg, rgba(215, 169, 77, 0.12), rgba(18, 24, 33, 0.72)),
+    var(--panel-bg);
   box-shadow: 0 28px 70px var(--shadow);
 }
 
-.board-preview {
+.hero-logo-panel {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  aspect-ratio: 1;
-  overflow: hidden;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 8px;
+  background: rgba(9, 11, 15, 0.36);
 }
 
-.board-preview span {
-  background: #d7a94d;
+.hero-logo-panel img {
+  width: 132px;
+  height: 132px;
+  overflow: hidden;
+  border: 1px solid rgba(215, 169, 77, 0.32);
+  border-radius: 8px;
+  object-fit: cover;
+  transform: scale(1.16);
 }
 
-.board-preview span:nth-child(even) {
-  background: #1d2938;
-}
-
-.hero-stat {
+.hero-logo-panel div,
+.hero-snapshot-grid article {
   display: grid;
-  gap: 5px;
+  gap: 6px;
 }
 
-.hero-stat strong {
+.hero-logo-panel strong {
+  color: var(--text-strong);
+  font-size: 30px;
+  line-height: 1.05;
+}
+
+.hero-logo-panel span,
+.hero-snapshot-grid span {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.hero-snapshot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.hero-snapshot-grid article {
+  min-height: 142px;
+  align-content: start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+
+.hero-snapshot-grid article:first-child {
+  grid-column: span 2;
+  min-height: 118px;
+  background: linear-gradient(135deg, var(--surface-strong), rgba(91, 30, 45, 0.82));
+}
+
+.hero-snapshot-grid strong {
   color: var(--text-strong);
   font-size: 24px;
-}
-
-.hero-stat span {
-  color: var(--muted);
 }
 
 .features-section,
@@ -1214,6 +1254,24 @@ h3 {
 
   .hero-board {
     padding: 14px;
+  }
+
+  .hero-logo-panel,
+  .hero-snapshot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-logo-panel img {
+    width: 112px;
+    height: 112px;
+  }
+
+  .hero-logo-panel strong {
+    font-size: 24px;
+  }
+
+  .hero-snapshot-grid article:first-child {
+    grid-column: auto;
   }
 
   .club-section,

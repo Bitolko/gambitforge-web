@@ -23,6 +23,7 @@ const resigning = ref(false)
 const claimingTimeout = ref(false)
 const error = ref('')
 const inviteCopied = ref(false)
+const showFen = ref(false)
 const clockNow = ref(Date.now())
 const clockInterval = ref(null)
 const squares = [
@@ -523,7 +524,12 @@ onBeforeUnmount(() => {
         <p class="panel-label">Position</p>
         <h2>{{ statusText }}</h2>
         <p v-if="game.status === 'finished'" class="result-banner">{{ resultText }}</p>
-        <code>{{ game.fen }}</code>
+
+        <button class="fen-toggle secondary-button" type="button" @click="showFen = !showFen">
+          {{ showFen ? 'Hide FEN' : 'Show FEN' }}
+        </button>
+
+        <code v-if="showFen" class="fen-code">{{ game.fen }}</code>
 
         <div class="clock-grid">
           <div

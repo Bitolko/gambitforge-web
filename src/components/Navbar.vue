@@ -9,7 +9,7 @@ const menuOpen = ref(false)
 const loggingOut = ref(false)
 const theme = ref(document.documentElement.dataset.theme || 'dark')
 
-const logoUrl = '/gambitforge-logo.png'
+const logoUrl = '/gambitforge-logo-web.png'
 const isAuthenticated = computed(() => Boolean(auth.token))
 const isLightTheme = computed(() => theme.value === 'light')
 

@@ -80,21 +80,31 @@ const calendarEvents = [
       </div>
 
       <aside class="hero-board" aria-label="GambitForge platform snapshot">
-        <div class="board-preview">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+        <div class="hero-logo-panel">
+          <img src="/gambitforge-logo-web.png" alt="GambitForge logo" />
+          <div>
+            <p class="panel-label">GambitForge</p>
+            <strong>Chess command center</strong>
+            <span>Tournaments / coaching / live games</span>
+          </div>
         </div>
-        <div class="hero-stat">
-          <p class="panel-label">Live round</p>
-          <strong>Board 1</strong>
-          <span>White to move / 10+0</span>
+
+        <div class="hero-snapshot-grid">
+          <article>
+            <p class="panel-label">Tournament</p>
+            <strong>Round 1</strong>
+            <span>Pairings ready</span>
+          </article>
+          <article>
+            <p class="panel-label">Game</p>
+            <strong>Board 1</strong>
+            <span>White to move / 10+0</span>
+          </article>
+          <article>
+            <p class="panel-label">Coaching</p>
+            <strong>Training block</strong>
+            <span>Review and assign work</span>
+          </article>
         </div>
       </aside>
     </section>
