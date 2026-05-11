@@ -8,6 +8,7 @@ const productCards = [
     description: 'Create invite links, join boards, play legal moves, track clocks, and continue games in one focused space.',
     badge: 'Live',
     meta: ['10:00', '09:42', '24 moves'],
+    icon: '/ICON (1).png',
   },
   {
     label: 'Events',
@@ -15,6 +16,7 @@ const productCards = [
     description: 'Create tournaments, register players, generate rounds, enter results, and keep standings moving.',
     badge: 'Active',
     meta: ['Round 3', '16 players', '4 boards'],
+    icon: '/ICON (2).png',
   },
   {
     label: 'Training',
@@ -22,21 +24,28 @@ const productCards = [
     description: 'Prepare student plans, review games, assign training work, and keep progress visible as the platform grows.',
     badge: 'Coming Soon',
     meta: ['82% tactics', '3 reviews', '5 tasks'],
+    icon: '/ICON (3).png',
   },
 ]
 
 const reasons = [
   {
+    icon: 'events',
     title: 'Designed for real chess events',
     description: 'Built around club nights, school tournaments, coaching academies, and the operational work behind them.',
+    image: '/ICON (4).png',
   },
   {
+    icon: 'flow',
     title: 'Simple tournament flow',
     description: 'Start with registration, generate pairings, record results, and move from round to round without spreadsheet friction.',
+    image: '/ICON (5).png',
   },
   {
+    icon: 'growth',
     title: 'Ready for growth',
     description: 'A clean foundation for calendars, content, admin tools, coaching workflows, and richer player histories.',
+    image: '/ICON (6).png',
   },
 ]
 
@@ -61,7 +70,11 @@ const userTypes = [
     <section class="home-hero">
       <div class="hero-copy">
         <p class="eyebrow">Chess operations platform</p>
-        <h1>Run chess tournaments. Coach players. Manage live games.</h1>
+        <h1>
+          Run chess tournaments.<br />
+          <span>Coach</span> players.<br />
+          Manage live games.
+        </h1>
         <p class="hero-description">
           GambitForge is a modern chess platform for clubs, coaches, players, and tournament organisers.
         </p>
@@ -76,75 +89,69 @@ const userTypes = [
         </p>
       </div>
 
-      <aside class="hero-board premium-mockup-card" aria-label="GambitForge product snapshot">
-        <div class="mockup-topbar">
-          <span class="mockup-brand">
-            <img src="/gambitforge-logo-web.png" alt="" />
-            GambitForge
-          </span>
-          <span class="status-badge badge-live">Live preview</span>
-        </div>
-
-        <div class="mockup-sidebar" aria-hidden="true">
-          <span class="active">Tournaments</span>
-          <span>Players</span>
-          <span>Pairings</span>
-          <span>Standings</span>
-          <span>Analytics</span>
-        </div>
-
-        <div class="hero-logo-panel">
-          <div>
-            <p class="panel-label">GambitForge</p>
-            <strong>Chess command center</strong>
-            <span>Tournaments / coaching / live games</span>
+      <aside class="hero-concept-visual" aria-label="GambitForge product preview">
+        <div class="hero-dashboard-card">
+          <div class="hero-dashboard-topbar">
+            <span class="mockup-brand">
+              <img src="/gambitforge-logo-web.png" alt="" />
+              GambitForge
+            </span>
+            <span class="hero-concept-badge">Live preview</span>
           </div>
-        </div>
 
-        <div class="hero-snapshot-grid">
-          <article class="hero-preview-card board-preview-card">
-            <div class="preview-card-heading">
-              <p class="panel-label">Live board</p>
-              <span class="status-badge badge-live">Live</span>
-            </div>
-            <div class="mini-board" aria-hidden="true">
-              <span>&#9820;</span><span></span><span>&#9821;</span><span>&#9819;</span>
-              <span></span><span>&#9823;</span><span></span><span>&#9822;</span>
-              <span>&#9817;</span><span></span><span>&#9816;</span><span></span>
-              <span></span><span>&#9812;</span><span></span><span>&#9814;</span>
-            </div>
-            <strong>Board 1 / 10+0</strong>
-            <span>White to move after 24 moves</span>
-          </article>
-          <article class="hero-preview-card standings-preview">
-            <div class="preview-card-heading">
-              <p class="panel-label">Standings</p>
-              <span class="status-badge badge-active">Active</span>
-            </div>
-            <ol class="mock-standings">
-              <li><span>1. A. Novak</span><strong>3.0</strong></li>
-              <li><span>2. M. Petrov</span><strong>2.5</strong></li>
-              <li><span>3. S. Chen</span><strong>2.0</strong></li>
-            </ol>
-          </article>
-          <article class="hero-preview-card">
-            <p class="panel-label">Activity</p>
-            <strong>Round 3</strong>
-            <span>Pairings generated / 4 results pending</span>
-            <div class="progress-track"><span style="width: 68%"></span></div>
-          </article>
-          <article class="hero-preview-card">
-            <p class="panel-label">Coaching</p>
-            <strong>82% progress</strong>
-            <span>Endgame review and tactics assigned</span>
-            <div class="progress-track blue"><span style="width: 82%"></span></div>
-          </article>
-        </div>
+          <div class="hero-dashboard-grid">
+            <RouterLink class="hero-dashboard-panel hero-live-panel" to="/games">
+              <div class="preview-card-heading">
+                <p class="panel-label">Live board</p>
+                <span class="status-badge badge-live">Live</span>
+              </div>
+              <div class="hero-live-content">
+                <div class="mini-board hero-mini-board" aria-hidden="true">
+                  <span>&#9820;</span><span>&#9823;</span><span>&#9821;</span><span>&#9818;</span>
+                  <span>&#9823;</span><span></span><span>&#9823;</span><span></span>
+                  <span></span><span>&#9817;</span><span></span><span>&#9816;</span>
+                  <span>&#9817;</span><span>&#9812;</span><span></span><span>&#9814;</span>
+                </div>
+                <div class="hero-move-list">
+                  <strong>Board 1</strong>
+                  <span>White to move</span>
+                  <small>21. Nc3 Nf6</small>
+                  <small>22. Bg5 Be7</small>
+                  <small>23. O-O O-O</small>
+                </div>
+              </div>
+            </RouterLink>
 
-        <div class="mockup-activity-strip">
-          <span><strong>Pairings published</strong><small>Round 6</small></span>
-          <span><strong>Game finished</strong><small>Board 7</small></span>
-          <span><strong>Result submitted</strong><small>Board 2</small></span>
+            <RouterLink class="hero-dashboard-panel hero-standings-panel" to="/tournaments">
+              <div class="preview-card-heading">
+                <p class="panel-label">Standings</p>
+                <span class="status-badge badge-active">Active</span>
+              </div>
+              <ol class="hero-standings-list">
+                <li><span>1. A. Novak</span><strong>3.0</strong></li>
+                <li><span>2. M. Petrov</span><strong>2.5</strong></li>
+                <li><span>3. S. Chen</span><strong>2.0</strong></li>
+                <li><span>4. L. Garcia</span><strong>2.0</strong></li>
+              </ol>
+              <span class="dashboard-panel-link">Full standings</span>
+            </RouterLink>
+
+            <RouterLink class="hero-dashboard-panel hero-activity-panel" to="/tournaments">
+              <p class="panel-label">Tournament activity</p>
+              <h3>Round 3</h3>
+              <p>Pairings generated. 4 results pending.</p>
+              <span class="progress-track"><span style="width: 56%"></span></span>
+            </RouterLink>
+
+            <RouterLink class="hero-dashboard-panel hero-coaching-panel" to="/coaching">
+              <p class="panel-label">Coaching progress</p>
+              <div class="hero-progress-row">
+                <strong>82%</strong>
+                <span class="hero-sparkline" aria-hidden="true"></span>
+              </div>
+              <p>Endgame review and tactics assigned.</p>
+            </RouterLink>
+          </div>
         </div>
       </aside>
     </section>
@@ -164,21 +171,30 @@ const userTypes = [
         >
           <div class="preview-card-heading">
             <p class="panel-label">{{ card.label }}</p>
+            <span class="feature-icon-pill" :class="`feature-icon-${index + 1}`" aria-hidden="true">
+              <img :src="card.icon" alt="" />
+            </span>
             <span class="status-badge" :class="`badge-${card.badge.toLowerCase().replace(' ', '-')}`">
               {{ card.badge }}
             </span>
           </div>
           <div class="feature-visual" :class="`feature-visual-${index + 1}`" aria-hidden="true">
-            <div v-if="index === 0" class="mini-board small-board">
-              <span>&#9820;</span><span></span><span>&#9821;</span><span></span>
-              <span></span><span>&#9823;</span><span></span><span>&#9822;</span>
-              <span>&#9817;</span><span></span><span>&#9816;</span><span></span>
-              <span></span><span>&#9812;</span><span></span><span>&#9814;</span>
+            <div v-if="index === 0" class="feature-game-preview">
+              <div class="mini-board small-board">
+                <span>&#9820;</span><span></span><span>&#9821;</span><span></span>
+                <span></span><span>&#9823;</span><span></span><span>&#9822;</span>
+                <span>&#9817;</span><span></span><span>&#9816;</span><span></span>
+                <span></span><span>&#9812;</span><span></span><span>&#9814;</span>
+              </div>
+              <div class="feature-clock-list">
+                <span>A. Novak <strong>02:45</strong></span>
+                <span>M. Petrov <strong>02:31</strong></span>
+              </div>
             </div>
             <ol v-else-if="index === 1" class="mock-standings compact">
-              <li><span>Board 1</span><strong>1-0</strong></li>
-              <li><span>Board 2</span><strong>Live</strong></li>
-              <li><span>Board 3</span><strong>Draw</strong></li>
+              <li><span>Round 3</span><strong>View pairings</strong></li>
+              <li><span>A. Novak</span><strong>3.0</strong></li>
+              <li><span>M. Petrov</span><strong>2.5</strong></li>
             </ol>
             <div v-else class="coach-bars">
               <span style="width: 82%"></span>
@@ -205,9 +221,12 @@ const userTypes = [
         <article
           v-for="(reason, index) in reasons"
           :key="reason.title"
-          class="landing-card subtle-card"
+          class="landing-card subtle-card why-card"
           :class="`stagger-${index + 1}`"
         >
+          <span class="why-icon" :class="`why-icon-${reason.icon}`" aria-hidden="true">
+            <img :src="reason.image" alt="" />
+          </span>
           <h3>{{ reason.title }}</h3>
           <p>{{ reason.description }}</p>
         </article>
