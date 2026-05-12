@@ -17,7 +17,7 @@ const resourceLinks = [
 
 const companyLinks = [
   { label: 'About' },
-  { label: 'Contact' },
+  { label: 'Contact', to: '/contact' },
   { label: 'Privacy' },
   { label: 'Terms' },
 ]
@@ -54,14 +54,10 @@ const companyLinks = [
 
         <div class="footer-column">
           <h2>Company</h2>
-          <span
-            v-for="link in companyLinks"
-            :key="link.label"
-            class="footer-disabled-link"
-            aria-disabled="true"
-          >
-            {{ link.label }}
-          </span>
+          <template v-for="link in companyLinks" :key="link.label">
+            <RouterLink v-if="link.to" :to="link.to">{{ link.label }}</RouterLink>
+            <span v-else class="footer-disabled-link" aria-disabled="true">{{ link.label }}</span>
+          </template>
         </div>
       </nav>
     </div>

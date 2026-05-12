@@ -3,6 +3,7 @@ import { useAuthStore } from '../stores/auth'
 import Admin from '../pages/Admin.vue'
 import Blog from '../pages/Blog.vue'
 import Calendar from '../pages/Calendar.vue'
+import Contact from '../pages/Contact.vue'
 import Dashboard from '../pages/Dashboard.vue'
 import Game from '../pages/Game.vue'
 import Games from '../pages/Games.vue'
@@ -36,6 +37,11 @@ const router = createRouter({
       path: '/blog',
       name: 'blog',
       component: Blog,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
     },
     {
       path: '/login',

@@ -8,7 +8,7 @@ const productCards = [
     description: 'Create invite links, join boards, play legal moves, track clocks, and continue games in one focused space.',
     badge: 'Live',
     meta: ['10:00', '09:42', '24 moves'],
-    icon: '/ICON (1).png',
+    icon: '/home-icons/chessboard-premium.png',
   },
   {
     label: 'Events',
@@ -16,7 +16,7 @@ const productCards = [
     description: 'Create tournaments, register players, generate rounds, enter results, and keep standings moving.',
     badge: 'Active',
     meta: ['Round 3', '16 players', '4 boards'],
-    icon: '/ICON (2).png',
+    icon: '/home-icons/trophy-premium.png',
   },
   {
     label: 'Training',
@@ -24,7 +24,7 @@ const productCards = [
     description: 'Prepare student plans, review games, assign training work, and keep progress visible as the platform grows.',
     badge: 'Coming Soon',
     meta: ['82% tactics', '3 reviews', '5 tasks'],
-    icon: '/ICON (3).png',
+    icon: '/home-icons/graduation-cap-premium.png',
   },
 ]
 
@@ -33,19 +33,19 @@ const reasons = [
     icon: 'events',
     title: 'Designed for real chess events',
     description: 'Built around club nights, school tournaments, coaching academies, and the operational work behind them.',
-    image: '/ICON (4).png',
+    image: '/home-icons/community-premium.png',
   },
   {
     icon: 'flow',
     title: 'Simple tournament flow',
     description: 'Start with registration, generate pairings, record results, and move from round to round without spreadsheet friction.',
-    image: '/ICON (5).png',
+    image: '/home-icons/trophy-premium.png',
   },
   {
     icon: 'growth',
     title: 'Ready for growth',
     description: 'A clean foundation for calendars, content, admin tools, coaching workflows, and richer player histories.',
-    image: '/ICON (6).png',
+    image: '/home-icons/growth-premium.png',
   },
 ]
 

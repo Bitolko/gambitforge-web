@@ -72,6 +72,7 @@ function closeMenu() {
         <RouterLink to="/coaching" @click="closeMenu">Coaching</RouterLink>
         <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
         <RouterLink to="/blog" @click="closeMenu">Blog</RouterLink>
+        <RouterLink to="/contact" @click="closeMenu">Contact</RouterLink>
         <RouterLink v-if="isAdmin" to="/admin" @click="closeMenu">Admin</RouterLink>
         <button class="nav-button secondary-button" type="button" :disabled="loggingOut" @click="logout">
           {{ loggingOut ? 'Logging out...' : 'Logout' }}
@@ -84,6 +85,7 @@ function closeMenu() {
         <RouterLink to="/coaching" @click="closeMenu">Coaching</RouterLink>
         <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
         <RouterLink to="/blog" @click="closeMenu">Blog</RouterLink>
+        <RouterLink to="/contact" @click="closeMenu">Contact</RouterLink>
         <RouterLink to="/login" @click="closeMenu">Login</RouterLink>
         <RouterLink class="nav-cta" to="/register" @click="closeMenu">Get Started</RouterLink>
       </template>
