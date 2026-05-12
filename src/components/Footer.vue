@@ -10,6 +10,7 @@ const platformLinks = [
 
 const resourceLinks = [
   { label: 'Blog', to: '/blog' },
+  { label: 'FAQ', to: '/faq' },
   { label: 'Tournament Guide', to: '/blog' },
   { label: 'Coaching Tools', to: '/coaching' },
   { label: 'Support' },

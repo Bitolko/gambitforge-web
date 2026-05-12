@@ -6,6 +6,7 @@ import Blog from '../pages/Blog.vue'
 import Calendar from '../pages/Calendar.vue'
 import Contact from '../pages/Contact.vue'
 import Dashboard from '../pages/Dashboard.vue'
+import Faq from '../pages/Faq.vue'
 import Game from '../pages/Game.vue'
 import Games from '../pages/Games.vue'
 import Home from '../pages/Home.vue'
@@ -48,6 +49,11 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: Contact,
+    },
+    {
+      path: '/faq',
+      name: 'faq',
+      component: Faq,
     },
     {
       path: '/login',
