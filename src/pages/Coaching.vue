@@ -29,12 +29,21 @@ const coachingFeatures = [
         </p>
       </div>
       <aside class="coaching-progress-mockup" aria-label="Coaching progress preview">
-        <span class="coming-soon-badge">Coming soon</span>
-        <h2>Student Progress</h2>
-        <div class="coach-bars">
-          <span style="width: 86%"></span>
-          <span style="width: 68%"></span>
-          <span style="width: 74%"></span>
+        <div class="preview-card-heading">
+          <span class="coming-soon-badge">Coming soon</span>
+          <span class="status-badge badge-active">Insight panel</span>
+        </div>
+        <h2>Student Insight</h2>
+        <div class="student-insight-grid" aria-label="Student coaching metrics">
+          <span><strong>82%</strong> Tactics</span>
+          <span><strong>14</strong> Tasks</span>
+          <span><strong>3</strong> Reviews</span>
+        </div>
+        <div class="mastery-track" aria-hidden="true">
+          <span class="track-node active"></span>
+          <span class="track-node active"></span>
+          <span class="track-node current"></span>
+          <span class="track-node"></span>
         </div>
         <div class="mock-analysis-card">
           <strong>Game review</strong>

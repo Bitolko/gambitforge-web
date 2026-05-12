@@ -1,11 +1,19 @@
 <script setup>
 import { computed, ref } from 'vue'
+import australiaRadarUrl from '../assets/australia-event-radar.svg'
 
 const stateFilters = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'ACT', 'TAS']
 const categoryFilters = ['Junior', 'Open', 'Rapid', 'Blitz', 'Classical', 'School', 'Club']
 
 const activeState = ref('NSW')
 const activeCategory = ref('Junior')
+
+const radarMarkers = [
+  { state: 'WA', label: 'Perth', style: { left: '25%', top: '52%' } },
+  { state: 'QLD', label: 'Gold Coast', style: { left: '70%', top: '30%' } },
+  { state: 'NSW', label: 'Sydney', style: { left: '72%', top: '62%' } },
+  { state: 'VIC', label: 'Melbourne', style: { left: '68%', top: '75%' } },
+]
 
 const events = [
   {
@@ -102,11 +110,20 @@ const previewItems = [
           <span class="status-badge badge-live">Australia</span>
         </div>
 
-        <div class="events-map-preview australia-map-preview" aria-label="Australian event map preview">
-          <span class="map-pin pin-wa">WA</span>
-          <span class="map-pin pin-qld">QLD</span>
-          <span class="map-pin pin-nsw">NSW</span>
-          <span class="map-pin pin-vic">VIC</span>
+        <div class="events-map-preview australia-map-preview" aria-label="Australian chess event radar preview">
+          <img class="australia-radar-asset" :src="australiaRadarUrl" alt="" width="920" height="620" />
+          <span
+            v-for="marker in radarMarkers"
+            :key="marker.state"
+            class="radar-marker"
+            :style="marker.style"
+          >
+            <span class="radar-marker-dot" aria-hidden="true"></span>
+            <span class="radar-marker-label">
+              <strong>{{ marker.state }}</strong>
+              <small>{{ marker.label }}</small>
+            </span>
+          </span>
         </div>
 
         <div class="event-feature-strip">
@@ -117,10 +134,22 @@ const previewItems = [
           </div>
         </div>
 
-        <div class="events-hero-stats">
-          <span><strong>Pairings</strong> future</span>
-          <span><strong>Standings</strong> future</span>
-          <span><strong>Results</strong> future</span>
+        <div class="events-hero-stats radar-module-row">
+          <span>
+            <small>Future module</small>
+            <strong>Pairings</strong>
+            <em>Round tools</em>
+          </span>
+          <span>
+            <small>Future module</small>
+            <strong>Standings</strong>
+            <em>Live tables</em>
+          </span>
+          <span>
+            <small>Future module</small>
+            <strong>Results</strong>
+            <em>Board updates</em>
+          </span>
         </div>
       </aside>
     </section>
