@@ -71,6 +71,7 @@ function closeMenu() {
         <RouterLink to="/tournaments" @click="closeMenu">Tournaments</RouterLink>
         <RouterLink to="/events" @click="closeMenu">Events</RouterLink>
         <RouterLink to="/clubs" @click="closeMenu">Clubs</RouterLink>
+        <RouterLink to="/coaches" @click="closeMenu">Coaches</RouterLink>
         <RouterLink to="/coaching" @click="closeMenu">Coaching</RouterLink>
         <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
         <RouterLink to="/blog" @click="closeMenu">Blog</RouterLink>
@@ -86,6 +87,7 @@ function closeMenu() {
         <RouterLink to="/tournaments" @click="closeMenu">Tournaments</RouterLink>
         <RouterLink to="/events" @click="closeMenu">Events</RouterLink>
         <RouterLink to="/clubs" @click="closeMenu">Clubs</RouterLink>
+        <RouterLink to="/coaches" @click="closeMenu">Coaches</RouterLink>
         <RouterLink to="/coaching" @click="closeMenu">Coaching</RouterLink>
         <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
         <RouterLink to="/blog" @click="closeMenu">Blog</RouterLink>

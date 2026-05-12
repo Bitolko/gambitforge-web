@@ -6,6 +6,7 @@ const platformLinks = [
   { label: 'Tournaments', to: '/tournaments' },
   { label: 'Events', to: '/events' },
   { label: 'Clubs', to: '/clubs' },
+  { label: 'Coaches', to: '/coaches' },
   { label: 'Coaching', to: '/coaching' },
   { label: 'Calendar', to: '/calendar' },
 ]

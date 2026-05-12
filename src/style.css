@@ -2288,7 +2288,9 @@ h3 {
 }
 
 .clubs-page,
-.club-detail-page {
+.club-detail-page,
+.coaches-page,
+.coach-detail-page {
   position: relative;
   width: min(100% - 32px, 1180px);
   margin: 14px auto 0;
@@ -2344,6 +2346,14 @@ h3 {
 .club-profile-card,
 .club-events-section,
 .club-members-preview,
+.coaches-hero-panel,
+.coaches-filter-section,
+.coach-card,
+.coach-profile-panel,
+.coach-detail-card,
+.coach-testimonials-section,
+.coach-testimonial-card,
+.coach-booking-preview,
 .events-filter-section,
 .event-preview-card {
   border: 1px solid rgba(215, 169, 77, 0.22);
@@ -3049,6 +3059,218 @@ h3 {
   padding: 28px;
 }
 
+.coaches-hero,
+.coach-detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 410px);
+  gap: clamp(28px, 5vw, 58px);
+  align-items: center;
+}
+
+.coach-detail-hero {
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid rgba(215, 169, 77, 0.22);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 88% 4%, rgba(74, 163, 255, 0.1), transparent 14rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.014)),
+    var(--panel-bg);
+  box-shadow: var(--card-glow);
+  backdrop-filter: blur(18px);
+}
+
+.coaches-hero-copy,
+.coaches-hero-panel,
+.coach-card,
+.coach-detail-copy,
+.coach-profile-panel,
+.coach-detail-card,
+.coach-testimonials-section,
+.coach-testimonial-card,
+.coach-booking-preview {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.coaches-hero h1,
+.coach-detail-hero h1 {
+  max-width: 820px;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.coaches-hero-copy p:last-of-type,
+.coaches-hero-panel p,
+.coach-card-description,
+.coach-detail-copy p,
+.coach-profile-panel p,
+.coach-detail-card p,
+.coach-testimonial-card p,
+.coach-booking-preview p {
+  color: var(--muted);
+  line-height: 1.68;
+}
+
+.coaches-hero-copy p:last-of-type {
+  max-width: 720px;
+  font-size: 18px;
+}
+
+.coaches-hero-panel,
+.coaches-filter-section {
+  padding: 24px;
+}
+
+.coach-signal-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.coach-signal-row span {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  color: var(--text-strong);
+  background: rgba(8, 13, 20, 0.28);
+  padding: 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.coaches-filter-section {
+  display: grid;
+  gap: 18px;
+  margin-top: 42px;
+}
+
+.coaches-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.coach-card {
+  padding: 22px;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.coach-card:hover {
+  border-color: rgba(215, 169, 77, 0.38);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28), 0 0 28px rgba(215, 169, 77, 0.08);
+  transform: translateY(-3px);
+}
+
+.coach-card-main {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 14px;
+}
+
+.coach-card-main > div:last-child {
+  min-width: 0;
+}
+
+.coach-card-main h2,
+.coach-detail-card h2,
+.coach-booking-preview h2 {
+  overflow-wrap: anywhere;
+}
+
+.coach-card-main h2 {
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.coach-card-main p:last-child {
+  margin-top: 6px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.coach-avatar {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border: 1px solid rgba(239, 197, 101, 0.28);
+  border-radius: 999px;
+  color: var(--gold-strong);
+  background:
+    radial-gradient(circle at 30% 24%, rgba(239, 197, 101, 0.24), transparent 3rem),
+    rgba(8, 13, 20, 0.62);
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.coach-avatar-large {
+  width: 112px;
+  height: 112px;
+  font-size: 32px;
+}
+
+.coach-profile-panel {
+  justify-items: start;
+  padding: 24px;
+}
+
+.coach-detail-copy button {
+  width: fit-content;
+}
+
+.coach-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.coach-detail-card {
+  align-content: start;
+  padding: 22px;
+}
+
+.coach-detail-card ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.coach-detail-card li {
+  color: var(--text-strong);
+  font-weight: 750;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.coach-testimonials-section,
+.coach-booking-preview {
+  margin-top: 42px;
+  padding: 28px;
+}
+
+.coach-testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.coach-testimonial-card {
+  align-content: start;
+  min-height: 150px;
+  padding: 20px;
+}
+
 :root[data-theme='light'] .faq-card,
 :root[data-theme='light'] .about-story-card,
 :root[data-theme='light'] .contact-form-panel,
@@ -3071,6 +3293,15 @@ h3 {
 :root[data-theme='light'] .club-profile-card,
 :root[data-theme='light'] .club-events-section,
 :root[data-theme='light'] .club-members-preview,
+:root[data-theme='light'] .coaches-hero-panel,
+:root[data-theme='light'] .coaches-filter-section,
+:root[data-theme='light'] .coach-card,
+:root[data-theme='light'] .coach-detail-hero,
+:root[data-theme='light'] .coach-profile-panel,
+:root[data-theme='light'] .coach-detail-card,
+:root[data-theme='light'] .coach-testimonials-section,
+:root[data-theme='light'] .coach-testimonial-card,
+:root[data-theme='light'] .coach-booking-preview,
 :root[data-theme='light'] .events-filter-section,
 :root[data-theme='light'] .event-preview-card {
   border-color: rgba(88, 63, 34, 0.16);
@@ -3081,7 +3312,8 @@ h3 {
 :root[data-theme='light'] .club-search-field input,
 :root[data-theme='light'] .club-logo-mark,
 :root[data-theme='light'] .club-logo-placeholder,
-:root[data-theme='light'] .club-detail-logo {
+:root[data-theme='light'] .club-detail-logo,
+:root[data-theme='light'] .coach-avatar {
   border-color: rgba(88, 63, 34, 0.18);
   color: var(--bronze);
   background: rgba(255, 250, 241, 0.82);
@@ -3956,13 +4188,18 @@ h3 {
   .event-venue-section,
   .clubs-hero,
   .club-detail-hero,
+  .coaches-hero,
+  .coach-detail-hero,
   .events-grid,
   .event-preview-grid,
   .event-tools-grid,
   .event-info-grid,
   .related-events-grid,
   .clubs-grid,
-  .club-profile-grid {
+  .club-profile-grid,
+  .coaches-grid,
+  .coach-detail-grid,
+  .coach-testimonial-grid {
     grid-template-columns: 1fr;
   }
 
@@ -4068,7 +4305,9 @@ h3 {
   }
 
   .clubs-page,
-  .club-detail-page {
+  .club-detail-page,
+  .coaches-page,
+  .coach-detail-page {
     width: min(100% - 28px, 1180px);
     padding-top: 34px;
   }
@@ -4079,7 +4318,9 @@ h3 {
 
   .event-detail-hero h1,
   .clubs-hero h1,
-  .club-detail-hero h1 {
+  .club-detail-hero h1,
+  .coaches-hero h1,
+  .coach-detail-hero h1 {
     font-size: clamp(34px, 10vw, 52px);
   }
 
@@ -4115,7 +4356,14 @@ h3 {
   .club-detail-hero,
   .club-profile-card,
   .club-events-section,
-  .club-members-preview {
+  .club-members-preview,
+  .coaches-hero-panel,
+  .coaches-filter-section,
+  .coach-detail-hero,
+  .coach-profile-panel,
+  .coach-detail-card,
+  .coach-testimonials-section,
+  .coach-booking-preview {
     padding: 22px;
   }
 
@@ -4155,6 +4403,8 @@ h3 {
   .event-detail-page,
   .clubs-page,
   .club-detail-page,
+  .coaches-page,
+  .coach-detail-page,
   .contact-page,
   .about-page,
   .faq-page {
@@ -4222,17 +4472,32 @@ h3 {
   .club-detail-hero,
   .club-profile-card,
   .club-events-section,
-  .club-members-preview {
+  .club-members-preview,
+  .coaches-hero-panel,
+  .coaches-filter-section,
+  .coach-card,
+  .coach-detail-hero,
+  .coach-profile-panel,
+  .coach-detail-card,
+  .coach-testimonials-section,
+  .coach-testimonial-card,
+  .coach-booking-preview {
     padding: 18px;
   }
 
-  .club-card-main {
+  .club-card-main,
+  .coach-card-main {
     align-items: flex-start;
   }
 
   .club-card-link,
-  .club-profile-card button {
+  .club-profile-card button,
+  .coach-detail-copy button {
     width: 100%;
+  }
+
+  .coach-signal-row {
+    grid-template-columns: 1fr;
   }
 
   .events-map-preview,

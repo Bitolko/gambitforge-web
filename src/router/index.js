@@ -6,6 +6,8 @@ import Blog from '../pages/Blog.vue'
 import Calendar from '../pages/Calendar.vue'
 import ClubDetail from '../pages/ClubDetail.vue'
 import Clubs from '../pages/Clubs.vue'
+import CoachDetail from '../pages/CoachDetail.vue'
+import Coaches from '../pages/Coaches.vue'
 import Contact from '../pages/Contact.vue'
 import Dashboard from '../pages/Dashboard.vue'
 import EventDetail from '../pages/EventDetail.vue'
@@ -63,6 +65,16 @@ const router = createRouter({
       path: '/clubs/:slug',
       name: 'club-detail',
       component: ClubDetail,
+    },
+    {
+      path: '/coaches',
+      name: 'coaches',
+      component: Coaches,
+    },
+    {
+      path: '/coaches/:slug',
+      name: 'coach-detail',
+      component: CoachDetail,
     },
     {
       path: '/blog',
