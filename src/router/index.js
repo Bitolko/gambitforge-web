@@ -4,6 +4,8 @@ import Admin from '../pages/Admin.vue'
 import About from '../pages/About.vue'
 import Blog from '../pages/Blog.vue'
 import Calendar from '../pages/Calendar.vue'
+import ClubDetail from '../pages/ClubDetail.vue'
+import Clubs from '../pages/Clubs.vue'
 import Contact from '../pages/Contact.vue'
 import Dashboard from '../pages/Dashboard.vue'
 import EventDetail from '../pages/EventDetail.vue'
@@ -51,6 +53,16 @@ const router = createRouter({
       path: '/events/:slug',
       name: 'event-detail',
       component: EventDetail,
+    },
+    {
+      path: '/clubs',
+      name: 'clubs',
+      component: Clubs,
+    },
+    {
+      path: '/clubs/:slug',
+      name: 'club-detail',
+      component: ClubDetail,
     },
     {
       path: '/blog',
