@@ -20,6 +20,7 @@ import Coaching from '../pages/Coaching.vue'
 import Login from '../pages/Login.vue'
 import NotFound from '../pages/NotFound.vue'
 import Register from '../pages/Register.vue'
+import SubmitEvent from '../pages/SubmitEvent.vue'
 import Tournament from '../pages/Tournament.vue'
 import Tournaments from '../pages/Tournaments.vue'
 
@@ -55,6 +56,11 @@ const router = createRouter({
       path: '/events/:slug',
       name: 'event-detail',
       component: EventDetail,
+    },
+    {
+      path: '/submit-event',
+      name: 'submit-event',
+      component: SubmitEvent,
     },
     {
       path: '/clubs',

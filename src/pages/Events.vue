@@ -88,7 +88,7 @@ const previewItems = [
           Find tournaments, club events, coaching programs, junior competitions, and chess
           activities across Australia.
         </p>
-        <button class="hero-primary events-submit-button" type="button" disabled>Submit Event</button>
+        <RouterLink class="hero-primary events-submit-button" to="/submit-event">Submit Event</RouterLink>
       </div>
 
       <aside class="events-hero-panel" aria-label="Events discovery preview">

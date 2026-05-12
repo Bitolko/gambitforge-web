@@ -2290,7 +2290,8 @@ h3 {
 .clubs-page,
 .club-detail-page,
 .coaches-page,
-.coach-detail-page {
+.coach-detail-page,
+.submit-event-page {
   position: relative;
   width: min(100% - 32px, 1180px);
   margin: 14px auto 0;
@@ -2326,7 +2327,15 @@ h3 {
 }
 
 .events-submit-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
   width: fit-content;
+  border-radius: 6px;
+  padding: 11px 16px;
+  font-weight: 800;
+  text-decoration: none;
 }
 
 .events-hero-panel,
@@ -2354,6 +2363,11 @@ h3 {
 .coach-testimonials-section,
 .coach-testimonial-card,
 .coach-booking-preview,
+.submit-event-panel,
+.submit-event-form,
+.submit-event-side-card,
+.flyer-upload-placeholder,
+.submit-success-modal,
 .events-filter-section,
 .event-preview-card {
   border: 1px solid rgba(215, 169, 77, 0.22);
@@ -3271,6 +3285,204 @@ h3 {
   padding: 20px;
 }
 
+.submit-event-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: clamp(28px, 5vw, 58px);
+  align-items: center;
+}
+
+.submit-event-copy,
+.submit-event-panel,
+.submit-event-form,
+.submit-event-side-card,
+.submit-success-modal {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.submit-event-hero h1 {
+  max-width: 820px;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.submit-event-copy p:last-of-type,
+.submit-event-panel p,
+.submit-event-side-card li,
+.flyer-upload-placeholder p,
+.submit-success-modal p {
+  color: var(--muted);
+  line-height: 1.68;
+}
+
+.submit-event-copy p:last-of-type {
+  max-width: 720px;
+  font-size: 18px;
+}
+
+.submit-event-panel {
+  padding: 26px;
+}
+
+.submit-event-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.submit-event-steps span {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  color: var(--text-strong);
+  background: rgba(8, 13, 20, 0.28);
+  padding: 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.submit-event-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 18px;
+  align-items: start;
+  margin-top: 42px;
+}
+
+.submit-event-form {
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.form-grid-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.submit-event-form label {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.submit-event-form label > span,
+.terms-row span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.submit-event-form input,
+.submit-event-form select,
+.submit-event-form textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 8px;
+  color: var(--text-strong);
+  background: rgba(8, 13, 20, 0.42);
+  padding: 13px 14px;
+}
+
+.submit-event-form textarea {
+  min-height: 160px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.submit-event-form input::placeholder,
+.submit-event-form textarea::placeholder {
+  color: color-mix(in srgb, var(--muted) 78%, transparent);
+}
+
+.submit-event-form input:focus,
+.submit-event-form select:focus,
+.submit-event-form textarea:focus {
+  border-color: var(--gold);
+  outline: 3px solid rgba(215, 169, 77, 0.15);
+}
+
+.flyer-upload-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px;
+}
+
+.flyer-upload-placeholder h2 {
+  margin-top: 10px;
+}
+
+.terms-row {
+  display: flex !important;
+  grid-template-columns: none;
+  align-items: flex-start;
+  gap: 10px !important;
+}
+
+.terms-row input {
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+.terms-row span {
+  color: var(--text-strong);
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.submit-event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.submit-event-actions .secondary-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 11px 16px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.submit-event-side-card {
+  position: sticky;
+  top: 110px;
+  padding: 24px;
+}
+
+.submit-event-side-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.submit-success-backdrop {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(3, 6, 10, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.submit-success-modal {
+  width: min(100%, 480px);
+  padding: 28px;
+}
+
 :root[data-theme='light'] .faq-card,
 :root[data-theme='light'] .about-story-card,
 :root[data-theme='light'] .contact-form-panel,
@@ -3302,6 +3514,11 @@ h3 {
 :root[data-theme='light'] .coach-testimonials-section,
 :root[data-theme='light'] .coach-testimonial-card,
 :root[data-theme='light'] .coach-booking-preview,
+:root[data-theme='light'] .submit-event-panel,
+:root[data-theme='light'] .submit-event-form,
+:root[data-theme='light'] .submit-event-side-card,
+:root[data-theme='light'] .flyer-upload-placeholder,
+:root[data-theme='light'] .submit-success-modal,
 :root[data-theme='light'] .events-filter-section,
 :root[data-theme='light'] .event-preview-card {
   border-color: rgba(88, 63, 34, 0.16);
@@ -3313,7 +3530,10 @@ h3 {
 :root[data-theme='light'] .club-logo-mark,
 :root[data-theme='light'] .club-logo-placeholder,
 :root[data-theme='light'] .club-detail-logo,
-:root[data-theme='light'] .coach-avatar {
+:root[data-theme='light'] .coach-avatar,
+:root[data-theme='light'] .submit-event-form input,
+:root[data-theme='light'] .submit-event-form select,
+:root[data-theme='light'] .submit-event-form textarea {
   border-color: rgba(88, 63, 34, 0.18);
   color: var(--bronze);
   background: rgba(255, 250, 241, 0.82);
@@ -4190,6 +4410,9 @@ h3 {
   .club-detail-hero,
   .coaches-hero,
   .coach-detail-hero,
+  .submit-event-hero,
+  .submit-event-layout,
+  .form-grid-two,
   .events-grid,
   .event-preview-grid,
   .event-tools-grid,
@@ -4307,7 +4530,8 @@ h3 {
   .clubs-page,
   .club-detail-page,
   .coaches-page,
-  .coach-detail-page {
+  .coach-detail-page,
+  .submit-event-page {
     width: min(100% - 28px, 1180px);
     padding-top: 34px;
   }
@@ -4320,7 +4544,8 @@ h3 {
   .clubs-hero h1,
   .club-detail-hero h1,
   .coaches-hero h1,
-  .coach-detail-hero h1 {
+  .coach-detail-hero h1,
+  .submit-event-hero h1 {
     font-size: clamp(34px, 10vw, 52px);
   }
 
@@ -4337,9 +4562,15 @@ h3 {
     font-size: 17px;
   }
 
+  .submit-event-side-card {
+    position: static;
+  }
+
   .events-submit-button,
   .event-card-actions button,
-  .event-card-actions .secondary-button {
+  .event-card-actions .secondary-button,
+  .submit-event-actions .hero-primary,
+  .submit-event-actions .secondary-button {
     width: 100%;
   }
 
@@ -4363,7 +4594,10 @@ h3 {
   .coach-profile-panel,
   .coach-detail-card,
   .coach-testimonials-section,
-  .coach-booking-preview {
+  .coach-booking-preview,
+  .submit-event-panel,
+  .submit-event-form,
+  .submit-event-side-card {
     padding: 22px;
   }
 
@@ -4405,6 +4639,7 @@ h3 {
   .club-detail-page,
   .coaches-page,
   .coach-detail-page,
+  .submit-event-page,
   .contact-page,
   .about-page,
   .faq-page {
@@ -4481,7 +4716,12 @@ h3 {
   .coach-detail-card,
   .coach-testimonials-section,
   .coach-testimonial-card,
-  .coach-booking-preview {
+  .coach-booking-preview,
+  .submit-event-panel,
+  .submit-event-form,
+  .submit-event-side-card,
+  .flyer-upload-placeholder,
+  .submit-success-modal {
     padding: 18px;
   }
 
@@ -4498,6 +4738,15 @@ h3 {
 
   .coach-signal-row {
     grid-template-columns: 1fr;
+  }
+
+  .submit-event-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .flyer-upload-placeholder {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .events-map-preview,
