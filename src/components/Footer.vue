@@ -4,6 +4,7 @@ import { RouterLink } from 'vue-router'
 const platformLinks = [
   { label: 'Games', to: '/games' },
   { label: 'Tournaments', to: '/tournaments' },
+  { label: 'Events', to: '/events' },
   { label: 'Coaching', to: '/coaching' },
   { label: 'Calendar', to: '/calendar' },
 ]

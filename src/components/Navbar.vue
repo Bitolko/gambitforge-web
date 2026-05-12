@@ -69,6 +69,7 @@ function closeMenu() {
         <RouterLink to="/dashboard" @click="closeMenu">Dashboard</RouterLink>
         <RouterLink to="/games" @click="closeMenu">Games</RouterLink>
         <RouterLink to="/tournaments" @click="closeMenu">Tournaments</RouterLink>
+        <RouterLink to="/events" @click="closeMenu">Events</RouterLink>
         <RouterLink to="/coaching" @click="closeMenu">Coaching</RouterLink>
         <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
         <RouterLink to="/blog" @click="closeMenu">Blog</RouterLink>
@@ -82,6 +83,7 @@ function closeMenu() {
       <template v-else>
         <RouterLink to="/" @click="closeMenu">Home</RouterLink>
         <RouterLink to="/tournaments" @click="closeMenu">Tournaments</RouterLink>
+        <RouterLink to="/events" @click="closeMenu">Events</RouterLink>
         <RouterLink to="/coaching" @click="closeMenu">Coaching</RouterLink>
         <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
         <RouterLink to="/blog" @click="closeMenu">Blog</RouterLink>
