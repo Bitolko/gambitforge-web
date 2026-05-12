@@ -16,7 +16,7 @@ const resourceLinks = [
 ]
 
 const companyLinks = [
-  { label: 'About' },
+  { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
   { label: 'Privacy' },
   { label: 'Terms' },

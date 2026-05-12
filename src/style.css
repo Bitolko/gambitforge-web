@@ -2104,6 +2104,65 @@ h3 {
   font-size: 17px;
 }
 
+.about-page {
+  width: min(100% - 32px, 1120px);
+}
+
+.about-hero h1 {
+  max-width: 820px;
+}
+
+.about-section-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.about-story-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 16px;
+  min-height: 300px;
+  align-content: start;
+  border: 1px solid rgba(215, 169, 77, 0.22);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(74, 163, 255, 0.1), transparent 12rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.014)),
+    var(--panel-bg);
+  box-shadow: var(--card-glow);
+  padding: clamp(22px, 3vw, 28px);
+  backdrop-filter: blur(18px);
+}
+
+.about-story-card::after {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  color: rgba(215, 169, 77, 0.12);
+  font-size: 92px;
+  font-weight: 900;
+  line-height: 1;
+  content: 'GF';
+}
+
+.about-story-card h2,
+.about-story-card p,
+.about-story-card span {
+  position: relative;
+  z-index: 1;
+}
+
+.about-story-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.about-cta {
+  margin-top: 38px;
+}
+
 .platform-feature-card {
   position: relative;
   overflow: hidden;
@@ -2897,7 +2956,8 @@ h3 {
   .admin-table-grid,
   .landing-card-grid,
   .platform-feature-grid,
-  .contact-layout {
+  .contact-layout,
+  .about-section-grid {
     grid-template-columns: 1fr;
   }
 
