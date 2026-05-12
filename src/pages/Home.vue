@@ -93,7 +93,7 @@ const userTypes = [
         <div class="hero-dashboard-card">
           <div class="hero-dashboard-topbar">
             <span class="mockup-brand">
-              <img src="/gambitforge-logo-web.png" alt="" />
+              <img src="/gambitforge-logo-web.png" alt="" width="28" height="28" />
               GambitForge
             </span>
             <span class="hero-concept-badge">Live preview</span>
@@ -172,7 +172,7 @@ const userTypes = [
           <div class="preview-card-heading">
             <p class="panel-label">{{ card.label }}</p>
             <span class="feature-icon-pill" :class="`feature-icon-${index + 1}`" aria-hidden="true">
-              <img :src="card.icon" alt="" />
+              <img :src="card.icon" alt="" width="40" height="40" />
             </span>
             <span class="status-badge" :class="`badge-${card.badge.toLowerCase().replace(' ', '-')}`">
               {{ card.badge }}
@@ -225,7 +225,7 @@ const userTypes = [
           :class="`stagger-${index + 1}`"
         >
           <span class="why-icon" :class="`why-icon-${reason.icon}`" aria-hidden="true">
-            <img :src="reason.image" alt="" />
+            <img :src="reason.image" alt="" width="40" height="40" />
           </span>
           <h3>{{ reason.title }}</h3>
           <p>{{ reason.description }}</p>

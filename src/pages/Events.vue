@@ -144,22 +144,32 @@ const previewItems = [
     </section>
 
     <section class="events-grid" aria-label="Featured Australian chess events">
-      <article v-for="event in filteredEvents" :key="event.title" class="event-card">
+      <article
+        v-for="event in filteredEvents"
+        :key="event.title"
+        class="event-card"
+        itemscope
+        itemtype="https://schema.org/Event"
+      >
         <div class="preview-card-heading">
           <p class="panel-label">{{ event.state }}</p>
           <span class="status-badge badge-active">{{ event.timeControl }}</span>
         </div>
 
         <div class="event-card-main">
-          <h2>{{ event.title }}</h2>
-          <p>{{ event.date }}</p>
-          <p>{{ event.location }}</p>
+          <h2 itemprop="name">{{ event.title }}</h2>
+          <p itemprop="startDate">{{ event.date }}</p>
+          <p itemprop="location" itemscope itemtype="https://schema.org/Place">
+            <span itemprop="name">{{ event.location }}</span>
+          </p>
         </div>
 
         <dl class="event-meta-list">
           <div>
             <dt>Organiser</dt>
-            <dd>{{ event.organiser }}</dd>
+            <dd itemprop="organizer" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name">{{ event.organiser }}</span>
+            </dd>
           </div>
           <div>
             <dt>Time control</dt>

@@ -64,7 +64,12 @@ const currentClub = computed(() => (
 
 <template>
   <main class="club-detail-page">
-    <section class="club-detail-hero" aria-labelledby="club-detail-title">
+    <section
+      class="club-detail-hero"
+      aria-labelledby="club-detail-title"
+      itemscope
+      itemtype="https://schema.org/Organization"
+    >
       <div class="club-detail-logo" aria-hidden="true">{{ currentClub.name.slice(0, 2) }}</div>
       <div class="club-detail-copy">
         <RouterLink class="back-link" to="/clubs">Clubs</RouterLink>
@@ -72,8 +77,8 @@ const currentClub = computed(() => (
           <span class="status-badge badge-active">{{ currentClub.state }}</span>
           <span v-for="tag in currentClub.tags" :key="tag" class="event-chip">{{ tag }}</span>
         </div>
-        <h1 id="club-detail-title">{{ currentClub.name }}</h1>
-        <p>{{ currentClub.description }}</p>
+        <h1 id="club-detail-title" itemprop="name">{{ currentClub.name }}</h1>
+        <p itemprop="description">{{ currentClub.description }}</p>
       </div>
     </section>
 

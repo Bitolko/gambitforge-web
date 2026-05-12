@@ -115,26 +115,35 @@ const relatedEvents = computed(() => (
 
 <template>
   <main class="event-detail-page">
-    <section class="event-detail-hero" aria-labelledby="event-detail-title">
+    <section
+      class="event-detail-hero"
+      aria-labelledby="event-detail-title"
+      itemscope
+      itemtype="https://schema.org/Event"
+    >
       <div class="event-detail-hero-copy">
         <RouterLink class="back-link" to="/events">Events</RouterLink>
         <div class="event-hero-badges">
           <span class="status-badge badge-active">{{ currentEvent.status }}</span>
           <span class="event-chip">{{ currentEvent.timeControl }}</span>
         </div>
-        <h1 id="event-detail-title">{{ currentEvent.title }}</h1>
+        <h1 id="event-detail-title" itemprop="name">{{ currentEvent.title }}</h1>
         <dl class="event-hero-meta">
           <div>
             <dt>Date</dt>
-            <dd>{{ currentEvent.date }}</dd>
+            <dd itemprop="startDate">{{ currentEvent.date }}</dd>
           </div>
           <div>
             <dt>Location</dt>
-            <dd>{{ currentEvent.location }}</dd>
+            <dd itemprop="location" itemscope itemtype="https://schema.org/Place">
+              <span itemprop="name">{{ currentEvent.location }}</span>
+            </dd>
           </div>
           <div>
             <dt>Organiser</dt>
-            <dd>{{ currentEvent.organiser }}</dd>
+            <dd itemprop="organizer" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name">{{ currentEvent.organiser }}</span>
+            </dd>
           </div>
         </dl>
       </div>

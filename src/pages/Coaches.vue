@@ -117,17 +117,23 @@ const filteredCoaches = computed(() => {
     </section>
 
     <section class="coaches-grid" aria-label="Chess coaches">
-      <article v-for="coach in filteredCoaches" :key="coach.slug" class="coach-card">
+      <article
+        v-for="coach in filteredCoaches"
+        :key="coach.slug"
+        class="coach-card"
+        itemscope
+        itemtype="https://schema.org/Person"
+      >
         <div class="coach-card-main">
           <div class="coach-avatar" aria-hidden="true">{{ coach.name.split(' ').map((part) => part[0]).join('') }}</div>
           <div>
             <p class="panel-label">{{ coach.location }}</p>
-            <h2>{{ coach.name }}</h2>
-            <p>{{ coach.title }}</p>
+            <h2 itemprop="name">{{ coach.name }}</h2>
+            <p itemprop="jobTitle">{{ coach.title }}</p>
           </div>
         </div>
 
-        <p class="coach-card-description">{{ coach.description }}</p>
+        <p class="coach-card-description" itemprop="description">{{ coach.description }}</p>
 
         <dl class="event-meta-list">
           <div>

@@ -45,7 +45,7 @@ function closeMenu() {
   <header class="site-navbar">
     <RouterLink class="brand-link" to="/" @click="closeMenu">
       <span class="brand-logo">
-        <img :src="logoUrl" alt="GambitForge logo" />
+        <img :src="logoUrl" alt="GambitForge logo" width="40" height="40" />
       </span>
       <span class="brand-wordmark">
         <span class="brand-name">GambitForge</span>

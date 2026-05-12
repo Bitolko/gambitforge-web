@@ -124,7 +124,13 @@ const filteredClubs = computed(() => {
     </section>
 
     <section class="clubs-grid" aria-label="Australian chess clubs">
-      <article v-for="club in filteredClubs" :key="club.slug" class="club-card">
+      <article
+        v-for="club in filteredClubs"
+        :key="club.slug"
+        class="club-card"
+        itemscope
+        itemtype="https://schema.org/Organization"
+      >
         <div class="preview-card-heading">
           <p class="panel-label">{{ club.state }}</p>
           <span class="status-badge badge-active">Club profile</span>
@@ -133,12 +139,12 @@ const filteredClubs = computed(() => {
         <div class="club-card-main">
           <div class="club-logo-placeholder" aria-hidden="true">{{ club.name.slice(0, 2) }}</div>
           <div>
-            <h2>{{ club.name }}</h2>
-            <p>{{ club.location }}</p>
+            <h2 itemprop="name">{{ club.name }}</h2>
+            <p itemprop="address">{{ club.location }}</p>
           </div>
         </div>
 
-        <p class="club-card-description">{{ club.description }}</p>
+        <p class="club-card-description" itemprop="description">{{ club.description }}</p>
 
         <dl class="event-meta-list">
           <div>

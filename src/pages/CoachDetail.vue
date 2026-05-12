@@ -64,7 +64,12 @@ const currentCoach = computed(() => (
 
 <template>
   <main class="coach-detail-page">
-    <section class="coach-detail-hero" aria-labelledby="coach-detail-title">
+    <section
+      class="coach-detail-hero"
+      aria-labelledby="coach-detail-title"
+      itemscope
+      itemtype="https://schema.org/Person"
+    >
       <aside class="coach-profile-panel" aria-label="Coach profile">
         <div class="coach-avatar coach-avatar-large" aria-hidden="true">
           {{ currentCoach.name.split(' ').map((part) => part[0]).join('') }}
@@ -81,8 +86,8 @@ const currentCoach = computed(() => (
             {{ specialty }}
           </span>
         </div>
-        <h1 id="coach-detail-title">{{ currentCoach.name }}</h1>
-        <p>{{ currentCoach.description }}</p>
+        <h1 id="coach-detail-title" itemprop="name">{{ currentCoach.name }}</h1>
+        <p itemprop="description">{{ currentCoach.description }}</p>
         <button class="hero-primary" type="button" disabled>Request Coaching</button>
       </div>
     </section>

@@ -156,7 +156,7 @@ onMounted(async () => {
           <article v-for="game in activeGames" :key="game.id" class="live-game-row">
             <div class="live-game-main">
               <span class="live-game-mark" aria-hidden="true">
-                <img src="/gambitforge-logo-web.png" alt="" />
+                <img src="/gambitforge-logo-web.png" alt="" width="48" height="48" />
               </span>
               <div class="live-game-copy">
                 <div class="live-game-kicker">
@@ -204,7 +204,7 @@ onMounted(async () => {
           <article v-for="game in waitingGames" :key="game.id" class="live-game-row waiting-card">
             <div class="live-game-main">
               <span class="live-game-mark" aria-hidden="true">
-                <img src="/gambitforge-logo-web.png" alt="" />
+                <img src="/gambitforge-logo-web.png" alt="" width="48" height="48" />
               </span>
               <div class="live-game-copy">
                 <div class="live-game-kicker">
@@ -247,7 +247,7 @@ onMounted(async () => {
           <article v-for="game in completedGames" :key="game.id" class="live-game-row">
             <div class="live-game-main">
               <span class="live-game-mark" aria-hidden="true">
-                <img src="/gambitforge-logo-web.png" alt="" />
+                <img src="/gambitforge-logo-web.png" alt="" width="48" height="48" />
               </span>
               <div class="live-game-copy">
                 <div class="live-game-kicker">

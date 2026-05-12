@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
+import { applySeo } from '../utils/seo'
 import Admin from '../pages/Admin.vue'
 import About from '../pages/About.vue'
 import Blog from '../pages/Blog.vue'
@@ -175,6 +176,10 @@ router.beforeEach(async (to) => {
   if (to.meta.guest && auth.token) {
     return { name: 'dashboard' }
   }
+})
+
+router.afterEach((to) => {
+  applySeo(to)
 })
 
 export default router

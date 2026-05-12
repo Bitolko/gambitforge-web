@@ -154,7 +154,7 @@ onMounted(async () => {
         >
           <div class="tournament-row-main">
             <span class="tournament-mark" aria-hidden="true">
-              <img src="/gambitforge-logo-web.png" alt="" />
+              <img src="/gambitforge-logo-web.png" alt="" width="48" height="48" />
             </span>
 
             <div class="tournament-row-copy">
