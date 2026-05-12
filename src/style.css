@@ -2401,12 +2401,31 @@ h3 {
 
 .events-map-preview::before {
   position: absolute;
-  inset: 12% 16% 10% 18%;
-  border: 1px solid rgba(239, 197, 101, 0.2);
-  border-radius: 45% 38% 50% 42%;
-  background: linear-gradient(145deg, rgba(215, 169, 77, 0.08), rgba(22, 163, 148, 0.05));
+  inset: 12% 12% 10% 13%;
+  border: 1px solid rgba(239, 197, 101, 0.23);
+  border-radius: 42% 58% 46% 48% / 34% 38% 58% 54%;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(215, 169, 77, 0.16), transparent 20%),
+    radial-gradient(circle at 76% 76%, rgba(74, 163, 255, 0.12), transparent 18%),
+    linear-gradient(145deg, rgba(215, 169, 77, 0.1), rgba(22, 163, 148, 0.05));
   content: '';
-  transform: rotate(12deg);
+  clip-path: polygon(
+    12% 34%,
+    23% 18%,
+    44% 14%,
+    59% 22%,
+    76% 20%,
+    91% 34%,
+    86% 50%,
+    76% 58%,
+    72% 76%,
+    59% 82%,
+    45% 74%,
+    31% 79%,
+    18% 68%,
+    8% 54%
+  );
+  transform: rotate(2deg);
 }
 
 .map-pin {
@@ -2422,23 +2441,23 @@ h3 {
 }
 
 .pin-nsw {
-  right: 16%;
-  bottom: 22%;
+  right: 18%;
+  bottom: 30%;
 }
 
 .pin-vic {
   right: 24%;
-  bottom: 11%;
+  bottom: 16%;
 }
 
 .pin-wa {
   left: 18%;
-  bottom: 36%;
+  bottom: 43%;
 }
 
 .pin-qld {
-  right: 18%;
-  top: 22%;
+  right: 15%;
+  top: 25%;
 }
 
 .events-hero-stats {
@@ -3285,6 +3304,538 @@ h3 {
   padding: 20px;
 }
 
+.discovery-page {
+  --text: #d7dee4;
+  --text-strong: #fff8e8;
+  --muted: #a9b4bd;
+  --panel-bg: rgba(7, 12, 19, 0.78);
+  --surface-strong: rgba(18, 27, 39, 0.9);
+  --line: rgba(215, 169, 77, 0.2);
+  isolation: isolate;
+}
+
+.discovery-page::before {
+  position: absolute;
+  z-index: -2;
+  inset: -120px max(-9vw, -120px) 0;
+  background:
+    radial-gradient(circle at 18% 4%, rgba(215, 169, 77, 0.18), transparent 24rem),
+    radial-gradient(circle at 84% 10%, rgba(74, 163, 255, 0.14), transparent 26rem),
+    linear-gradient(180deg, rgba(8, 13, 20, 0.96) 0%, rgba(7, 10, 15, 0.98) 42%, rgba(5, 7, 11, 1) 100%);
+  content: '';
+}
+
+.discovery-page::after {
+  position: absolute;
+  z-index: -1;
+  inset: 120px max(-9vw, -120px) auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(239, 197, 101, 0.34), rgba(74, 163, 255, 0.16), transparent);
+  content: '';
+}
+
+.events-page.discovery-page,
+.clubs-page.discovery-page,
+.coaches-page.discovery-page {
+  padding-top: 26px;
+}
+
+.events-page.discovery-page .events-hero,
+.clubs-page.discovery-page .clubs-hero,
+.coaches-page.discovery-page .coaches-hero {
+  position: relative;
+  overflow: hidden;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 460px);
+  gap: clamp(24px, 4vw, 46px);
+  min-height: 0;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid rgba(215, 169, 77, 0.24);
+  border-radius: 12px;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018) 46%, rgba(74, 163, 255, 0.06)),
+    rgba(6, 10, 16, 0.78);
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+.events-page.discovery-page .events-hero::before,
+.clubs-page.discovery-page .clubs-hero::before,
+.coaches-page.discovery-page .coaches-hero::before {
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background:
+    linear-gradient(180deg, transparent, rgba(215, 169, 77, 0.08)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 92px);
+  content: '';
+  pointer-events: none;
+}
+
+.events-page.discovery-page .events-hero-copy,
+.clubs-page.discovery-page .clubs-hero-copy,
+.coaches-page.discovery-page .coaches-hero-copy {
+  position: relative;
+  z-index: 1;
+  gap: 16px;
+}
+
+.events-page.discovery-page .events-hero h1,
+.clubs-page.discovery-page .clubs-hero h1,
+.coaches-page.discovery-page .coaches-hero h1 {
+  max-width: 720px;
+  font-size: clamp(38px, 5.1vw, 62px);
+  line-height: 1;
+}
+
+.events-page.discovery-page .events-hero-copy p:last-of-type,
+.clubs-page.discovery-page .clubs-hero-copy p:last-of-type,
+.coaches-page.discovery-page .coaches-hero-copy p:last-of-type {
+  max-width: 650px;
+  font-size: 17px;
+}
+
+.discovery-hero-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.discovery-hero-metrics span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(8, 13, 20, 0.5);
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.discovery-hero-metrics strong {
+  color: var(--gold-strong);
+}
+
+.events-page.discovery-page .events-hero-panel,
+.clubs-page.discovery-page .clubs-hero-panel,
+.coaches-page.discovery-page .coaches-hero-panel {
+  position: relative;
+  z-index: 1;
+  min-height: 360px;
+  padding: 20px;
+  border-color: rgba(239, 197, 101, 0.28);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.026)),
+    rgba(8, 13, 20, 0.68);
+  box-shadow:
+    0 26px 64px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.australia-map-preview {
+  min-height: 250px;
+}
+
+.event-feature-strip {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  border: 1px solid rgba(239, 197, 101, 0.18);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(215, 169, 77, 0.12), transparent 56%),
+    rgba(8, 13, 20, 0.46);
+  padding: 14px;
+}
+
+.event-feature-strip h2 {
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.event-feature-strip p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.club-network-preview {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(215, 169, 77, 0.1), transparent 42%),
+    linear-gradient(315deg, rgba(74, 163, 255, 0.12), transparent 48%),
+    rgba(8, 13, 20, 0.5);
+}
+
+.club-network-preview::before {
+  position: absolute;
+  inset: 18px 20px 22px;
+  border: 1px solid rgba(239, 197, 101, 0.18);
+  border-radius: 42% 58% 46% 48% / 34% 38% 58% 54%;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(215, 169, 77, 0.16), transparent 20%),
+    radial-gradient(circle at 76% 76%, rgba(74, 163, 255, 0.12), transparent 18%),
+    linear-gradient(145deg, rgba(215, 169, 77, 0.1), rgba(22, 163, 148, 0.05));
+  clip-path: polygon(
+    12% 34%,
+    23% 18%,
+    44% 14%,
+    59% 22%,
+    76% 20%,
+    91% 34%,
+    86% 50%,
+    76% 58%,
+    72% 76%,
+    59% 82%,
+    45% 74%,
+    31% 79%,
+    18% 68%,
+    8% 54%
+  );
+  content: '';
+  transform: rotate(2deg);
+}
+
+.club-node {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid rgba(239, 197, 101, 0.28);
+  border-radius: 999px;
+  color: var(--gold-strong);
+  background: rgba(6, 10, 16, 0.72);
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.node-wa {
+  left: 14%;
+  top: 48%;
+}
+
+.node-qld {
+  right: 12%;
+  top: 26%;
+}
+
+.node-nsw {
+  right: 15%;
+  bottom: 31%;
+}
+
+.node-vic {
+  right: 22%;
+  bottom: 16%;
+}
+
+.club-preview-list,
+.coach-preview-calendar {
+  display: grid;
+  gap: 8px;
+}
+
+.club-preview-list span,
+.coach-preview-calendar span {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  color: var(--muted);
+  background: rgba(8, 13, 20, 0.34);
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.club-preview-list strong,
+.coach-preview-calendar strong {
+  color: var(--text-strong);
+}
+
+.coach-market-preview {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(215, 169, 77, 0.12), transparent 52%),
+    rgba(8, 13, 20, 0.45);
+  padding: 18px;
+}
+
+.coach-market-preview h2 {
+  font-size: 28px;
+  line-height: 1.05;
+}
+
+.coach-market-preview p {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.events-page.discovery-page .events-filter-section,
+.clubs-page.discovery-page .clubs-filter-section,
+.coaches-page.discovery-page .coaches-filter-section {
+  margin-top: 20px;
+  border-color: rgba(148, 163, 184, 0.14);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.016)),
+    rgba(7, 12, 19, 0.62);
+}
+
+.events-page.discovery-page .events-grid,
+.clubs-page.discovery-page .clubs-grid,
+.coaches-page.discovery-page .coaches-grid {
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.events-page.discovery-page .event-card,
+.clubs-page.discovery-page .club-card,
+.coaches-page.discovery-page .coach-card {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(148, 163, 184, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018)),
+    rgba(7, 12, 19, 0.74);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.events-page.discovery-page .event-card::before,
+.clubs-page.discovery-page .club-card::before,
+.coaches-page.discovery-page .coach-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-strong), rgba(74, 163, 255, 0.7), transparent);
+  content: '';
+}
+
+.events-page.discovery-page .event-card:hover,
+.clubs-page.discovery-page .club-card:hover,
+.coaches-page.discovery-page .coach-card:hover {
+  border-color: rgba(239, 197, 101, 0.34);
+  box-shadow:
+    0 26px 64px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(215, 169, 77, 0.08);
+}
+
+.events-page.discovery-page .event-detail-preview {
+  margin-top: 28px;
+  border-color: rgba(148, 163, 184, 0.14);
+  background:
+    linear-gradient(135deg, rgba(215, 169, 77, 0.09), rgba(74, 163, 255, 0.06)),
+    rgba(7, 12, 19, 0.7);
+}
+
+/* Discovery pages visual correction: full-bleed, denser, less boxed-in. */
+.events-page.discovery-page,
+.clubs-page.discovery-page,
+.coaches-page.discovery-page {
+  width: 100%;
+  margin: 0;
+  padding: 34px max(18px, calc((100vw - 1180px) / 2)) 76px;
+  background:
+    radial-gradient(circle at 12% 2%, rgba(215, 169, 77, 0.14), transparent 21rem),
+    radial-gradient(circle at 92% 10%, rgba(37, 99, 235, 0.14), transparent 24rem),
+    linear-gradient(180deg, rgba(8, 11, 15, 0.98) 0%, #070a0f 54%, #05070b 100%);
+}
+
+.events-page.discovery-page::before,
+.clubs-page.discovery-page::before,
+.coaches-page.discovery-page::before {
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 68%);
+}
+
+.events-page.discovery-page::after,
+.clubs-page.discovery-page::after,
+.coaches-page.discovery-page::after {
+  display: none;
+}
+
+.events-page.discovery-page .events-hero,
+.clubs-page.discovery-page .clubs-hero,
+.coaches-page.discovery-page .coaches-hero {
+  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 430px);
+  gap: clamp(22px, 3.4vw, 38px);
+  padding: clamp(24px, 3.2vw, 34px);
+  border-color: rgba(239, 197, 101, 0.18);
+  background:
+    radial-gradient(circle at 16% 18%, rgba(215, 169, 77, 0.13), transparent 16rem),
+    radial-gradient(circle at 86% 16%, rgba(20, 184, 166, 0.1), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.014)),
+    rgba(8, 13, 20, 0.72);
+}
+
+.events-page.discovery-page .events-hero::before,
+.clubs-page.discovery-page .clubs-hero::before,
+.coaches-page.discovery-page .coaches-hero::before {
+  height: 100%;
+  background:
+    linear-gradient(90deg, rgba(215, 169, 77, 0.08), transparent 34%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.026) 0 1px, transparent 1px 96px);
+  opacity: 0.6;
+}
+
+.events-page.discovery-page .events-hero h1,
+.clubs-page.discovery-page .clubs-hero h1,
+.coaches-page.discovery-page .coaches-hero h1 {
+  max-width: 660px;
+  font-size: clamp(36px, 4.35vw, 58px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.events-page.discovery-page .events-hero-copy,
+.clubs-page.discovery-page .clubs-hero-copy,
+.coaches-page.discovery-page .coaches-hero-copy {
+  align-content: center;
+  gap: 14px;
+}
+
+.events-page.discovery-page .events-hero-copy p:last-of-type,
+.clubs-page.discovery-page .clubs-hero-copy p:last-of-type,
+.coaches-page.discovery-page .coaches-hero-copy p:last-of-type {
+  max-width: 610px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.events-page.discovery-page .events-hero-panel,
+.clubs-page.discovery-page .clubs-hero-panel,
+.coaches-page.discovery-page .coaches-hero-panel {
+  min-height: 0;
+  padding: 18px;
+  border-color: rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.018)),
+    rgba(7, 12, 19, 0.82);
+}
+
+.discovery-hero-metrics {
+  gap: 8px;
+}
+
+.discovery-hero-metrics span {
+  min-height: 36px;
+  padding: 7px 11px;
+}
+
+.australia-map-preview {
+  min-height: 220px;
+  background:
+    radial-gradient(circle at 74% 30%, rgba(215, 169, 77, 0.16), transparent 5rem),
+    radial-gradient(circle at 28% 68%, rgba(74, 163, 255, 0.12), transparent 6rem),
+    rgba(7, 11, 17, 0.62);
+}
+
+.australia-map-preview::before {
+  inset: 14% 14% 10% 13%;
+  opacity: 0.66;
+}
+
+.events-page.discovery-page .events-hero-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.events-page.discovery-page .events-hero-stats span,
+.coach-signal-row span {
+  min-width: 0;
+  padding: 10px;
+}
+
+.events-page.discovery-page .events-hero-stats strong {
+  font-size: 18px;
+}
+
+.events-page.discovery-page .events-filter-section,
+.clubs-page.discovery-page .clubs-filter-section,
+.coaches-page.discovery-page .coaches-filter-section {
+  grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 16px 22px;
+  padding: 18px 20px;
+}
+
+.clubs-page.discovery-page .clubs-filter-section,
+.coaches-page.discovery-page .coaches-filter-section {
+  grid-template-columns: minmax(220px, 0.55fr) minmax(260px, 0.8fr) minmax(0, 1fr);
+}
+
+.events-page.discovery-page .section-kicker,
+.clubs-page.discovery-page .section-kicker,
+.coaches-page.discovery-page .section-kicker {
+  gap: 6px;
+}
+
+.events-page.discovery-page .section-kicker h2,
+.clubs-page.discovery-page .section-kicker h2,
+.coaches-page.discovery-page .section-kicker h2 {
+  font-size: clamp(22px, 2.5vw, 30px);
+}
+
+.events-page.discovery-page .events-filter-group,
+.clubs-page.discovery-page .events-filter-group,
+.coaches-page.discovery-page .events-filter-group {
+  align-content: center;
+}
+
+.events-page.discovery-page .events-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.clubs-page.discovery-page .clubs-grid,
+.coaches-page.discovery-page .coaches-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.events-page.discovery-page .event-card,
+.clubs-page.discovery-page .club-card,
+.coaches-page.discovery-page .coach-card {
+  gap: 14px;
+  padding: 20px;
+}
+
+.events-page.discovery-page .event-card-main h2,
+.clubs-page.discovery-page .club-card-main h2,
+.coaches-page.discovery-page .coach-card-main h2 {
+  font-size: clamp(21px, 2vw, 25px);
+}
+
+.events-page.discovery-page .event-detail-preview {
+  padding: 24px;
+}
+
+.events-page.discovery-page .event-detail-preview h2 {
+  font-size: clamp(26px, 3.5vw, 40px);
+}
+
+.events-page.discovery-page .event-preview-card {
+  min-height: 112px;
+}
+
 .submit-event-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
@@ -3537,6 +4088,159 @@ h3 {
   border-color: rgba(88, 63, 34, 0.18);
   color: var(--bronze);
   background: rgba(255, 250, 241, 0.82);
+}
+
+:root[data-theme='light'] .discovery-page {
+  --text: #3d3328;
+  --text-strong: #17110b;
+  --muted: #766a5c;
+  --panel-bg: rgba(255, 250, 241, 0.86);
+  --surface-strong: #fff7ea;
+  --line: rgba(88, 63, 34, 0.16);
+}
+
+:root[data-theme='light'] .events-page.discovery-page,
+:root[data-theme='light'] .clubs-page.discovery-page,
+:root[data-theme='light'] .coaches-page.discovery-page {
+  background:
+    radial-gradient(circle at 12% 2%, rgba(183, 121, 31, 0.14), transparent 21rem),
+    radial-gradient(circle at 92% 10%, rgba(37, 99, 235, 0.08), transparent 24rem),
+    linear-gradient(180deg, #fffaf1 0%, #f6eddf 56%, #f1e6d5 100%);
+}
+
+:root[data-theme='light'] .events-page.discovery-page::before,
+:root[data-theme='light'] .clubs-page.discovery-page::before,
+:root[data-theme='light'] .coaches-page.discovery-page::before {
+  background:
+    linear-gradient(rgba(88, 63, 34, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 63, 34, 0.045) 1px, transparent 1px);
+}
+
+:root[data-theme='light'] .events-page.discovery-page .events-hero,
+:root[data-theme='light'] .clubs-page.discovery-page .clubs-hero,
+:root[data-theme='light'] .coaches-page.discovery-page .coaches-hero {
+  border-color: rgba(88, 63, 34, 0.16);
+  background:
+    radial-gradient(circle at 16% 18%, rgba(183, 121, 31, 0.12), transparent 16rem),
+    radial-gradient(circle at 86% 16%, rgba(20, 120, 111, 0.08), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 250, 241, 0.92)),
+    rgba(255, 250, 241, 0.86);
+  box-shadow:
+    0 24px 64px rgba(88, 63, 34, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+:root[data-theme='light'] .events-page.discovery-page .events-hero::before,
+:root[data-theme='light'] .clubs-page.discovery-page .clubs-hero::before,
+:root[data-theme='light'] .coaches-page.discovery-page .coaches-hero::before {
+  background:
+    linear-gradient(90deg, rgba(183, 121, 31, 0.08), transparent 34%),
+    repeating-linear-gradient(90deg, rgba(88, 63, 34, 0.035) 0 1px, transparent 1px 96px);
+}
+
+:root[data-theme='light'] .events-page.discovery-page .events-hero-panel,
+:root[data-theme='light'] .clubs-page.discovery-page .clubs-hero-panel,
+:root[data-theme='light'] .coaches-page.discovery-page .coaches-hero-panel,
+:root[data-theme='light'] .events-page.discovery-page .events-filter-section,
+:root[data-theme='light'] .clubs-page.discovery-page .clubs-filter-section,
+:root[data-theme='light'] .coaches-page.discovery-page .coaches-filter-section,
+:root[data-theme='light'] .events-page.discovery-page .event-card,
+:root[data-theme='light'] .clubs-page.discovery-page .club-card,
+:root[data-theme='light'] .coaches-page.discovery-page .coach-card,
+:root[data-theme='light'] .events-page.discovery-page .event-detail-preview,
+:root[data-theme='light'] .discovery-page .event-preview-card {
+  border-color: rgba(88, 63, 34, 0.15);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(255, 250, 241, 0.68)),
+    rgba(255, 250, 241, 0.78);
+  box-shadow:
+    0 16px 38px rgba(88, 63, 34, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme='light'] .events-page.discovery-page .event-card:hover,
+:root[data-theme='light'] .clubs-page.discovery-page .club-card:hover,
+:root[data-theme='light'] .coaches-page.discovery-page .coach-card:hover {
+  border-color: rgba(183, 121, 31, 0.28);
+  box-shadow:
+    0 22px 48px rgba(88, 63, 34, 0.16),
+    0 0 28px rgba(183, 121, 31, 0.08);
+}
+
+:root[data-theme='light'] .discovery-page .events-map-preview,
+:root[data-theme='light'] .discovery-page .club-network-preview,
+:root[data-theme='light'] .discovery-page .coach-market-preview,
+:root[data-theme='light'] .discovery-page .event-feature-strip {
+  border-color: rgba(88, 63, 34, 0.14);
+  background:
+    radial-gradient(circle at 76% 28%, rgba(183, 121, 31, 0.15), transparent 5rem),
+    radial-gradient(circle at 24% 56%, rgba(37, 99, 235, 0.08), transparent 6rem),
+    rgba(255, 255, 255, 0.46);
+}
+
+:root[data-theme='light'] .discovery-page .events-map-preview::before,
+:root[data-theme='light'] .discovery-page .club-network-preview::before {
+  border-color: rgba(183, 121, 31, 0.28);
+  background:
+    radial-gradient(circle at 82% 18%, rgba(183, 121, 31, 0.2), transparent 20%),
+    radial-gradient(circle at 76% 76%, rgba(37, 99, 235, 0.1), transparent 18%),
+    linear-gradient(145deg, rgba(183, 121, 31, 0.14), rgba(20, 120, 111, 0.06));
+}
+
+:root[data-theme='light'] .discovery-page .map-pin,
+:root[data-theme='light'] .discovery-page .club-node,
+:root[data-theme='light'] .discovery-page .event-tag-row span,
+:root[data-theme='light'] .discovery-page .discovery-hero-metrics span,
+:root[data-theme='light'] .discovery-page .events-hero-stats span,
+:root[data-theme='light'] .discovery-page .coach-signal-row span,
+:root[data-theme='light'] .discovery-page .club-preview-list span,
+:root[data-theme='light'] .discovery-page .coach-preview-calendar span,
+:root[data-theme='light'] .discovery-page .event-chip {
+  border-color: rgba(88, 63, 34, 0.14);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.54);
+}
+
+:root[data-theme='light'] .discovery-page .map-pin,
+:root[data-theme='light'] .discovery-page .club-node,
+:root[data-theme='light'] .discovery-page .discovery-hero-metrics strong,
+:root[data-theme='light'] .discovery-page .events-hero-stats strong {
+  color: var(--bronze);
+}
+
+:root[data-theme='light'] .discovery-page .club-search-field input,
+:root[data-theme='light'] .discovery-page .club-logo-mark,
+:root[data-theme='light'] .discovery-page .club-logo-placeholder,
+:root[data-theme='light'] .discovery-page .coach-avatar {
+  border-color: rgba(88, 63, 34, 0.18);
+  color: var(--bronze);
+  background:
+    radial-gradient(circle at 30% 24%, rgba(183, 121, 31, 0.17), transparent 3rem),
+    rgba(255, 250, 241, 0.82);
+}
+
+:root[data-theme='light'] .discovery-page .event-filter-pill {
+  border-color: rgba(88, 63, 34, 0.18);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+:root[data-theme='light'] .discovery-page .event-filter-pill:hover:not(:disabled),
+:root[data-theme='light'] .discovery-page .event-filter-pill.active {
+  color: #17110b;
+  background: linear-gradient(135deg, var(--gold-strong), var(--bronze));
+}
+
+:root[data-theme='light'] .discovery-page .event-filter-soft.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #168f83, #0d7c75);
+}
+
+:root[data-theme='light'] .discovery-page .secondary-button,
+:root[data-theme='light'] .discovery-page .club-card-link {
+  color: var(--text-strong);
+  background: rgba(255, 250, 241, 0.86);
+  border-color: rgba(88, 63, 34, 0.18);
 }
 
 .platform-feature-card {
@@ -4803,6 +5507,94 @@ h3 {
 
   .clock-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .events-page.discovery-page .events-hero,
+  .clubs-page.discovery-page .clubs-hero,
+  .coaches-page.discovery-page .coaches-hero {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .events-page.discovery-page,
+  .clubs-page.discovery-page,
+  .coaches-page.discovery-page {
+    padding-inline: 14px;
+  }
+
+  .events-page.discovery-page .events-hero h1,
+  .clubs-page.discovery-page .clubs-hero h1,
+  .coaches-page.discovery-page .coaches-hero h1 {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+
+  .events-page.discovery-page .events-hero-panel,
+  .clubs-page.discovery-page .clubs-hero-panel,
+  .coaches-page.discovery-page .coaches-hero-panel {
+    min-height: 0;
+  }
+
+  .events-page.discovery-page .events-filter-section,
+  .clubs-page.discovery-page .clubs-filter-section,
+  .coaches-page.discovery-page .coaches-filter-section {
+    grid-template-columns: 1fr;
+  }
+
+  .events-page.discovery-page .events-grid,
+  .clubs-page.discovery-page .clubs-grid,
+  .coaches-page.discovery-page .coaches-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .events-page.discovery-page,
+  .clubs-page.discovery-page,
+  .coaches-page.discovery-page {
+    padding-inline: 10px;
+    padding-top: 24px;
+  }
+
+  .events-page.discovery-page .events-hero,
+  .clubs-page.discovery-page .clubs-hero,
+  .coaches-page.discovery-page .coaches-hero {
+    padding: 18px;
+  }
+
+  .discovery-hero-metrics,
+  .submit-event-actions {
+    width: 100%;
+  }
+
+  .discovery-hero-metrics span {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .australia-map-preview,
+  .club-network-preview {
+    min-height: 190px;
+  }
+
+  .events-page.discovery-page .events-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .event-feature-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-market-preview,
+  .club-preview-list span,
+  .coach-preview-calendar span {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-market-preview {
+    align-items: start;
   }
 }
 

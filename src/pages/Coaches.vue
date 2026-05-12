@@ -68,7 +68,7 @@ const filteredCoaches = computed(() => {
 </script>
 
 <template>
-  <main class="coaches-page">
+  <main class="coaches-page discovery-page">
     <section class="coaches-hero" aria-labelledby="coaches-title">
       <div class="coaches-hero-copy">
         <p class="eyebrow">Chess coaching discovery</p>
@@ -77,12 +77,33 @@ const filteredCoaches = computed(() => {
           Browse junior coaches, online trainers, tournament preparation specialists, and club
           mentors across the Australian chess community.
         </p>
+        <div class="discovery-hero-metrics" aria-label="Coach directory highlights">
+          <span><strong>Junior</strong> pathways</span>
+          <span><strong>Online</strong> lessons</span>
+          <span><strong>Prep</strong> plans</span>
+        </div>
       </div>
 
       <aside class="coaches-hero-panel" aria-label="Coaching marketplace preview">
-        <span class="coming-soon-badge">Directory preview</span>
-        <h2>Coaching profiles built for trust</h2>
-        <p>Specialties, formats, availability, testimonials, and future booking tools in one place.</p>
+        <div class="preview-card-heading">
+          <p class="panel-label">Coach profile preview</p>
+          <span class="status-badge badge-live">Booking ready</span>
+        </div>
+
+        <div class="coach-market-preview">
+          <div class="coach-avatar coach-avatar-large" aria-hidden="true">EM</div>
+          <div>
+            <h2>Elena Morris</h2>
+            <p>Junior development / tournament confidence / online lessons</p>
+          </div>
+        </div>
+
+        <div class="coach-preview-calendar">
+          <span><strong>Mon</strong> Junior squad</span>
+          <span><strong>Wed</strong> Online lessons</span>
+          <span><strong>Sat</strong> Tournament prep</span>
+        </div>
+
         <div class="coach-signal-row">
           <span>Junior</span>
           <span>Online</span>

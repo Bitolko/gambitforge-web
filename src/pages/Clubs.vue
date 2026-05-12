@@ -66,7 +66,7 @@ const filteredClubs = computed(() => {
 </script>
 
 <template>
-  <main class="clubs-page">
+  <main class="clubs-page discovery-page">
     <section class="clubs-hero" aria-labelledby="clubs-title">
       <div class="clubs-hero-copy">
         <p class="eyebrow">Australian chess clubs</p>
@@ -75,13 +75,31 @@ const filteredClubs = computed(() => {
           Discover local clubs, junior academies, school programs, coaching hubs, and community
           chess groups building the next generation of Australian chess.
         </p>
+        <div class="discovery-hero-metrics" aria-label="Club directory highlights">
+          <span><strong>Clubs</strong> profiles</span>
+          <span><strong>Coaching</strong> programs</span>
+          <span><strong>Events</strong> connected</span>
+        </div>
       </div>
 
       <aside class="clubs-hero-panel" aria-label="Club directory preview">
-        <div class="club-logo-mark" aria-hidden="true">GF</div>
-        <p class="panel-label">Directory preview</p>
-        <h2>Club profiles for real chess communities</h2>
-        <p>Locations, coaching, upcoming events, contacts, and future member tools in one place.</p>
+        <div class="preview-card-heading">
+          <p class="panel-label">Club command center</p>
+          <span class="status-badge badge-active">Directory</span>
+        </div>
+
+        <div class="club-network-preview">
+          <div class="club-node node-nsw">NSW</div>
+          <div class="club-node node-vic">VIC</div>
+          <div class="club-node node-wa">WA</div>
+          <div class="club-node node-qld">QLD</div>
+        </div>
+
+        <div class="club-preview-list">
+          <span><strong>Sydney Academy</strong> Junior squads</span>
+          <span><strong>Melbourne Club</strong> Rated nights</span>
+          <span><strong>Gold Coast</strong> Coaching hub</span>
+        </div>
       </aside>
     </section>
 

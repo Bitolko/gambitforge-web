@@ -79,7 +79,7 @@ const previewItems = [
 </script>
 
 <template>
-  <main class="events-page">
+  <main class="events-page discovery-page">
     <section class="events-hero" aria-labelledby="events-title">
       <div class="events-hero-copy">
         <p class="eyebrow">Australian chess events</p>
@@ -88,24 +88,39 @@ const previewItems = [
           Find tournaments, club events, coaching programs, junior competitions, and chess
           activities across Australia.
         </p>
+        <div class="discovery-hero-metrics" aria-label="Event discovery highlights">
+          <span><strong>24</strong> listed events</span>
+          <span><strong>7</strong> states</span>
+          <span><strong>Live</strong> tools preview</span>
+        </div>
         <RouterLink class="hero-primary events-submit-button" to="/submit-event">Submit Event</RouterLink>
       </div>
 
       <aside class="events-hero-panel" aria-label="Events discovery preview">
         <div class="preview-card-heading">
-          <p class="panel-label">This week</p>
+          <p class="panel-label">National event radar</p>
           <span class="status-badge badge-live">Australia</span>
         </div>
-        <div class="events-map-preview" aria-hidden="true">
-          <span class="map-pin pin-nsw">NSW</span>
-          <span class="map-pin pin-vic">VIC</span>
+
+        <div class="events-map-preview australia-map-preview" aria-label="Australian event map preview">
           <span class="map-pin pin-wa">WA</span>
           <span class="map-pin pin-qld">QLD</span>
+          <span class="map-pin pin-nsw">NSW</span>
+          <span class="map-pin pin-vic">VIC</span>
         </div>
+
+        <div class="event-feature-strip">
+          <span class="coming-soon-badge">Featured</span>
+          <div>
+            <h2>Sydney Junior Open</h2>
+            <p>Rapid 15+10 / Parramatta, NSW / Junior competition</p>
+          </div>
+        </div>
+
         <div class="events-hero-stats">
-          <span><strong>24</strong> events</span>
-          <span><strong>7</strong> states</span>
-          <span><strong>5</strong> formats</span>
+          <span><strong>Pairings</strong> future</span>
+          <span><strong>Standings</strong> future</span>
+          <span><strong>Results</strong> future</span>
         </div>
       </aside>
     </section>
