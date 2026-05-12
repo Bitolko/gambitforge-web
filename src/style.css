@@ -2279,6 +2279,14 @@ h3 {
   overflow-x: clip;
 }
 
+.event-detail-page {
+  position: relative;
+  width: min(100% - 32px, 1180px);
+  margin: 14px auto 0;
+  padding: 42px 0 72px;
+  overflow-x: clip;
+}
+
 .events-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(300px, 440px);
@@ -2313,6 +2321,14 @@ h3 {
 .events-hero-panel,
 .event-card,
 .event-detail-preview,
+.event-detail-hero,
+.event-registration-panel,
+.event-info-section,
+.event-info-card,
+.event-tools-preview,
+.event-tool-card,
+.event-venue-section,
+.event-map-card,
 .events-filter-section,
 .event-preview-card {
   border: 1px solid rgba(215, 169, 77, 0.22);
@@ -2531,8 +2547,23 @@ h3 {
   margin-top: auto;
 }
 
-.event-card-actions button {
+.event-card-actions button,
+.event-card-actions .secondary-button {
   flex: 1 1 130px;
+}
+
+.event-card-actions .secondary-button,
+.related-events-section .secondary-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 11px 16px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
 .event-detail-preview {
@@ -2571,6 +2602,220 @@ h3 {
   overflow-wrap: anywhere;
 }
 
+.event-detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 390px);
+  gap: clamp(24px, 4vw, 42px);
+  align-items: stretch;
+  padding: clamp(24px, 4vw, 38px);
+}
+
+.event-detail-hero-copy,
+.event-registration-panel,
+.event-info-section,
+.event-tools-preview,
+.related-events-section {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.back-link {
+  width: fit-content;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.back-link::before {
+  content: '< ';
+}
+
+.event-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.event-chip {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 999px;
+  color: var(--text-strong);
+  background: rgba(8, 13, 20, 0.32);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.event-detail-hero h1 {
+  max-width: 820px;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.event-hero-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.event-hero-meta div {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  background: rgba(8, 13, 20, 0.28);
+  padding: 12px;
+}
+
+.event-hero-meta dt,
+.event-info-card span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.event-hero-meta dd {
+  margin: 0;
+  color: var(--text-strong);
+  font-weight: 850;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.event-registration-panel {
+  align-content: center;
+  padding: 24px;
+}
+
+.event-registration-panel h2,
+.event-venue-copy h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.08;
+}
+
+.event-registration-panel p,
+.event-tool-card p,
+.event-venue-copy p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.event-registration-panel button {
+  width: 100%;
+}
+
+.event-info-section,
+.event-tools-preview,
+.event-venue-section {
+  margin-top: 28px;
+  padding: 28px;
+}
+
+.event-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.event-info-card,
+.event-tool-card {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 18px;
+}
+
+.event-info-card p,
+.event-info-card li {
+  color: var(--text-strong);
+  font-weight: 750;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.event-info-list ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.event-tools-preview h2,
+.related-events-section h2 {
+  max-width: 780px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.08;
+}
+
+.event-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.event-tool-card {
+  min-height: 170px;
+  align-content: start;
+}
+
+.event-tool-card h3 {
+  overflow-wrap: anywhere;
+}
+
+.event-venue-section {
+  grid-template-columns: minmax(280px, 440px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(22px, 4vw, 42px);
+}
+
+.event-map-card {
+  position: relative;
+  min-height: 310px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 68% 32%, rgba(215, 169, 77, 0.24), transparent 5rem),
+    radial-gradient(circle at 36% 72%, rgba(22, 163, 148, 0.16), transparent 6rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.012)),
+    rgba(8, 13, 20, 0.42);
+}
+
+.event-map-card::before {
+  position: absolute;
+  inset: 18%;
+  border: 1px solid rgba(239, 197, 101, 0.18);
+  border-radius: 48% 40% 46% 36%;
+  background: rgba(215, 169, 77, 0.06);
+  content: '';
+  transform: rotate(10deg);
+}
+
+.event-venue-copy {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.related-events-section {
+  margin-top: 42px;
+}
+
+.related-events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
 :root[data-theme='light'] .faq-card,
 :root[data-theme='light'] .about-story-card,
 :root[data-theme='light'] .contact-form-panel,
@@ -2578,6 +2823,14 @@ h3 {
 :root[data-theme='light'] .events-hero-panel,
 :root[data-theme='light'] .event-card,
 :root[data-theme='light'] .event-detail-preview,
+:root[data-theme='light'] .event-detail-hero,
+:root[data-theme='light'] .event-registration-panel,
+:root[data-theme='light'] .event-info-section,
+:root[data-theme='light'] .event-info-card,
+:root[data-theme='light'] .event-tools-preview,
+:root[data-theme='light'] .event-tool-card,
+:root[data-theme='light'] .event-venue-section,
+:root[data-theme='light'] .event-map-card,
 :root[data-theme='light'] .events-filter-section,
 :root[data-theme='light'] .event-preview-card {
   border-color: rgba(88, 63, 34, 0.16);
@@ -3450,8 +3703,13 @@ h3 {
   .contact-layout,
   .about-section-grid,
   .events-hero,
+  .event-detail-hero,
+  .event-venue-section,
   .events-grid,
-  .event-preview-grid {
+  .event-preview-grid,
+  .event-tools-grid,
+  .event-info-grid,
+  .related-events-grid {
     grid-template-columns: 1fr;
   }
 
@@ -3551,8 +3809,21 @@ h3 {
     padding-top: 34px;
   }
 
+  .event-detail-page {
+    width: min(100% - 28px, 1180px);
+    padding-top: 34px;
+  }
+
   .events-hero h1 {
     font-size: clamp(36px, 10.5vw, 52px);
+  }
+
+  .event-detail-hero h1 {
+    font-size: clamp(34px, 10vw, 52px);
+  }
+
+  .event-hero-meta {
+    grid-template-columns: 1fr;
   }
 
   .events-hero-copy p:last-of-type {
@@ -3560,13 +3831,19 @@ h3 {
   }
 
   .events-submit-button,
-  .event-card-actions button {
+  .event-card-actions button,
+  .event-card-actions .secondary-button {
     width: 100%;
   }
 
   .events-hero-panel,
   .events-filter-section,
-  .event-detail-preview {
+  .event-detail-preview,
+  .event-detail-hero,
+  .event-registration-panel,
+  .event-info-section,
+  .event-tools-preview,
+  .event-venue-section {
     padding: 22px;
   }
 
@@ -3603,6 +3880,7 @@ h3 {
   .not-found-page,
   .home-page,
   .events-page,
+  .event-detail-page,
   .contact-page,
   .about-page,
   .faq-page {
@@ -3655,11 +3933,20 @@ h3 {
   .events-filter-section,
   .event-card,
   .event-detail-preview,
-  .event-preview-card {
+  .event-preview-card,
+  .event-detail-hero,
+  .event-registration-panel,
+  .event-info-section,
+  .event-info-card,
+  .event-tools-preview,
+  .event-tool-card,
+  .event-venue-section,
+  .event-map-card {
     padding: 18px;
   }
 
-  .events-map-preview {
+  .events-map-preview,
+  .event-map-card {
     min-height: 220px;
   }
 

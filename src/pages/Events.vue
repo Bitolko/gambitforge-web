@@ -10,6 +10,7 @@ const activeCategory = ref('Junior')
 const events = [
   {
     title: 'Sydney Junior Open',
+    slug: 'sydney-junior-open',
     date: 'Saturday, 15 June 2026',
     location: 'Sydney, NSW',
     state: 'NSW',
@@ -19,6 +20,7 @@ const events = [
   },
   {
     title: 'Melbourne Rapid Championship',
+    slug: 'melbourne-rapid-championship',
     date: 'Sunday, 23 June 2026',
     location: 'Melbourne, VIC',
     state: 'VIC',
@@ -28,6 +30,7 @@ const events = [
   },
   {
     title: 'Perth Blitz Arena',
+    slug: 'perth-blitz-arena',
     date: 'Friday, 5 July 2026',
     location: 'Perth, WA',
     state: 'WA',
@@ -37,6 +40,7 @@ const events = [
   },
   {
     title: 'Gold Coast Open',
+    slug: 'gold-coast-open',
     date: 'Saturday, 13 July 2026',
     location: 'Gold Coast, QLD',
     state: 'QLD',
@@ -46,6 +50,7 @@ const events = [
   },
   {
     title: 'NSW Scholastic Teams',
+    slug: 'nsw-scholastic-teams',
     date: 'Tuesday, 30 July 2026',
     location: 'Parramatta, NSW',
     state: 'NSW',
@@ -168,7 +173,9 @@ const previewItems = [
 
         <div class="event-card-actions">
           <button class="hero-primary" type="button" disabled>Register</button>
-          <button class="secondary-button" type="button" disabled>View Details</button>
+          <RouterLink class="secondary-button" :to="{ name: 'event-detail', params: { slug: event.slug } }">
+            View Details
+          </RouterLink>
         </div>
       </article>
     </section>
