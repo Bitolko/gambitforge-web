@@ -33,7 +33,7 @@ const companyLinks = [
       <section class="footer-brand" aria-label="GambitForge">
         <RouterLink class="footer-brand-link" to="/">
           <span class="footer-logo">
-            <img src="/gambitforge-logo-web.png" alt="" width="40" height="40" />
+            <img src="/gambitforge-logo-ui.webp" alt="" width="40" height="40" loading="lazy" decoding="async" />
           </span>
           <span>GambitForge</span>
         </RouterLink>

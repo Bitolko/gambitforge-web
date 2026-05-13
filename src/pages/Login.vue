@@ -36,7 +36,7 @@ async function submit() {
       <div class="auth-panel">
         <RouterLink class="auth-brand" to="/">
           <span class="auth-brand-logo">
-            <img src="/gambitforge-logo-web.png" alt="GambitForge logo" width="40" height="40" />
+            <img src="/gambitforge-logo-ui.webp" alt="GambitForge logo" width="40" height="40" />
           </span>
           <span>GambitForge</span>
         </RouterLink>

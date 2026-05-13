@@ -367,7 +367,7 @@ onBeforeUnmount(() => {
             <article v-for="pairing in round.pairings" :key="pairing.id" class="pairing-row">
               <div class="pairing-main">
                 <span class="tournament-mark" aria-hidden="true">
-                  <img src="/gambitforge-logo-web.png" alt="" />
+                  <img src="/gambitforge-logo-ui.webp" alt="" loading="lazy" decoding="async" />
                 </span>
                 <div class="pairing-copy">
                   <p class="panel-label">

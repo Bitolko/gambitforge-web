@@ -198,7 +198,7 @@ const previewModules = [
         </div>
 
         <div class="events-map-preview australia-map-preview" aria-label="Australian chess event radar preview">
-          <img class="australia-radar-asset" :src="australiaRadarUrl" alt="" width="920" height="620" />
+          <img class="australia-radar-asset" :src="australiaRadarUrl" alt="" width="920" height="620" decoding="async" />
           <span
             v-for="marker in radarMarkers"
             :key="marker.state"

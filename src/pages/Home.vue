@@ -8,7 +8,7 @@ const productCards = [
     description: 'Create invite links, join boards, play legal moves, track clocks, and continue games in one focused space.',
     badge: 'Live',
     meta: ['10:00', '09:42', '24 moves'],
-    icon: '/home-icons/chessboard-premium.png',
+    icon: '/home-icons/chessboard-premium.webp',
   },
   {
     label: 'Events',
@@ -16,7 +16,7 @@ const productCards = [
     description: 'Create tournaments, register players, generate rounds, enter results, and keep standings moving.',
     badge: 'Active',
     meta: ['Round 3', '16 players', '4 boards'],
-    icon: '/home-icons/trophy-premium.png',
+    icon: '/home-icons/trophy-premium.webp',
   },
   {
     label: 'Training',
@@ -24,7 +24,7 @@ const productCards = [
     description: 'Prepare student plans, review games, assign training work, and keep progress visible as the platform grows.',
     badge: 'Coming Soon',
     meta: ['82% tactics', '3 reviews', '5 tasks'],
-    icon: '/home-icons/graduation-cap-premium.png',
+    icon: '/home-icons/graduation-cap-premium.webp',
   },
 ]
 
@@ -33,19 +33,19 @@ const reasons = [
     icon: 'events',
     title: 'Designed for real chess events',
     description: 'Built around club nights, school tournaments, coaching academies, and the operational work behind them.',
-    image: '/home-icons/community-premium.png',
+    image: '/home-icons/community-premium.webp',
   },
   {
     icon: 'flow',
     title: 'Simple tournament flow',
     description: 'Start with registration, generate pairings, record results, and move from round to round without spreadsheet friction.',
-    image: '/home-icons/trophy-premium.png',
+    image: '/home-icons/trophy-premium.webp',
   },
   {
     icon: 'growth',
     title: 'Ready for growth',
     description: 'A clean foundation for calendars, content, admin tools, coaching workflows, and richer player histories.',
-    image: '/home-icons/growth-premium.png',
+    image: '/home-icons/growth-premium.webp',
   },
 ]
 
@@ -93,7 +93,7 @@ const userTypes = [
         <div class="hero-dashboard-card">
           <div class="hero-dashboard-topbar">
             <span class="mockup-brand">
-              <img src="/gambitforge-logo-web.png" alt="" width="28" height="28" />
+              <img src="/gambitforge-logo-ui.webp" alt="" width="28" height="28" />
               GambitForge
             </span>
             <span class="hero-concept-badge">Live preview</span>
@@ -172,7 +172,7 @@ const userTypes = [
           <div class="preview-card-heading">
             <p class="panel-label">{{ card.label }}</p>
             <span class="feature-icon-pill" :class="`feature-icon-${index + 1}`" aria-hidden="true">
-              <img :src="card.icon" alt="" width="40" height="40" />
+              <img :src="card.icon" alt="" width="40" height="40" loading="lazy" decoding="async" />
             </span>
             <span class="status-badge" :class="`badge-${card.badge.toLowerCase().replace(' ', '-')}`">
               {{ card.badge }}
@@ -225,7 +225,7 @@ const userTypes = [
           :class="`stagger-${index + 1}`"
         >
           <span class="why-icon" :class="`why-icon-${reason.icon}`" aria-hidden="true">
-            <img :src="reason.image" alt="" width="40" height="40" />
+            <img :src="reason.image" alt="" width="40" height="40" loading="lazy" decoding="async" />
           </span>
           <h3>{{ reason.title }}</h3>
           <p>{{ reason.description }}</p>
