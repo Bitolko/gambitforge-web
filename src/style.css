@@ -4827,6 +4827,418 @@ h3 {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84);
 }
 
+/* Realistic event ecosystem layer. */
+.event-detail-page {
+  width: 100%;
+  margin: 0;
+  padding: 34px max(18px, calc((100vw - 1180px) / 2)) 76px;
+  background:
+    radial-gradient(circle at 12% 2%, rgba(215, 169, 77, 0.13), transparent 21rem),
+    radial-gradient(circle at 92% 10%, rgba(37, 99, 235, 0.13), transparent 24rem),
+    linear-gradient(180deg, rgba(8, 11, 15, 0.98) 0%, #070a0f 54%, #05070b 100%);
+}
+
+.event-detail-page .event-detail-hero,
+.event-detail-page .event-info-section,
+.event-detail-page .event-tools-preview,
+.event-detail-page .event-venue-section,
+.event-detail-page .related-events-section {
+  border-color: rgba(148, 163, 184, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018)),
+    rgba(7, 12, 19, 0.74);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.events-featured-section,
+.event-registration-cta {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: clamp(18px, 3vw, 34px);
+  margin-top: 22px;
+  border: 1px solid rgba(239, 197, 101, 0.18);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(215, 169, 77, 0.12), transparent 16rem),
+    radial-gradient(circle at 86% 16%, rgba(74, 163, 255, 0.1), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018)),
+    rgba(7, 12, 19, 0.74);
+  box-shadow:
+    0 24px 68px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  padding: clamp(20px, 3.2vw, 30px);
+  backdrop-filter: blur(18px);
+}
+
+.events-featured-section {
+  grid-template-columns: minmax(220px, 330px) minmax(0, 1fr);
+  align-items: center;
+}
+
+.events-featured-copy,
+.event-registration-cta > div {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.events-featured-copy h2,
+.event-registration-cta h2 {
+  max-width: 820px;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.events-featured-copy p,
+.event-registration-cta p,
+.event-preview-card p,
+.event-detail-summary,
+.event-organiser-card small {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.event-featured-meta,
+.event-registration-facts {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.event-featured-meta {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.event-featured-meta div,
+.event-registration-facts div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  background: rgba(8, 13, 20, 0.34);
+  padding: 12px;
+}
+
+.event-featured-meta dt,
+.event-registration-facts dt {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.event-featured-meta dd,
+.event-registration-facts dd {
+  margin: 0;
+  color: var(--text-strong);
+  font-weight: 850;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.event-card-rich {
+  align-content: start;
+}
+
+.event-card-topline {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  min-width: 0;
+}
+
+.event-flyer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  width: 92px;
+  aspect-ratio: 0.72;
+  align-content: space-between;
+  border: 1px solid rgba(239, 197, 101, 0.24);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 26% 18%, rgba(239, 197, 101, 0.28), transparent 34%),
+    radial-gradient(circle at 82% 82%, rgba(74, 163, 255, 0.24), transparent 32%),
+    linear-gradient(145deg, rgba(13, 20, 30, 0.98), rgba(40, 21, 33, 0.92));
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 10px;
+}
+
+.event-flyer::before {
+  position: absolute;
+  z-index: -1;
+  inset: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.06) 25%, transparent 25% 75%, rgba(255, 255, 255, 0.06) 75%),
+    linear-gradient(45deg, transparent 25%, rgba(215, 169, 77, 0.08) 25% 75%, transparent 75%);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+  content: '';
+  opacity: 0.7;
+}
+
+.event-flyer span,
+.event-flyer strong,
+.event-flyer em {
+  position: relative;
+  z-index: 1;
+}
+
+.event-flyer span {
+  width: fit-content;
+  border-radius: 999px;
+  color: #07100f;
+  background: linear-gradient(135deg, var(--gold-strong), var(--bronze));
+  padding: 4px 7px;
+  font-size: 10px;
+  font-weight: 950;
+}
+
+.event-flyer strong {
+  color: #fff8e8;
+  font-size: 13px;
+  line-height: 1.05;
+  text-shadow: 0 0 18px rgba(239, 197, 101, 0.2);
+}
+
+.event-flyer em {
+  color: var(--muted);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.event-flyer-large {
+  width: min(100%, 280px);
+  min-height: 330px;
+  justify-self: center;
+  padding: 18px;
+}
+
+.event-flyer-large strong {
+  max-width: 220px;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 0.98;
+}
+
+.event-flyer[data-tone='Junior'],
+.event-flyer[data-tone='Schools'] {
+  background:
+    radial-gradient(circle at 22% 20%, rgba(239, 197, 101, 0.3), transparent 36%),
+    radial-gradient(circle at 86% 80%, rgba(22, 163, 148, 0.28), transparent 34%),
+    linear-gradient(145deg, rgba(16, 33, 31, 0.98), rgba(42, 31, 16, 0.9));
+}
+
+.event-flyer[data-tone='Blitz'] {
+  background:
+    radial-gradient(circle at 22% 18%, rgba(74, 163, 255, 0.34), transparent 34%),
+    radial-gradient(circle at 84% 82%, rgba(239, 197, 101, 0.24), transparent 32%),
+    linear-gradient(145deg, rgba(5, 12, 22, 0.98), rgba(20, 23, 45, 0.94));
+}
+
+.event-flyer[data-tone='Classical'],
+.event-flyer[data-tone='Metro'] {
+  background:
+    radial-gradient(circle at 24% 16%, rgba(215, 169, 77, 0.25), transparent 34%),
+    radial-gradient(circle at 82% 80%, rgba(91, 30, 45, 0.34), transparent 34%),
+    linear-gradient(145deg, rgba(12, 16, 23, 0.98), rgba(32, 20, 26, 0.94));
+}
+
+.event-flyer[data-tone='Waterfront'] {
+  background:
+    radial-gradient(circle at 22% 18%, rgba(74, 163, 255, 0.3), transparent 34%),
+    radial-gradient(circle at 80% 80%, rgba(22, 163, 148, 0.22), transparent 32%),
+    linear-gradient(145deg, rgba(7, 18, 28, 0.98), rgba(12, 37, 42, 0.92));
+}
+
+.event-meta-list-rich {
+  gap: 8px;
+}
+
+.event-division-row,
+.event-card-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.event-division-row span,
+.event-card-status-row span {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  background: rgba(8, 13, 20, 0.34);
+  padding: 8px 10px;
+  color: var(--text-strong);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.event-card-status-row span {
+  color: var(--muted);
+}
+
+.event-info-grid-rich {
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr) minmax(260px, 0.82fr);
+}
+
+.event-schedule-card,
+.event-divisions-card,
+.event-organiser-card {
+  min-height: 100%;
+}
+
+.event-schedule-list,
+.event-division-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.event-schedule-list li,
+.event-division-list div {
+  display: grid;
+  gap: 4px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  background: rgba(8, 13, 20, 0.3);
+  padding: 11px 12px;
+}
+
+.event-schedule-list strong,
+.event-division-list strong,
+.event-organiser-card h3 {
+  color: var(--text-strong);
+}
+
+.event-schedule-list p,
+.event-division-list p {
+  color: var(--muted);
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.organiser-avatar {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 1px solid rgba(239, 197, 101, 0.26);
+  border-radius: 12px;
+  color: var(--gold-strong);
+  background:
+    radial-gradient(circle at 32% 24%, rgba(239, 197, 101, 0.18), transparent 3rem),
+    rgba(8, 13, 20, 0.46);
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.event-map-label {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  border: 1px solid rgba(239, 197, 101, 0.2);
+  border-radius: 8px;
+  color: var(--text-strong);
+  background: rgba(8, 13, 20, 0.64);
+  padding: 12px;
+  font-weight: 850;
+  backdrop-filter: blur(10px);
+}
+
+.event-registration-cta {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.event-registration-cta button {
+  min-width: 220px;
+}
+
+.event-preview-grid-rich .event-preview-card {
+  min-height: 178px;
+}
+
+:root[data-theme='light'] .events-featured-section,
+:root[data-theme='light'] .event-registration-cta {
+  border-color: rgba(88, 63, 34, 0.14);
+  background:
+    radial-gradient(circle at 14% 18%, rgba(183, 121, 31, 0.1), transparent 16rem),
+    radial-gradient(circle at 88% 18%, rgba(37, 99, 235, 0.06), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 250, 241, 0.68)),
+    rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 18px 44px rgba(88, 63, 34, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme='light'] .event-featured-meta div,
+:root[data-theme='light'] .event-registration-facts div,
+:root[data-theme='light'] .event-schedule-list li,
+:root[data-theme='light'] .event-division-list div,
+:root[data-theme='light'] .event-division-row span,
+:root[data-theme='light'] .event-card-status-row span {
+  border-color: rgba(88, 63, 34, 0.14);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+:root[data-theme='light'] .event-flyer {
+  border-color: rgba(88, 63, 34, 0.16);
+  box-shadow:
+    0 14px 28px rgba(88, 63, 34, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+:root[data-theme='light'] .organiser-avatar {
+  border-color: rgba(88, 63, 34, 0.16);
+  color: var(--bronze);
+  background:
+    radial-gradient(circle at 32% 24%, rgba(183, 121, 31, 0.16), transparent 3rem),
+    rgba(255, 255, 255, 0.62);
+}
+
+:root[data-theme='light'] .event-map-label {
+  border-color: rgba(88, 63, 34, 0.16);
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+:root[data-theme='light'] .event-detail-page {
+  background:
+    radial-gradient(circle at 12% 2%, rgba(183, 121, 31, 0.12), transparent 21rem),
+    radial-gradient(circle at 92% 10%, rgba(37, 99, 235, 0.07), transparent 24rem),
+    linear-gradient(180deg, #fffdf8 0%, #f7f3eb 56%, #eef1f4 100%);
+}
+
+:root[data-theme='light'] .event-detail-page .event-detail-hero,
+:root[data-theme='light'] .event-detail-page .event-info-section,
+:root[data-theme='light'] .event-detail-page .event-tools-preview,
+:root[data-theme='light'] .event-detail-page .event-venue-section,
+:root[data-theme='light'] .event-detail-page .related-events-section {
+  border-color: rgba(88, 63, 34, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 250, 241, 0.66)),
+    rgba(255, 255, 255, 0.76);
+  box-shadow:
+    0 16px 38px rgba(88, 63, 34, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
 .platform-feature-card {
   position: relative;
   overflow: hidden;
@@ -6263,6 +6675,38 @@ h3 {
   .faq-hero-stack {
     min-height: 0;
   }
+
+  .event-detail-page {
+    padding-inline: 14px;
+    padding-top: 24px;
+  }
+
+  .events-featured-section,
+  .event-registration-cta,
+  .event-info-grid-rich {
+    grid-template-columns: 1fr;
+  }
+
+  .event-featured-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card-topline {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+
+  .event-flyer {
+    width: 80px;
+  }
+
+  .event-flyer-large {
+    width: min(100%, 240px);
+    min-height: 290px;
+  }
+
+  .event-registration-cta button {
+    width: 100%;
+  }
 }
 
 @media (max-width: 520px) {
@@ -6290,5 +6734,27 @@ h3 {
   .contact-signal-grid,
   .about-hero-board {
     grid-template-columns: 1fr;
+  }
+
+  .event-detail-page {
+    padding-inline: 10px;
+  }
+
+  .events-featured-section,
+  .event-registration-cta {
+    padding: 18px;
+  }
+
+  .event-card-topline {
+    grid-template-columns: 1fr;
+  }
+
+  .event-flyer {
+    width: min(100%, 180px);
+    aspect-ratio: 1.35;
+  }
+
+  .event-flyer-large {
+    min-height: 240px;
   }
 }
