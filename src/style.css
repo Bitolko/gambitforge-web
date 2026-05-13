@@ -8515,3 +8515,401 @@ h3 {
     grid-template-columns: 1fr;
   }
 }
+
+/* Mobile-first polish pass across public and product surfaces. */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 88px;
+}
+
+body {
+  touch-action: manipulation;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  min-width: 0;
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+  min-height: 46px;
+  font-size: 16px;
+}
+
+.hero-actions,
+.final-cta-actions,
+.event-card-actions,
+.game-card-actions,
+.submit-event-actions,
+.tournament-row-metrics,
+.blog-meta-row,
+.blog-card-footer,
+.blog-tag-row,
+.discovery-hero-metrics {
+  min-width: 0;
+}
+
+.app-header,
+.section-header,
+.event-card,
+.club-card,
+.coach-card,
+.blog-card,
+.product-metric-card,
+.admin-stat-card,
+.tournament-card,
+.live-game-row,
+.pairing-row,
+.contact-info-card,
+.about-story-card,
+.faq-question {
+  min-width: 0;
+}
+
+.app-header h1,
+.section-header h2,
+.event-card h2,
+.club-card h2,
+.coach-card h2,
+.blog-card h3,
+.tournament-row-copy h3,
+.live-game-copy h3,
+.pairing-copy h3 {
+  overflow-wrap: anywhere;
+}
+
+@media (hover: none) {
+  button:hover:not(:disabled),
+  .button-link:hover,
+  .secondary-link:hover,
+  .nav-links a:hover,
+  .footer-column a:hover,
+  .hero-dashboard-panel:hover,
+  .event-card:hover,
+  .club-card:hover,
+  .coach-card:hover,
+  .blog-card:hover,
+  .product-metric-card:hover,
+  .admin-stat-card:hover,
+  .live-game-row:hover,
+  .tournament-card:hover,
+  .pairing-row:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 1080px) {
+  .site-navbar {
+    align-items: center;
+  }
+
+  .nav-toggle {
+    flex: 0 0 auto;
+    min-height: 42px;
+    border-radius: 10px;
+  }
+
+  .nav-links {
+    gap: 8px;
+    border-color: rgba(239, 197, 101, 0.2);
+    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.34);
+    backdrop-filter: blur(18px);
+  }
+
+  .nav-links a,
+  .nav-links button:not(.theme-toggle) {
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.035);
+    font-size: 14px;
+  }
+
+  .nav-links .nav-cta {
+    color: #07100f;
+  }
+
+  .nav-links .theme-toggle {
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+  }
+
+  :root[data-theme='light'] .nav-links {
+    border-color: rgba(88, 63, 34, 0.16);
+    box-shadow: 0 20px 46px rgba(88, 63, 34, 0.14);
+  }
+
+  :root[data-theme='light'] .nav-links a,
+  :root[data-theme='light'] .nav-links button:not(.theme-toggle) {
+    border-color: rgba(88, 63, 34, 0.12);
+    background: rgba(255, 255, 255, 0.68);
+  }
+}
+
+@media (max-width: 900px) {
+  .guest-shell > main:not(.home-page),
+  .authed-shell > main {
+    margin-top: 10px;
+  }
+
+  .app-header,
+  .section-header {
+    gap: 16px;
+  }
+
+  .app-header > button,
+  .app-header > .button-link,
+  .section-header > button,
+  .section-header > .button-link {
+    width: 100%;
+  }
+
+  .events-filter-group,
+  .blog-filter-section .events-filter-group,
+  .clubs-filter-section .events-filter-group,
+  .coaches-filter-section .events-filter-group {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .events-filter-group::-webkit-scrollbar,
+  .blog-filter-section .events-filter-group::-webkit-scrollbar,
+  .clubs-filter-section .events-filter-group::-webkit-scrollbar,
+  .coaches-filter-section .events-filter-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  .event-filter-pill {
+    flex: 0 0 auto;
+    min-height: 44px;
+    white-space: nowrap;
+  }
+
+  .club-search-field input {
+    min-height: 48px;
+  }
+
+  .event-card-actions,
+  .game-card-actions,
+  .hero-actions,
+  .final-cta-actions,
+  .submit-event-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .event-card-actions > *,
+  .game-card-actions > *,
+  .hero-actions > *,
+  .final-cta-actions > *,
+  .submit-event-actions > * {
+    width: 100%;
+  }
+
+  .footer-column a,
+  .footer-disabled-link {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+  }
+
+  .blog-article-body,
+  .contact-form-panel,
+  .organiser-step-form {
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-navbar {
+    top: 6px;
+    width: min(100% - 16px, 1180px);
+    border-radius: 10px;
+  }
+
+  .brand-link {
+    max-width: calc(100% - 52px);
+  }
+
+  .brand-wordmark {
+    max-width: 44vw;
+  }
+
+  .nav-links {
+    max-height: min(76vh, 560px);
+    padding: 10px;
+  }
+
+  .home-page,
+  .events-page,
+  .event-detail-page,
+  .clubs-page,
+  .club-detail-page,
+  .coaches-page,
+  .coach-detail-page,
+  .submit-event-page,
+  .contact-page,
+  .about-page,
+  .faq-page,
+  .blog-page,
+  .blog-detail-page,
+  .organiser-onboarding-page {
+    padding-bottom: 52px;
+  }
+
+  .hero-copy h1,
+  .events-hero h1,
+  .event-detail-hero h1,
+  .clubs-hero h1,
+  .club-detail-hero h1,
+  .coaches-hero h1,
+  .coach-detail-hero h1,
+  .submit-event-hero h1,
+  .contact-page .platform-hero h1,
+  .about-page .platform-hero h1,
+  .faq-page .platform-hero h1,
+  .blog-hero h1,
+  .blog-article-hero h1,
+  .profile-hero h1,
+  .app-header h1 {
+    font-size: clamp(32px, 9.4vw, 44px);
+    line-height: 1.06;
+  }
+
+  .hero-description,
+  .events-hero-copy p:last-of-type,
+  .clubs-hero-copy p:last-of-type,
+  .coaches-hero-copy p:last-of-type,
+  .submit-event-copy p:last-of-type,
+  .contact-page .platform-hero p:last-child,
+  .about-page .platform-hero p:last-child,
+  .faq-page .platform-hero p:last-child,
+  .app-header-description {
+    font-size: 16px;
+    line-height: 1.62;
+  }
+
+  .product-metrics-grid,
+  .admin-stats-grid,
+  .profile-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .product-metric-card,
+  .admin-stat-card,
+  .profile-stat-card {
+    min-height: 0;
+  }
+
+  .game-mini-board,
+  .small-board {
+    width: 64px;
+    flex-basis: 64px;
+  }
+
+  .clock-card {
+    padding: 14px;
+  }
+
+  .clock-card strong {
+    font-size: clamp(26px, 10vw, 34px);
+  }
+}
+
+@media (max-width: 420px) {
+  .site-navbar {
+    width: min(100% - 12px, 1180px);
+    padding-inline: 8px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+  }
+
+  .brand-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-toggle {
+    width: 38px;
+    height: 38px;
+    min-height: 38px;
+  }
+
+  .home-page,
+  .auth-page,
+  .dashboard-page,
+  .game-page,
+  .platform-page,
+  .not-found-page,
+  .events-page,
+  .event-detail-page,
+  .clubs-page,
+  .club-detail-page,
+  .coaches-page,
+  .coach-detail-page,
+  .submit-event-page,
+  .contact-page,
+  .about-page,
+  .faq-page {
+    width: min(100% - 16px, 1040px);
+  }
+
+  .events-page.discovery-page,
+  .clubs-page.discovery-page,
+  .coaches-page.discovery-page,
+  .blog-page,
+  .blog-detail-page,
+  .organiser-onboarding-page {
+    padding-inline: 8px;
+  }
+
+  .home-hero,
+  .events-page.discovery-page .events-hero,
+  .clubs-page.discovery-page .clubs-hero,
+  .coaches-page.discovery-page .coaches-hero,
+  .organiser-onboarding-page .submit-event-hero,
+  .contact-page .platform-hero,
+  .about-page .platform-hero,
+  .faq-page .platform-hero,
+  .blog-hero,
+  .blog-article-hero,
+  .app-header,
+  .section-header,
+  .event-card,
+  .club-card,
+  .coach-card,
+  .blog-card,
+  .game-card,
+  .tournament-card,
+  .live-game-row,
+  .pairing-row {
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .board-shell {
+    width: min(100%, calc(100vw - 20px));
+  }
+
+  .footer-inner,
+  .footer-bottom {
+    width: min(100% - 16px, 1180px);
+    padding-inline: 14px;
+  }
+}
