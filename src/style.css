@@ -4875,7 +4875,7 @@ h3 {
 }
 
 .events-featured-section {
-  grid-template-columns: minmax(220px, 330px) minmax(0, 1fr);
+  grid-template-columns: minmax(190px, 280px) minmax(0, 1fr);
   align-items: center;
 }
 
@@ -4948,7 +4948,7 @@ h3 {
 
 .event-card-topline {
   display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
+  grid-template-columns: 86px minmax(0, 1fr);
   gap: 14px;
   align-items: start;
   min-width: 0;
@@ -4959,17 +4959,18 @@ h3 {
   isolation: isolate;
   overflow: hidden;
   display: grid;
-  width: 92px;
-  aspect-ratio: 0.72;
+  width: 86px;
+  aspect-ratio: 1;
   align-content: space-between;
   border: 1px solid rgba(239, 197, 101, 0.24);
-  border-radius: 8px;
+  border-radius: 18px;
   background:
-    radial-gradient(circle at 26% 18%, rgba(239, 197, 101, 0.28), transparent 34%),
-    radial-gradient(circle at 82% 82%, rgba(74, 163, 255, 0.24), transparent 32%),
-    linear-gradient(145deg, rgba(13, 20, 30, 0.98), rgba(40, 21, 33, 0.92));
+    radial-gradient(circle at 24% 18%, rgba(239, 197, 101, 0.26), transparent 34%),
+    radial-gradient(circle at 82% 80%, rgba(74, 163, 255, 0.22), transparent 36%),
+    conic-gradient(from 45deg at 50% 50%, rgba(255, 255, 255, 0.08), transparent 18%, rgba(239, 197, 101, 0.12), transparent 44%, rgba(74, 163, 255, 0.1), transparent 72%, rgba(255, 255, 255, 0.08)),
+    linear-gradient(145deg, rgba(11, 16, 24, 0.98), rgba(25, 31, 43, 0.92));
   box-shadow:
-    0 16px 36px rgba(0, 0, 0, 0.28),
+    0 14px 30px rgba(0, 0, 0, 0.24),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   padding: 10px;
 }
@@ -4979,13 +4980,30 @@ h3 {
   z-index: -1;
   inset: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
   background:
-    linear-gradient(45deg, rgba(255, 255, 255, 0.06) 25%, transparent 25% 75%, rgba(255, 255, 255, 0.06) 75%),
-    linear-gradient(45deg, transparent 25%, rgba(215, 169, 77, 0.08) 25% 75%, transparent 75%);
-  background-position: 0 0, 10px 10px;
-  background-size: 20px 20px;
+    radial-gradient(circle, transparent 45%, rgba(255, 255, 255, 0.08) 46% 48%, transparent 49%),
+    linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.08) 49% 51%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, rgba(255, 255, 255, 0.08) 49% 51%, transparent 52%);
   content: '';
   opacity: 0.7;
+}
+
+.event-flyer::after {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(239, 197, 101, 0.22);
+  border-radius: 8px;
+  background:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.12) 25%, transparent 25% 75%, rgba(255, 255, 255, 0.12) 75%),
+    linear-gradient(45deg, transparent 25%, rgba(215, 169, 77, 0.16) 25% 75%, transparent 75%);
+  background-position: 0 0, 6px 6px;
+  background-size: 12px 12px;
+  content: '';
+  opacity: 0.78;
 }
 
 .event-flyer span,
@@ -5003,9 +5021,11 @@ h3 {
   padding: 4px 7px;
   font-size: 10px;
   font-weight: 950;
+  line-height: 1;
 }
 
 .event-flyer strong {
+  max-width: 58px;
   color: #fff8e8;
   font-size: 13px;
   line-height: 1.05;
@@ -5021,16 +5041,18 @@ h3 {
 }
 
 .event-flyer-large {
-  width: min(100%, 280px);
-  min-height: 330px;
+  width: min(100%, 260px);
+  min-height: 210px;
+  aspect-ratio: 1.18;
   justify-self: center;
+  border-radius: 22px;
   padding: 18px;
 }
 
 .event-flyer-large strong {
-  max-width: 220px;
-  font-size: clamp(24px, 3vw, 38px);
-  line-height: 0.98;
+  max-width: 180px;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1;
 }
 
 .event-flyer[data-tone='Junior'],
@@ -6216,14 +6238,16 @@ h3 {
 .flyer-preview-card {
   display: grid;
   width: 118px;
-  min-height: 154px;
+  aspect-ratio: 1;
+  min-height: 0;
   flex: 0 0 auto;
   align-content: space-between;
   border: 1px solid rgba(239, 197, 101, 0.24);
-  border-radius: 10px;
+  border-radius: 18px;
   background:
     radial-gradient(circle at 26% 18%, rgba(239, 197, 101, 0.28), transparent 34%),
     radial-gradient(circle at 82% 82%, rgba(74, 163, 255, 0.24), transparent 32%),
+    conic-gradient(from 45deg at 50% 50%, rgba(255, 255, 255, 0.08), transparent 18%, rgba(239, 197, 101, 0.12), transparent 44%, rgba(74, 163, 255, 0.1), transparent 72%, rgba(255, 255, 255, 0.08)),
     linear-gradient(145deg, rgba(13, 20, 30, 0.98), rgba(40, 21, 33, 0.92));
   padding: 12px;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
@@ -8274,8 +8298,9 @@ h3 {
   }
 
   .flyer-preview-card {
-    width: 100%;
-    min-height: 160px;
+    width: 140px;
+    max-width: 100%;
+    min-height: 0;
   }
 
   .event-promotion-preview .event-flyer-large {
@@ -8329,8 +8354,8 @@ h3 {
   }
 
   .event-flyer-large {
-    width: min(100%, 240px);
-    min-height: 290px;
+    width: min(100%, 230px);
+    min-height: 185px;
   }
 
   .event-registration-cta button {
@@ -8426,12 +8451,14 @@ h3 {
   }
 
   .event-flyer {
-    width: min(100%, 180px);
-    aspect-ratio: 1.35;
+    width: min(100%, 120px);
+    aspect-ratio: 1;
   }
 
   .event-flyer-large {
-    min-height: 240px;
+    width: min(100%, 220px);
+    min-height: 180px;
+    aspect-ratio: 1.18;
   }
 
   .public-profile-page {
