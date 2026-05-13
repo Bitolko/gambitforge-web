@@ -15,6 +15,9 @@ const gamesLoading = ref(false)
 const copiedGameId = ref(null)
 
 const hasGames = computed(() => games.value.length > 0)
+const activeGameCount = computed(() => games.value.filter((game) => game.status === 'active').length)
+const waitingGameCount = computed(() => games.value.filter((game) => game.status === 'waiting').length)
+const finishedGameCount = computed(() => games.value.filter((game) => game.status === 'finished').length)
 
 async function loadUser() {
   error.value = ''
@@ -129,6 +132,24 @@ onMounted(async () => {
         <h2>Tournament MVP</h2>
         <p>Create events, let players join, and start round 1 with automatic game pairings.</p>
         <RouterLink class="button-link" to="/tournaments">Open tournaments</RouterLink>
+      </article>
+    </section>
+
+    <section class="product-metrics-grid" aria-label="Dashboard metrics">
+      <article class="product-metric-card">
+        <span>Active boards</span>
+        <strong>{{ activeGameCount }}</strong>
+        <div class="metric-sparkline" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </article>
+      <article class="product-metric-card">
+        <span>Open invites</span>
+        <strong>{{ waitingGameCount }}</strong>
+        <div class="metric-sparkline warm" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </article>
+      <article class="product-metric-card">
+        <span>Completed</span>
+        <strong>{{ finishedGameCount }}</strong>
+        <div class="metric-sparkline cool" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       </article>
     </section>
 

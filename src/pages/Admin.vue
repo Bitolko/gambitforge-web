@@ -9,12 +9,12 @@ const latestUsers = ref([])
 const latestTournaments = ref([])
 
 const statCards = computed(() => [
-  { label: 'Total users', value: stats.value?.total_users ?? 0, icon: 'USR' },
-  { label: 'Total games', value: stats.value?.total_games ?? 0, icon: 'GM' },
-  { label: 'Active games', value: stats.value?.active_games ?? 0, icon: 'LIVE' },
-  { label: 'Total tournaments', value: stats.value?.total_tournaments ?? 0, icon: 'TRN' },
-  { label: 'Active tournaments', value: stats.value?.active_tournaments ?? 0, icon: 'ACT' },
-  { label: 'Finished tournaments', value: stats.value?.finished_tournaments ?? 0, icon: 'FIN' },
+  { label: 'Total users', value: stats.value?.total_users ?? 0, icon: 'USR', tone: 'gold' },
+  { label: 'Total games', value: stats.value?.total_games ?? 0, icon: 'GM', tone: 'blue' },
+  { label: 'Active games', value: stats.value?.active_games ?? 0, icon: 'LIVE', tone: 'green' },
+  { label: 'Total tournaments', value: stats.value?.total_tournaments ?? 0, icon: 'TRN', tone: 'gold' },
+  { label: 'Active tournaments', value: stats.value?.active_tournaments ?? 0, icon: 'ACT', tone: 'green' },
+  { label: 'Finished tournaments', value: stats.value?.finished_tournaments ?? 0, icon: 'FIN', tone: 'blue' },
 ])
 
 async function loadAdminStats() {
@@ -78,10 +78,11 @@ onMounted(loadAdminStats)
 
     <template v-if="stats">
       <section class="admin-stats-grid" aria-label="Platform stats">
-        <article v-for="card in statCards" :key="card.label" class="admin-stat-card">
+        <article v-for="card in statCards" :key="card.label" class="admin-stat-card" :data-tone="card.tone">
           <div class="admin-stat-icon" aria-hidden="true">{{ card.icon }}</div>
           <p class="panel-label">{{ card.label }}</p>
           <strong>{{ card.value }}</strong>
+          <div class="admin-mini-chart" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         </article>
       </section>
 

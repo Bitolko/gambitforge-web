@@ -69,6 +69,9 @@ const standings = computed(() => (
     return a.user.name.localeCompare(b.user.name)
   })
 ))
+const maxStandingScore = computed(() => (
+  Math.max(1, ...standings.value.map((player) => Number(player.score) || 0))
+))
 const inviteLink = computed(() => (
   tournament.value ? `${window.location.origin}/tournaments/${tournament.value.id}` : ''
 ))
@@ -331,9 +334,10 @@ onBeforeUnmount(() => {
             Players appear here after they join the invite link.
           </p>
           <div v-else class="standings-list">
-            <p v-for="(player, index) in standings" :key="player.id">
+            <p v-for="(player, index) in standings" :key="player.id" class="standing-row">
               <strong>{{ index + 1 }}. {{ player.user.name }}</strong>
               <span>{{ Number(player.score).toFixed(1) }} pts</span>
+              <i :style="{ width: `${Math.max(8, (Number(player.score) / maxStandingScore) * 100)}%` }" aria-hidden="true"></i>
             </p>
           </div>
         </article>

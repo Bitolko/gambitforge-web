@@ -5967,6 +5967,465 @@ h3 {
   color: #3d3328;
 }
 
+/* Premium product app upgrade. */
+.dashboard-page,
+.game-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.dashboard-page::before,
+.game-page::before {
+  position: absolute;
+  z-index: -1;
+  inset: -80px max(-9vw, -120px) auto;
+  height: 420px;
+  background:
+    radial-gradient(circle at 16% 8%, rgba(215, 169, 77, 0.12), transparent 22rem),
+    radial-gradient(circle at 86% 12%, rgba(74, 163, 255, 0.13), transparent 24rem);
+  content: '';
+  pointer-events: none;
+}
+
+.app-header {
+  overflow: hidden;
+  border: 1px solid rgba(239, 197, 101, 0.16);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(74, 163, 255, 0.12), transparent 16rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.014)),
+    rgba(7, 12, 19, 0.66);
+  box-shadow:
+    0 20px 54px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: clamp(22px, 3vw, 30px);
+  backdrop-filter: blur(18px);
+}
+
+.app-header h1 {
+  font-size: clamp(34px, 4.8vw, 58px);
+  line-height: 1;
+}
+
+.product-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.product-metric-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 10px;
+  min-height: 130px;
+  align-content: start;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(74, 163, 255, 0.11), transparent 9rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.016)),
+    rgba(7, 12, 19, 0.72);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  padding: 18px;
+  backdrop-filter: blur(18px);
+}
+
+.product-metric-card::after {
+  position: absolute;
+  right: -28px;
+  bottom: -34px;
+  width: 92px;
+  height: 92px;
+  border: 1px solid rgba(215, 169, 77, 0.16);
+  border-radius: 24px;
+  content: '';
+  transform: rotate(18deg);
+}
+
+.product-metric-card span,
+.admin-mini-chart,
+.metric-sparkline {
+  position: relative;
+  z-index: 1;
+}
+
+.product-metric-card span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.product-metric-card strong {
+  position: relative;
+  z-index: 1;
+  color: var(--text-strong);
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1;
+}
+
+.metric-sparkline,
+.admin-mini-chart {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  align-items: end;
+  width: min(100%, 150px);
+  height: 30px;
+}
+
+.metric-sparkline i,
+.admin-mini-chart i {
+  display: block;
+  border-radius: 999px 999px 3px 3px;
+  background: linear-gradient(180deg, rgba(74, 163, 255, 0.92), rgba(22, 163, 148, 0.7));
+}
+
+.metric-sparkline i:nth-child(1),
+.admin-mini-chart i:nth-child(1) { height: 42%; }
+.metric-sparkline i:nth-child(2),
+.admin-mini-chart i:nth-child(2) { height: 76%; }
+.metric-sparkline i:nth-child(3),
+.admin-mini-chart i:nth-child(3) { height: 58%; }
+.metric-sparkline i:nth-child(4),
+.admin-mini-chart i:nth-child(4) { height: 92%; }
+
+.metric-sparkline.warm i {
+  background: linear-gradient(180deg, rgba(239, 197, 101, 0.95), rgba(157, 106, 50, 0.76));
+}
+
+.metric-sparkline.cool i {
+  background: linear-gradient(180deg, rgba(148, 163, 184, 0.92), rgba(74, 163, 255, 0.62));
+}
+
+.profile-panel,
+.next-module,
+.organizer-panel,
+.state-panel,
+.admin-table-panel,
+.admin-stat-card,
+.live-game-row,
+.tournament-card,
+.pairing-row,
+.move-panel {
+  border-radius: 14px;
+  border-color: rgba(148, 163, 184, 0.15);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.016)),
+    rgba(7, 12, 19, 0.72);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.profile-panel:hover,
+.next-module:hover,
+.organizer-panel:hover,
+.admin-table-panel:hover,
+.admin-stat-card:hover,
+.live-game-row:hover,
+.tournament-card:hover,
+.pairing-row:hover {
+  border-color: rgba(239, 197, 101, 0.3);
+  box-shadow:
+    0 26px 64px rgba(0, 0, 0, 0.32),
+    0 0 34px rgba(215, 169, 77, 0.08);
+  transform: translateY(-2px);
+}
+
+.next-module,
+.organizer-panel {
+  background:
+    radial-gradient(circle at 92% 12%, rgba(215, 169, 77, 0.16), transparent 14rem),
+    radial-gradient(circle at 16% 92%, rgba(74, 163, 255, 0.1), transparent 14rem),
+    linear-gradient(145deg, rgba(28, 36, 48, 0.88), rgba(91, 30, 45, 0.24));
+}
+
+.state-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.state-panel::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-strong), rgba(74, 163, 255, 0.72), transparent);
+  content: '';
+  opacity: 0.72;
+}
+
+.skeleton-stack {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.skeleton-stack span {
+  overflow: hidden;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.14);
+}
+
+.skeleton-stack span::after {
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  content: '';
+  animation: skeletonSweep 1.25s ease-in-out infinite;
+}
+
+.skeleton-stack span:nth-child(2) {
+  width: 82%;
+}
+
+.skeleton-stack span:nth-child(3) {
+  width: 64%;
+}
+
+.live-game-row,
+.tournament-card,
+.pairing-row {
+  position: relative;
+  overflow: hidden;
+}
+
+.live-game-row::before,
+.tournament-card::before,
+.pairing-row::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-strong), rgba(74, 163, 255, 0.72), transparent);
+  content: '';
+  opacity: 0.72;
+}
+
+.live-game-mark,
+.tournament-mark {
+  box-shadow:
+    0 0 24px rgba(215, 169, 77, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.tournament-row-metrics span,
+.control-preview-list span,
+.seat-list,
+.move-list ol,
+.invite-box span {
+  border-color: rgba(148, 163, 184, 0.14);
+  background: rgba(8, 13, 20, 0.34);
+}
+
+.standings-panel .standings-list {
+  gap: 8px;
+}
+
+.standings-panel .standing-row {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 10px;
+  background: rgba(8, 13, 20, 0.3);
+  padding: 12px;
+}
+
+.standings-panel .standing-row i {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-strong), rgba(74, 163, 255, 0.72));
+}
+
+.round-heading {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 12px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012)),
+    rgba(8, 13, 20, 0.58);
+  padding: 14px 16px;
+}
+
+.board-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(239, 197, 101, 0.22);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(215, 169, 77, 0.12), transparent 12rem),
+    rgba(8, 13, 20, 0.52);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(215, 169, 77, 0.06);
+  padding: clamp(8px, 1.4vw, 14px);
+}
+
+.chessground-board {
+  overflow: hidden;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.move-panel {
+  border-radius: 16px;
+}
+
+.clock-card {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(148, 163, 184, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012)),
+    rgba(8, 13, 20, 0.58);
+}
+
+.clock-card::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 3px;
+  background: rgba(148, 163, 184, 0.2);
+  content: '';
+}
+
+.clock-card.active {
+  border-color: rgba(22, 163, 148, 0.46);
+  box-shadow:
+    0 0 28px rgba(22, 163, 148, 0.12),
+    inset 0 0 0 1px rgba(22, 163, 148, 0.18);
+}
+
+.clock-card.active::after {
+  background: linear-gradient(90deg, var(--accent-hover), rgba(74, 163, 255, 0.72));
+}
+
+.clock-card.expired::after {
+  background: linear-gradient(90deg, var(--danger), rgba(220, 74, 61, 0.36));
+}
+
+.clock-card strong {
+  font-size: clamp(28px, 4vw, 38px);
+  letter-spacing: 0;
+}
+
+.admin-stat-card {
+  grid-template-columns: 50px minmax(0, 1fr);
+}
+
+.admin-stat-card[data-tone='gold'] .admin-mini-chart i,
+.admin-stat-card[data-tone='gold'] .admin-stat-icon {
+  background: linear-gradient(180deg, rgba(239, 197, 101, 0.24), rgba(157, 106, 50, 0.12));
+}
+
+.admin-stat-card[data-tone='green'] .admin-mini-chart i,
+.admin-stat-card[data-tone='green'] .admin-stat-icon {
+  background: linear-gradient(180deg, rgba(22, 163, 148, 0.26), rgba(13, 124, 117, 0.12));
+}
+
+.admin-mini-chart {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 28px;
+}
+
+.admin-list p {
+  border-bottom-color: rgba(148, 163, 184, 0.13);
+}
+
+:root[data-theme='light'] .dashboard-page::before,
+:root[data-theme='light'] .game-page::before {
+  background: none;
+}
+
+:root[data-theme='light'] .app-header,
+:root[data-theme='light'] .product-metric-card,
+:root[data-theme='light'] .profile-panel,
+:root[data-theme='light'] .next-module,
+:root[data-theme='light'] .organizer-panel,
+:root[data-theme='light'] .state-panel,
+:root[data-theme='light'] .admin-table-panel,
+:root[data-theme='light'] .admin-stat-card,
+:root[data-theme='light'] .live-game-row,
+:root[data-theme='light'] .tournament-card,
+:root[data-theme='light'] .pairing-row,
+:root[data-theme='light'] .move-panel,
+:root[data-theme='light'] .round-heading {
+  border-color: rgba(88, 63, 34, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 250, 241, 0.66)),
+    rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 16px 38px rgba(88, 63, 34, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme='light'] .next-module,
+:root[data-theme='light'] .organizer-panel {
+  background:
+    radial-gradient(circle at 92% 12%, rgba(183, 121, 31, 0.11), transparent 14rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 250, 241, 0.66)),
+    rgba(255, 255, 255, 0.78);
+}
+
+:root[data-theme='light'] .product-metric-card:hover,
+:root[data-theme='light'] .profile-panel:hover,
+:root[data-theme='light'] .next-module:hover,
+:root[data-theme='light'] .organizer-panel:hover,
+:root[data-theme='light'] .admin-table-panel:hover,
+:root[data-theme='light'] .admin-stat-card:hover,
+:root[data-theme='light'] .live-game-row:hover,
+:root[data-theme='light'] .tournament-card:hover,
+:root[data-theme='light'] .pairing-row:hover {
+  border-color: rgba(183, 121, 31, 0.26);
+  box-shadow:
+    0 22px 48px rgba(88, 63, 34, 0.14),
+    0 0 28px rgba(183, 121, 31, 0.07);
+}
+
+:root[data-theme='light'] .tournament-row-metrics span,
+:root[data-theme='light'] .control-preview-list span,
+:root[data-theme='light'] .seat-list,
+:root[data-theme='light'] .move-list ol,
+:root[data-theme='light'] .invite-box span,
+:root[data-theme='light'] .standings-panel .standing-row,
+:root[data-theme='light'] .clock-card {
+  border-color: rgba(88, 63, 34, 0.14);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+:root[data-theme='light'] .board-shell {
+  border-color: rgba(88, 63, 34, 0.14);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(183, 121, 31, 0.1), transparent 12rem),
+    rgba(255, 255, 255, 0.64);
+  box-shadow: 0 18px 42px rgba(88, 63, 34, 0.12);
+}
+
+@keyframes skeletonSweep {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(260%);
+  }
+}
+
 .platform-feature-card {
   position: relative;
   overflow: hidden;
@@ -7473,6 +7932,15 @@ h3 {
     justify-self: start;
     min-height: 260px;
   }
+
+  .product-metrics-grid,
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .game-layout {
+    gap: 18px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -7584,5 +8052,24 @@ h3 {
 
   .blog-article-body p {
     font-size: 16px;
+  }
+
+  .product-metrics-grid,
+  .admin-stats-grid,
+  .admin-table-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-metric-card,
+  .admin-stat-card {
+    min-height: 112px;
+  }
+
+  .app-header {
+    padding: 18px;
+  }
+
+  .clock-grid {
+    grid-template-columns: 1fr;
   }
 }

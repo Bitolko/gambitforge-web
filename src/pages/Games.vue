@@ -131,9 +131,32 @@ onMounted(async () => {
       <p class="panel-label">Loading</p>
       <h2>Fetching games</h2>
       <p>Checking active boards, open invites, and completed results.</p>
+      <div class="skeleton-stack" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
 
     <template v-else>
+      <section class="product-metrics-grid" aria-label="Games overview">
+        <article class="product-metric-card">
+          <span>Active</span>
+          <strong>{{ activeGames.length }}</strong>
+          <div class="metric-sparkline" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="product-metric-card">
+          <span>Waiting</span>
+          <strong>{{ waitingGames.length }}</strong>
+          <div class="metric-sparkline warm" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="product-metric-card">
+          <span>Archive</span>
+          <strong>{{ completedGames.length }}</strong>
+          <div class="metric-sparkline cool" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </article>
+      </section>
+
       <section class="games-section" aria-labelledby="active-games-heading">
         <div class="section-header">
           <div>
