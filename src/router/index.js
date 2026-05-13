@@ -20,6 +20,7 @@ import Home from '../pages/Home.vue'
 import Coaching from '../pages/Coaching.vue'
 import Login from '../pages/Login.vue'
 import NotFound from '../pages/NotFound.vue'
+import Profile from '../pages/Profile.vue'
 import Register from '../pages/Register.vue'
 import SubmitEvent from '../pages/SubmitEvent.vue'
 import Tournament from '../pages/Tournament.vue'
@@ -109,6 +110,11 @@ const router = createRouter({
       name: 'register',
       component: Register,
       meta: { guest: true },
+    },
+    {
+      path: '/u/:username',
+      name: 'profile',
+      component: Profile,
     },
     {
       path: '/dashboard',

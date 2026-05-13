@@ -116,6 +116,13 @@ const pageMeta = {
     description: 'Create a GambitForge account to access chess games, tournaments, coaching tools, and organiser features.',
     type: 'website',
   },
+  profile: {
+    title: ({ params }) => `${titleFromSlug(params.username)} | Chess Player Profile | GambitForge`,
+    description: ({ params }) =>
+      `View the public GambitForge chess profile for ${titleFromSlug(params.username)}, including rating, favourite openings, recent games, tournament history, badges, and future coaching roles.`,
+    type: 'profile',
+    structuredType: 'Person',
+  },
   dashboard: {
     title: 'Dashboard | GambitForge',
     description: 'View your GambitForge chess activity, games, tournaments, profile, and next available platform tools.',
