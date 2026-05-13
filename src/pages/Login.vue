@@ -32,33 +32,67 @@ async function submit() {
 
 <template>
   <main class="auth-page">
-    <section class="auth-panel">
-      <p class="eyebrow">GambitForge</p>
-      <h1>Log in</h1>
-      <p class="lede">Enter the arena and continue building your chess record.</p>
+    <section class="auth-shell" aria-labelledby="login-title">
+      <div class="auth-panel">
+        <RouterLink class="auth-brand" to="/">
+          <span class="auth-brand-logo">
+            <img src="/gambitforge-logo-web.png" alt="GambitForge logo" width="40" height="40" />
+          </span>
+          <span>GambitForge</span>
+        </RouterLink>
 
-      <form class="auth-form" @submit.prevent="submit">
-        <label>
-          Email
-          <input v-model="email" type="email" autocomplete="email" required />
-        </label>
+        <div>
+          <p class="eyebrow">Secure platform access</p>
+          <h1 id="login-title">Welcome back</h1>
+          <p class="lede">Sign in to manage games, tournaments, events, and coaching tools.</p>
+        </div>
 
-        <label>
-          Password
-          <input v-model="password" type="password" autocomplete="current-password" required />
-        </label>
+        <form class="auth-form" @submit.prevent="submit">
+          <label>
+            <span>Email</span>
+            <input v-model="email" type="email" autocomplete="email" required />
+          </label>
 
-        <p v-if="error" class="form-error">{{ error }}</p>
+          <label>
+            <span>Password</span>
+            <input v-model="password" type="password" autocomplete="current-password" required />
+          </label>
 
-        <button type="submit" :disabled="loading">
-          {{ loading ? 'Logging in...' : 'Log in' }}
-        </button>
-      </form>
+          <p v-if="error" class="form-error">{{ error }}</p>
 
-      <p class="auth-switch">
-        New to GambitForge?
-        <RouterLink to="/register">Create an account</RouterLink>
-      </p>
+          <button class="auth-submit-button" type="submit" :disabled="loading">
+            {{ loading ? 'Logging in...' : 'Login' }}
+          </button>
+        </form>
+
+        <p class="auth-switch">
+          New to GambitForge?
+          <RouterLink to="/register">Create an account</RouterLink>
+        </p>
+      </div>
+
+      <aside class="auth-visual-panel" aria-label="GambitForge platform preview">
+        <p class="eyebrow">Premium chess operations</p>
+        <h2>One command room for your chess ecosystem</h2>
+        <div class="auth-visual-grid">
+          <article>
+            <span>Live Games</span>
+            <strong>12 boards</strong>
+          </article>
+          <article>
+            <span>Tournaments</span>
+            <strong>Swiss rooms</strong>
+          </article>
+          <article>
+            <span>Events</span>
+            <strong>NSW rapid</strong>
+          </article>
+          <article>
+            <span>Coaching</span>
+            <strong>Junior plans</strong>
+          </article>
+        </div>
+      </aside>
     </section>
   </main>
 </template>
