@@ -4,6 +4,7 @@ import { applySeo } from '../utils/seo'
 import Admin from '../pages/Admin.vue'
 import About from '../pages/About.vue'
 import Blog from '../pages/Blog.vue'
+import BlogDetail from '../pages/BlogDetail.vue'
 import Calendar from '../pages/Calendar.vue'
 import ClubDetail from '../pages/ClubDetail.vue'
 import Clubs from '../pages/Clubs.vue'
@@ -88,6 +89,11 @@ const router = createRouter({
       path: '/blog',
       name: 'blog',
       component: Blog,
+    },
+    {
+      path: '/blog/:slug',
+      name: 'blog-detail',
+      component: BlogDetail,
     },
     {
       path: '/contact',

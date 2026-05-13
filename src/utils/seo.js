@@ -83,10 +83,18 @@ const pageMeta = {
     type: 'website',
   },
   blog: {
-    title: 'Chess Blog, Tournament Guides and Platform Updates | GambitForge',
+    title: 'Australian Chess Blog, Tournament Guides and Coaching Tips | GambitForge',
     description:
-      'Read future GambitForge updates, chess improvement articles, tournament guides, organiser notes, and community stories.',
+      'Read GambitForge chess articles about Australian tournaments, junior chess, Swiss pairings, chess clubs, coaching, and tournament preparation.',
     type: 'website',
+    structuredType: 'Blog',
+  },
+  'blog-detail': {
+    title: ({ params }) => `${titleFromSlug(params.slug)} | Chess Guide | GambitForge`,
+    description: ({ params }) =>
+      `Read ${titleFromSlug(params.slug)} on GambitForge, with practical guidance for Australian chess players, parents, coaches, clubs, and tournament organisers.`,
+    type: 'article',
+    structuredType: 'Article',
   },
   about: {
     title: 'About GambitForge | Modern Chess Platform',
@@ -245,6 +253,35 @@ function buildStructuredData(route, meta, title, description, canonicalUrl) {
         '@type': 'Person',
         name: titleFromSlug(route.params.slug),
         jobTitle: 'Chess coach',
+      },
+    }
+  }
+
+  if (meta.structuredType === 'Article') {
+    return {
+      ...base,
+      mainEntity: {
+        '@type': 'Article',
+        headline: titleFromSlug(route.params.slug),
+        author: {
+          '@type': 'Organization',
+          name: siteName,
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: siteName,
+        },
+      },
+    }
+  }
+
+  if (meta.structuredType === 'Blog') {
+    return {
+      ...base,
+      mainEntity: {
+        '@type': 'Blog',
+        name: 'GambitForge Blog',
+        description,
       },
     }
   }
