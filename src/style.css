@@ -4487,6 +4487,346 @@ h3 {
     rgba(255, 255, 255, 0.42);
 }
 
+/* Premium consistency pass for public discovery and support pages. */
+.contact-page,
+.about-page,
+.faq-page {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  margin: 0;
+  padding: 34px max(18px, calc((100vw - 1120px) / 2)) 76px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 4%, rgba(215, 169, 77, 0.14), transparent 22rem),
+    radial-gradient(circle at 88% 8%, rgba(74, 163, 255, 0.13), transparent 24rem),
+    linear-gradient(180deg, rgba(8, 11, 15, 0.98) 0%, #070a0f 54%, #05070b 100%);
+}
+
+.contact-page::before,
+.about-page::before,
+.faq-page::before {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+  background-size: 88px 88px;
+  content: '';
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 70%);
+}
+
+.contact-page::after,
+.about-page::after,
+.faq-page::after {
+  position: absolute;
+  z-index: -1;
+  inset: 8% -12% auto auto;
+  width: min(48vw, 620px);
+  height: min(48vw, 620px);
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(74, 163, 255, 0.12), transparent 66%);
+  content: '';
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.contact-page .platform-hero,
+.about-page .platform-hero,
+.faq-page .platform-hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: clamp(22px, 3.4vw, 38px);
+  align-items: center;
+  min-height: 0;
+  padding: clamp(24px, 3.2vw, 34px);
+  border: 1px solid rgba(239, 197, 101, 0.18);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(215, 169, 77, 0.13), transparent 16rem),
+    radial-gradient(circle at 86% 16%, rgba(20, 184, 166, 0.08), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.014)),
+    rgba(8, 13, 20, 0.72);
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+.contact-page .platform-hero::before,
+.about-page .platform-hero::before,
+.faq-page .platform-hero::before {
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, rgba(215, 169, 77, 0.08), transparent 34%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.026) 0 1px, transparent 1px 96px);
+  opacity: 0.62;
+}
+
+.contact-page .platform-hero > *,
+.about-page .platform-hero > *,
+.faq-page .platform-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-page .platform-hero h1,
+.about-page .platform-hero h1,
+.faq-page .platform-hero h1 {
+  max-width: 720px;
+  font-size: clamp(36px, 4.35vw, 58px);
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.contact-page .platform-hero p:last-child,
+.about-page .platform-hero p:last-child,
+.faq-page .platform-hero p:last-child {
+  max-width: 620px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.contact-hero-preview,
+.about-hero-board,
+.faq-hero-stack {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.018)),
+    rgba(7, 12, 19, 0.82);
+  box-shadow:
+    0 26px 64px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.contact-hero-preview {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+}
+
+.contact-orbit-card {
+  display: grid;
+  gap: 4px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(215, 169, 77, 0.1), rgba(74, 163, 255, 0.055)),
+    rgba(8, 13, 20, 0.5);
+  padding: 13px 14px;
+}
+
+.contact-orbit-card strong,
+.about-hero-board span,
+.faq-hero-stack span {
+  color: var(--text-strong);
+}
+
+.contact-orbit-card span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.contact-layout,
+.about-section-grid,
+.faq-list {
+  margin-top: 22px;
+}
+
+.contact-form-panel,
+.contact-info-card,
+.about-story-card,
+.faq-card {
+  border-radius: 10px;
+  border-color: rgba(148, 163, 184, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018)),
+    rgba(7, 12, 19, 0.74);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.contact-form-panel:hover,
+.contact-info-card:hover,
+.about-story-card:hover,
+.faq-card:hover {
+  border-color: rgba(239, 197, 101, 0.32);
+  box-shadow:
+    0 26px 64px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(215, 169, 77, 0.08);
+  transform: translateY(-2px);
+}
+
+.contact-info-card {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(215, 169, 77, 0.18), transparent 14rem),
+    radial-gradient(circle at 100% 20%, rgba(74, 163, 255, 0.1), transparent 14rem),
+    linear-gradient(145deg, rgba(28, 36, 48, 0.92), rgba(91, 30, 45, 0.26));
+}
+
+.contact-signal-grid,
+.about-hero-board,
+.faq-hero-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-signal-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-signal-grid span,
+.about-hero-board span,
+.faq-hero-stack span {
+  min-width: 0;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  background: rgba(8, 13, 20, 0.38);
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.about-hero-board {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 18px;
+}
+
+.about-hero-board span {
+  display: grid;
+  min-height: 72px;
+  place-items: center;
+  text-align: center;
+}
+
+.faq-hero-stack {
+  padding: 18px;
+}
+
+.faq-question {
+  min-height: 64px;
+  font-weight: 850;
+}
+
+.faq-answer {
+  background: linear-gradient(180deg, transparent, rgba(74, 163, 255, 0.025));
+}
+
+.events-page.discovery-page .event-card,
+.clubs-page.discovery-page .club-card,
+.coaches-page.discovery-page .coach-card {
+  min-height: 100%;
+}
+
+.events-page.discovery-page .event-card:hover,
+.clubs-page.discovery-page .club-card:hover,
+.coaches-page.discovery-page .coach-card:hover {
+  transform: translateY(-3px);
+}
+
+:root[data-theme='light'] .contact-page,
+:root[data-theme='light'] .about-page,
+:root[data-theme='light'] .faq-page {
+  background:
+    radial-gradient(circle at 12% 2%, rgba(183, 121, 31, 0.12), transparent 21rem),
+    radial-gradient(circle at 92% 10%, rgba(37, 99, 235, 0.07), transparent 24rem),
+    linear-gradient(180deg, #fffdf8 0%, #f7f3eb 56%, #eef1f4 100%);
+}
+
+:root[data-theme='light'] .contact-page::before,
+:root[data-theme='light'] .about-page::before,
+:root[data-theme='light'] .faq-page::before {
+  background:
+    linear-gradient(rgba(88, 63, 34, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 63, 34, 0.04) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+:root[data-theme='light'] .contact-page .platform-hero,
+:root[data-theme='light'] .about-page .platform-hero,
+:root[data-theme='light'] .faq-page .platform-hero {
+  border-color: rgba(88, 63, 34, 0.15);
+  background:
+    radial-gradient(circle at 16% 18%, rgba(183, 121, 31, 0.1), transparent 16rem),
+    radial-gradient(circle at 86% 16%, rgba(37, 99, 235, 0.06), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 250, 241, 0.72)),
+    rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 24px 64px rgba(88, 63, 34, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme='light'] .contact-page .platform-hero::before,
+:root[data-theme='light'] .about-page .platform-hero::before,
+:root[data-theme='light'] .faq-page .platform-hero::before {
+  background:
+    linear-gradient(90deg, rgba(183, 121, 31, 0.07), transparent 34%),
+    repeating-linear-gradient(90deg, rgba(88, 63, 34, 0.032) 0 1px, transparent 1px 96px);
+}
+
+:root[data-theme='light'] .contact-hero-preview,
+:root[data-theme='light'] .about-hero-board,
+:root[data-theme='light'] .faq-hero-stack,
+:root[data-theme='light'] .contact-form-panel,
+:root[data-theme='light'] .contact-info-card,
+:root[data-theme='light'] .about-story-card,
+:root[data-theme='light'] .faq-card {
+  border-color: rgba(88, 63, 34, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 250, 241, 0.66)),
+    rgba(255, 255, 255, 0.76);
+  box-shadow:
+    0 16px 38px rgba(88, 63, 34, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme='light'] .contact-form-panel:hover,
+:root[data-theme='light'] .contact-info-card:hover,
+:root[data-theme='light'] .about-story-card:hover,
+:root[data-theme='light'] .faq-card:hover {
+  border-color: rgba(183, 121, 31, 0.26);
+  box-shadow:
+    0 22px 48px rgba(88, 63, 34, 0.14),
+    0 0 28px rgba(183, 121, 31, 0.07);
+}
+
+:root[data-theme='light'] .contact-orbit-card,
+:root[data-theme='light'] .contact-signal-grid span,
+:root[data-theme='light'] .about-hero-board span,
+:root[data-theme='light'] .faq-hero-stack span {
+  border-color: rgba(88, 63, 34, 0.14);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+:root[data-theme='light'] .contact-orbit-card strong,
+:root[data-theme='light'] .about-hero-board span,
+:root[data-theme='light'] .faq-hero-stack span {
+  color: var(--text-strong);
+}
+
+:root[data-theme='light'] .contact-form-panel input,
+:root[data-theme='light'] .contact-form-panel select,
+:root[data-theme='light'] .contact-form-panel textarea {
+  border-color: rgba(88, 63, 34, 0.16);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84);
+}
+
 .platform-feature-card {
   position: relative;
   overflow: hidden;
@@ -5900,5 +6240,55 @@ h3 {
 
   .radar-marker-dot::after {
     animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-page .platform-hero,
+  .about-page .platform-hero,
+  .faq-page .platform-hero {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .contact-page,
+  .about-page,
+  .faq-page {
+    padding-inline: 14px;
+    padding-top: 24px;
+  }
+
+  .contact-hero-preview,
+  .about-hero-board,
+  .faq-hero-stack {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-page,
+  .about-page,
+  .faq-page {
+    padding-inline: 10px;
+  }
+
+  .contact-page .platform-hero,
+  .about-page .platform-hero,
+  .faq-page .platform-hero,
+  .contact-hero-preview,
+  .about-hero-board,
+  .faq-hero-stack {
+    padding: 18px;
+  }
+
+  .contact-page .platform-hero h1,
+  .about-page .platform-hero h1,
+  .faq-page .platform-hero h1 {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+
+  .contact-signal-grid,
+  .about-hero-board {
+    grid-template-columns: 1fr;
   }
 }

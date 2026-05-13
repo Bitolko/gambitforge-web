@@ -207,7 +207,7 @@ const relatedEvents = computed(() => (
         <article v-for="tool in liveTools" :key="tool" class="event-tool-card">
           <span class="coming-soon-badge">Coming soon</span>
           <h3>{{ tool }}</h3>
-          <p>Premium live event module placeholder for organisers, players, and spectators.</p>
+          <p>Premium live event module for organisers, players, and spectators.</p>
         </article>
       </div>
     </section>

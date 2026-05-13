@@ -23,12 +23,22 @@ const aboutSections = [
 <template>
   <main class="platform-page about-page">
     <section class="platform-hero about-hero" aria-labelledby="about-title">
-      <p class="eyebrow">About</p>
-      <h1 id="about-title">About GambitForge</h1>
-      <p>
-        GambitForge is a modern chess platform built for live games, tournament management,
-        coaching, and club events.
-      </p>
+      <div>
+        <p class="eyebrow">About</p>
+        <h1 id="about-title">A Premium Operating Layer for Modern Chess Communities</h1>
+        <p>
+          GambitForge is a modern chess platform built for live games, tournament management,
+          coaching, and club events.
+        </p>
+      </div>
+      <aside class="about-hero-board" aria-label="GambitForge platform map">
+        <span>Live games</span>
+        <span>Tournaments</span>
+        <span>Clubs</span>
+        <span>Coaching</span>
+        <span>Calendar</span>
+        <span>Community</span>
+      </aside>
     </section>
 
     <section class="about-section-grid" aria-label="About GambitForge">

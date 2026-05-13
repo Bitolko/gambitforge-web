@@ -12,8 +12,8 @@ const coaches = [
     slug: 'elena-morris',
     name: 'Elena Morris',
     location: 'Sydney, NSW',
-    title: 'FIDE Trainer placeholder',
-    rating: '2100+ rating placeholder',
+    title: 'Junior development coach',
+    rating: '2100+ playing strength',
     description: 'Junior development coach focused on calculation habits, confidence, and tournament readiness.',
     specialties: ['Junior coaching', 'Online', 'Tournament prep', 'Beginner', 'Intermediate'],
     formats: ['Online lessons', 'Small groups', 'School programs'],
@@ -22,8 +22,8 @@ const coaches = [
     slug: 'daniel-kovacs',
     name: 'Daniel Kovacs',
     location: 'Melbourne, VIC',
-    title: 'National Master placeholder',
-    rating: '2250+ rating placeholder',
+    title: 'Tournament preparation specialist',
+    rating: '2250+ playing strength',
     description: 'Practical tournament coach for ambitious club players working on openings, strategy, and game review.',
     specialties: ['Tournament prep', 'Advanced', 'Online'],
     formats: ['One-on-one lessons', 'Game analysis', 'Opening preparation'],
@@ -32,8 +32,8 @@ const coaches = [
     slug: 'maya-singh',
     name: 'Maya Singh',
     location: 'Brisbane, QLD',
-    title: 'Coach profile placeholder',
-    rating: '1900+ rating placeholder',
+    title: 'Beginner and intermediate mentor',
+    rating: '1900+ playing strength',
     description: 'Friendly beginner and intermediate coach helping adults and juniors build strong foundations.',
     specialties: ['Beginner', 'Intermediate', 'Junior coaching', 'Online'],
     formats: ['Beginner courses', 'Family sessions', 'Online lessons'],
@@ -42,8 +42,8 @@ const coaches = [
     slug: 'oliver-wright',
     name: 'Oliver Wright',
     location: 'Perth, WA',
-    title: 'Club coach placeholder',
-    rating: '2000+ rating placeholder',
+    title: 'Club training coach',
+    rating: '2000+ playing strength',
     description: 'Club trainer specialising in rapid improvement plans, endgames, and weekly accountability.',
     specialties: ['Intermediate', 'Advanced', 'Tournament prep'],
     formats: ['Club nights', 'Training plans', 'Endgame workshops'],
@@ -72,7 +72,7 @@ const filteredCoaches = computed(() => {
     <section class="coaches-hero" aria-labelledby="coaches-title">
       <div class="coaches-hero-copy">
         <p class="eyebrow">Chess coaching discovery</p>
-        <h1 id="coaches-title">Find Chess Coaches for Every Stage of Improvement</h1>
+        <h1 id="coaches-title">Find the Right Chess Coach for Your Next Breakthrough</h1>
         <p>
           Browse junior coaches, online trainers, tournament preparation specialists, and club
           mentors across the Australian chess community.

@@ -54,8 +54,17 @@ function toggleItem(index) {
 <template>
   <main class="platform-page faq-page">
     <section class="platform-hero faq-hero" aria-labelledby="faq-title">
-      <p class="eyebrow">FAQ</p>
-      <h1 id="faq-title">Frequently Asked Questions</h1>
+      <div>
+        <p class="eyebrow">FAQ</p>
+        <h1 id="faq-title">Answers Before Your First Move</h1>
+        <p>Quick guidance for clubs, coaches, organisers, and players exploring GambitForge.</p>
+      </div>
+      <div class="faq-hero-stack" aria-label="FAQ topics">
+        <span>Platform</span>
+        <span>Tournaments</span>
+        <span>Coaching</span>
+        <span>Clubs</span>
+      </div>
     </section>
 
     <section class="faq-list" aria-label="Frequently asked questions">
