@@ -118,11 +118,13 @@ const pageMeta = {
     title: 'Login | GambitForge',
     description: 'Log in to GambitForge to manage chess games, tournaments, coaching tools, and event workflows.',
     type: 'website',
+    robots: 'noindex,follow',
   },
   register: {
     title: 'Create Account | GambitForge',
     description: 'Create a GambitForge account to access chess games, tournaments, coaching tools, and organiser features.',
     type: 'website',
+    robots: 'noindex,follow',
   },
   profile: {
     title: ({ params }) => `${titleFromSlug(params.username)} | Chess Player Profile | GambitForge`,
@@ -135,21 +137,25 @@ const pageMeta = {
     title: 'Dashboard | GambitForge',
     description: 'View your GambitForge chess activity, games, tournaments, profile, and next available platform tools.',
     type: 'website',
+    robots: 'noindex,follow',
   },
   admin: {
     title: 'Admin | GambitForge',
     description: 'Manage GambitForge platform administration, users, tournaments, games, and operational activity.',
     type: 'website',
+    robots: 'noindex,follow',
   },
   game: {
     title: 'Chess Game | GambitForge',
     description: 'Open a live GambitForge chess game board with legal moves, clocks, players, and game status.',
     type: 'website',
+    robots: 'noindex,follow',
   },
   tournament: {
     title: 'Tournament Room | GambitForge',
     description: 'Open a GambitForge tournament room with players, pairings, standings, results, and organiser controls.',
     type: 'website',
+    robots: 'noindex,follow',
   },
   'not-found': {
     title: 'Page Not Found | GambitForge',
@@ -313,7 +319,7 @@ export function applySeo(route) {
   document.title = title
 
   ensureMeta('meta[name="description"]', { name: 'description', content: description })
-  ensureMeta('meta[name="robots"]', { name: 'robots', content: 'index,follow' })
+  ensureMeta('meta[name="robots"]', { name: 'robots', content: meta.robots || 'index,follow' })
   ensureMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: siteName })
   ensureMeta('meta[property="og:title"]', { property: 'og:title', content: title })
   ensureMeta('meta[property="og:description"]', { property: 'og:description', content: description })
