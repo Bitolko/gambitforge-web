@@ -75,7 +75,7 @@ const currentCoach = computed(() => (
           {{ currentCoach.name.split(' ').map((part) => part[0]).join('') }}
         </div>
         <p class="panel-label">{{ currentCoach.location }}</p>
-        <h2>{{ currentCoach.title }}</h2>
+        <p class="coach-profile-title">{{ currentCoach.title }}</p>
         <p>{{ currentCoach.rating }}</p>
       </aside>
 

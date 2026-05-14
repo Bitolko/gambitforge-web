@@ -138,7 +138,7 @@ const userTypes = [
 
             <RouterLink class="hero-dashboard-panel hero-activity-panel" to="/tournaments">
               <p class="panel-label">Tournament activity</p>
-              <h3>Round 3</h3>
+              <h2>Round 3</h2>
               <p>Pairings generated. 4 results pending.</p>
               <span class="progress-track"><span style="width: 56%"></span></span>
             </RouterLink>

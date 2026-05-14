@@ -5,16 +5,16 @@
   --surface: #121821;
   --surface-strong: #1c2430;
   --surface-soft: #0f141c;
-  --text: #d3d8df;
+  --text: #dbe1e8;
   --text-strong: #f8fafc;
-  --muted: #9ca3af;
+  --muted: #b5bec9;
   --line: #293241;
   --accent: #16a394;
   --accent-hover: #20c0ad;
   --blue-glow: #4aa3ff;
   --danger: #dc4a3d;
-  --gold: #d7a94d;
-  --gold-strong: #efc565;
+  --gold: #e3b85c;
+  --gold-strong: #f2cf75;
   --bronze: #9d6a32;
   --burgundy: #5b1e2d;
   --nav-bg: rgba(9, 11, 15, 0.88);
@@ -43,14 +43,14 @@
   --surface-soft: #fbf4e8;
   --text: #3d3328;
   --text-strong: #17110b;
-  --muted: #6d6255;
+  --muted: #5f5548;
   --line: #d8c7ac;
   --accent: #0f8178;
   --accent-hover: #0b675f;
   --blue-glow: #2563eb;
   --danger: #b42318;
-  --gold: #b7791f;
-  --gold-strong: #d1942d;
+  --gold: #946016;
+  --gold-strong: #a96512;
   --bronze: #8b5e34;
   --burgundy: #8a354a;
   --nav-bg: rgba(255, 250, 241, 0.9);
@@ -1830,6 +1830,7 @@ h3 {
 }
 
 .hero-dashboard-card .mockup-brand,
+.hero-dashboard-card h2,
 .hero-dashboard-card h3 {
   color: #f8fafc;
 }
@@ -1938,7 +1939,7 @@ h3 {
 }
 
 .hero-move-list span {
-  color: #9ca7b7;
+  color: #b7c1cf;
   font-size: 13px;
   line-height: 1.4;
 }
@@ -2001,14 +2002,14 @@ h3 {
   min-height: 118px;
 }
 
-.hero-activity-panel h3 {
+.hero-activity-panel h2 {
   color: #f8fafc;
   font-size: 18px;
 }
 
 .hero-activity-panel p:not(.panel-label),
 .hero-coaching-panel p {
-  color: #9ca7b7;
+  color: #b7c1cf;
   font-size: 13px;
   line-height: 1.45;
 }
@@ -3561,6 +3562,13 @@ h3 {
 .coach-profile-panel {
   justify-items: start;
   padding: 24px;
+}
+
+.coach-profile-title {
+  color: var(--text-strong) !important;
+  font-size: 24px;
+  font-weight: 850;
+  line-height: 1.2 !important;
 }
 
 .coach-detail-copy button {
