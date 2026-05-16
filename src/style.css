@@ -520,12 +520,6 @@ h3 {
   position: absolute;
   z-index: -1;
   inset: 0 max(-12vw, -120px);
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px),
-    radial-gradient(circle at 18% 12%, rgba(215, 169, 77, 0.16), transparent 22rem),
-    radial-gradient(circle at 84% 18%, rgba(74, 163, 255, 0.13), transparent 24rem);
-  background-size: 82px 82px, 82px 82px, auto, auto;
   content: '';
   pointer-events: none;
 }
@@ -755,15 +749,6 @@ h3 {
   color: #fff8e8;
   font-size: 18px;
   line-height: 1.15;
-}
-
-:root[data-theme='light'] .auth-page::before {
-  background:
-    linear-gradient(rgba(88, 63, 34, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(88, 63, 34, 0.035) 1px, transparent 1px),
-    radial-gradient(circle at 18% 12%, rgba(183, 121, 31, 0.12), transparent 22rem),
-    radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.07), transparent 24rem);
-  background-size: 82px 82px, 82px 82px, auto, auto;
 }
 
 :root[data-theme='light'] .auth-shell {
@@ -7970,10 +7955,6 @@ h3 {
   .tournament-control-preview {
     grid-template-columns: 1fr;
     align-items: start;
-  }
-
-  .tournament-control-art img {
-    /* max-width: min(100%, 260px); */
   }
 
   .live-game-row {

@@ -28,7 +28,7 @@ const filteredArticles = computed(() => (
       <aside class="blog-editorial-poster" :data-tone="featuredArticle.heroTone" aria-label="Featured editorial preview">
         <img
           class="blog-editorial-image"
-          src="/sydneyChess.png"
+          src="/sydneyChess-hero.jpg"
           alt="Top Junior Chess Tournaments in Sydney editorial feature card"
           width="720"
           height="720"
