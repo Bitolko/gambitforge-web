@@ -4097,16 +4097,6 @@ h3 {
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-.events-page.discovery-page .event-card::before,
-.clubs-page.discovery-page .club-card::before,
-.coaches-page.discovery-page .coach-card::before {
-  position: absolute;
-  inset: 0 0 auto;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold-strong), rgba(74, 163, 255, 0.7), transparent);
-  content: '';
-}
-
 .events-page.discovery-page .event-card:hover,
 .clubs-page.discovery-page .club-card:hover,
 .coaches-page.discovery-page .coach-card:hover {
@@ -4142,8 +4132,8 @@ h3 {
 .coaches-page.discovery-page::before {
   inset: 0;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.025)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025));
   background-size: 88px 88px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 68%);
 }
@@ -6594,7 +6584,7 @@ h3 {
 
 .event-promotion-preview .event-flyer-large {
   width: min(100%, 230px);
-  min-height: 280px;
+  min-height: 230px;
 }
 
 .analytics-preview {
@@ -6926,17 +6916,6 @@ h3 {
   overflow: hidden;
 }
 
-.live-game-row::before,
-.tournament-card::before,
-.pairing-row::before {
-  position: absolute;
-  inset: 0 0 auto;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold-strong), rgba(74, 163, 255, 0.72), transparent);
-  content: '';
-  opacity: 0.72;
-}
-
 .live-game-mark,
 .tournament-mark {
   box-shadow:
@@ -7232,7 +7211,7 @@ h3 {
 }
 
 .badge-finished {
-  color: #9fb0c4;
+  color: #1964bb;
 }
 
 .badge-coming-soon {
@@ -7994,7 +7973,7 @@ h3 {
   }
 
   .tournament-control-art img {
-    max-width: min(100%, 260px);
+    /* max-width: min(100%, 260px); */
   }
 
   .live-game-row {
@@ -8089,7 +8068,7 @@ h3 {
   }
 
   .platform-hero-image {
-    justify-self: start;
+    justify-self: center;
     width: min(100%, 300px);
   }
 

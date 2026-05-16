@@ -298,7 +298,6 @@ function submitEvent() {
         <div class="event-flyer event-flyer-large" data-tone="Harbour" aria-hidden="true">
           <span>{{ form.state || 'AUS' }}</span>
           <strong>{{ form.timeControl || 'Time control' }}</strong>
-          <em>{{ form.eventType }}</em>
         </div>
         <h2>{{ form.eventName || 'Your chess event' }}</h2>
         <p>{{ form.venue || 'Venue to be confirmed' }}</p>
