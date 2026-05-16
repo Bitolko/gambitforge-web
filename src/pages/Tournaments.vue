@@ -106,13 +106,25 @@ onMounted(async () => {
       </article>
 
       <article class="next-module tournament-control-preview">
-        <p class="panel-label">Organizer flow</p>
-        <h2>Round control</h2>
-        <div class="control-preview-list">
-          <span>Registration open</span>
-          <span>Pairings generated</span>
-          <span>Results entered</span>
-          <span>Standings updated</span>
+        <div class="tournament-control-art">
+          <img
+            src="/clockIcon.png"
+            alt="Rapid 15+10 tournament control preview"
+            width="760"
+            height="428"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="tournament-control-copy">
+          <p class="panel-label">Organizer flow</p>
+          <h2>Round control</h2>
+          <div class="control-preview-list">
+            <span>Registration open</span>
+            <span>Pairings generated</span>
+            <span>Results entered</span>
+            <span>Standings updated</span>
+          </div>
         </div>
       </article>
     </section>
@@ -154,7 +166,7 @@ onMounted(async () => {
         >
           <div class="tournament-row-main">
             <span class="tournament-mark" aria-hidden="true">
-              <img src="/gambitforge-logo-ui.webp" alt="" width="48" height="48" loading="lazy" decoding="async" />
+              <img src="/tournament.png" alt="" width="48" height="48" loading="lazy" decoding="async" />
             </span>
 
             <div class="tournament-row-copy">

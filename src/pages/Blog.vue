@@ -18,7 +18,7 @@ const filteredArticles = computed(() => (
     <section class="blog-hero" aria-labelledby="blog-title">
       <div>
         <p class="eyebrow">GambitForge Blog</p>
-        <h1 id="blog-title">Chess Guides for Australia’s Tournament Ecosystem</h1>
+        <h1 id="blog-title">Chess Guides for Australia's Tournament Ecosystem</h1>
         <p>
           Practical, searchable articles for players, parents, coaches, clubs, and organisers
           building stronger chess communities across Australia.
@@ -26,9 +26,15 @@ const filteredArticles = computed(() => (
       </div>
 
       <aside class="blog-editorial-poster" :data-tone="featuredArticle.heroTone" aria-label="Featured editorial preview">
-        <span>{{ featuredArticle.category }}</span>
-        <strong>{{ featuredArticle.readingTime }}</strong>
-        <em>Editorial feature</em>
+        <img
+          class="blog-editorial-image"
+          src="/sydneyChess.png"
+          alt="Top Junior Chess Tournaments in Sydney editorial feature card"
+          width="720"
+          height="720"
+          decoding="async"
+          fetchpriority="high"
+        />
       </aside>
     </section>
 
@@ -80,6 +86,9 @@ const filteredArticles = computed(() => (
         <div class="preview-card-heading">
           <span class="coming-soon-badge">{{ article.category }}</span>
           <small>{{ article.readingTime }}</small>
+        </div>
+        <div class="article-card-visual" :data-tone="article.heroTone" aria-hidden="true">
+          <img src="/blog.png" alt="" width="720" height="720" loading="lazy" decoding="async" />
         </div>
         <h2 itemprop="headline">{{ article.title }}</h2>
         <p itemprop="description">{{ article.excerpt }}</p>

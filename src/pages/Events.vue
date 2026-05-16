@@ -1,6 +1,5 @@
 <script setup>
 import { computed, ref } from 'vue'
-import australiaRadarUrl from '../assets/australia-event-radar.svg'
 
 const stateFilters = ['All', 'NSW', 'VIC', 'QLD', 'WA', 'SA', 'ACT', 'TAS']
 const categoryFilters = ['All', 'Junior', 'Open', 'Rapid', 'Blitz', 'Classical', 'School', 'Teams']
@@ -9,12 +8,12 @@ const activeState = ref('All')
 const activeCategory = ref('All')
 
 const radarMarkers = [
-  { state: 'WA', label: 'Perth', style: { left: '25%', top: '52%' } },
-  { state: 'SA', label: 'Adelaide', style: { left: '54%', top: '63%' } },
-  { state: 'QLD', label: 'Brisbane', style: { left: '72%', top: '34%' } },
-  { state: 'NSW', label: 'Sydney', style: { left: '72%', top: '62%' } },
-  { state: 'VIC', label: 'Melbourne', style: { left: '68%', top: '75%' } },
-  { state: 'ACT', label: 'Canberra', style: { left: '70%', top: '67%' } },
+  { state: 'WA', label: 'Perth', style: { left: '24%', top: '54%' } },
+  { state: 'SA', label: 'Adelaide', style: { left: '54%', top: '64%' } },
+  { state: 'QLD', label: 'Brisbane', style: { left: '75%', top: '34%' } },
+  { state: 'NSW', label: 'Sydney', style: { left: '74%', top: '62%' } },
+  { state: 'VIC', label: 'Melbourne', style: { left: '69%', top: '76%' } },
+  { state: 'ACT', label: 'Canberra', style: { left: '71%', top: '68%' } },
 ]
 
 const events = [
@@ -193,12 +192,11 @@ const previewModules = [
 
       <aside class="events-hero-panel" aria-label="Events discovery preview">
         <div class="preview-card-heading">
-          <p class="panel-label">National event radar</p>
+          <p class="panel-label">Featured event room</p>
           <span class="status-badge badge-live">Australia</span>
         </div>
 
-        <div class="events-map-preview australia-map-preview" aria-label="Australian chess event radar preview">
-          <img class="australia-radar-asset" :src="australiaRadarUrl" alt="" width="920" height="620" decoding="async" />
+        <div class="events-map-preview australia-map-preview territory-map-preview" aria-label="Australian chess event map preview">
           <span
             v-for="marker in radarMarkers"
             :key="marker.state"
@@ -221,7 +219,7 @@ const previewModules = [
           </div>
         </div>
 
-        <div class="events-hero-stats radar-module-row">
+        <div class="events-hero-stats event-module-row">
           <span>
             <small>Next phase</small>
             <strong>Pairings</strong>

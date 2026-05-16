@@ -17,12 +17,24 @@ const calendarFeatures = [
 
 <template>
   <main class="platform-page">
-    <section class="platform-hero" aria-labelledby="calendar-title">
-      <p class="eyebrow">Calendar</p>
-      <h1 id="calendar-title">Plan Every Chess Event in One Place</h1>
-      <p>
-        Track upcoming tournaments, coaching sessions, and club events so players know what is happening next before the full scheduling tools arrive.
-      </p>
+    <section class="platform-hero calendar-hero" aria-labelledby="calendar-title">
+      <div>
+        <p class="eyebrow">Calendar</p>
+        <h1 id="calendar-title">Plan Every Chess Event in One Place</h1>
+        <p>
+          Track upcoming tournaments, coaching sessions, and club events so players know what is happening next before the full scheduling tools arrive.
+        </p>
+      </div>
+
+      <img
+        class="platform-hero-image"
+        src="/calendar.png"
+        alt="Calendar planning preview for chess events"
+        width="720"
+        height="300"
+        decoding="async"
+        fetchpriority="high"
+      />
     </section>
 
     <section class="platform-feature-grid" aria-label="Calendar features">

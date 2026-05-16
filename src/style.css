@@ -1159,6 +1159,60 @@ h3 {
   margin-top: 6px;
 }
 
+.tournament-control-preview {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.62fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.tournament-control-art {
+  position: relative;
+  min-width: 0;
+}
+
+.tournament-control-art img {
+  width: 100%;
+  max-width: 230px;
+  height: auto;
+  border: 1px solid rgba(239, 197, 101, 0.18);
+  border-radius: 18px;
+  box-shadow:
+    0 20px 42px rgba(0, 0, 0, 0.26),
+    0 0 28px rgba(215, 169, 77, 0.08);
+}
+
+.clock-control-overlay {
+  position: absolute;
+  left: 11%;
+  top: 27%;
+  display: grid;
+  gap: 2px;
+  color: #fff8e8;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.55),
+    0 0 18px rgba(215, 169, 77, 0.22);
+  pointer-events: none;
+}
+
+.clock-control-overlay small {
+  color: #f6d488;
+  font-size: clamp(10px, 1.4vw, 13px);
+  font-weight: 950;
+  line-height: 1;
+}
+
+.clock-control-overlay strong {
+  font-size: clamp(24px, 3.2vw, 36px);
+  line-height: 0.9;
+}
+
+.tournament-control-copy {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
 .tournament-director-panel button,
 .tournament-status-card button {
   width: fit-content;
@@ -2333,6 +2387,30 @@ h3 {
   line-height: 1.7;
 }
 
+.calendar-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+  align-items: center;
+  gap: clamp(24px, 5vw, 56px);
+}
+
+.calendar-hero > div {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.platform-hero-image {
+  width: min(100%, 340px);
+  aspect-ratio: 1;
+  justify-self: end;
+  border: 1px solid rgba(239, 197, 101, 0.18);
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow:
+    0 22px 54px rgba(0, 0, 0, 0.28),
+    0 0 34px rgba(215, 169, 77, 0.08);
+}
+
 .platform-feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3256,6 +3334,13 @@ h3 {
   width: 58px;
   height: 58px;
   font-size: 17px;
+  overflow: hidden;
+}
+
+.club-logo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .clubs-filter-section {
@@ -3758,6 +3843,14 @@ h3 {
   isolation: isolate;
 }
 
+.territory-map-preview,
+.club-network-preview {
+  background:
+    linear-gradient(135deg, rgba(7, 12, 19, 0.08), rgba(7, 12, 19, 0.02)),
+    url('/ausTerritory-map.png') center / contain no-repeat,
+    rgba(8, 13, 20, 0.5);
+}
+
 .australia-map-preview::after {
   position: absolute;
   z-index: 0;
@@ -3787,7 +3880,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  transform: translate(-50%, -50%);
+  transform: translate(-30%, -50%);
 }
 
 .radar-marker-dot {
@@ -3884,31 +3977,13 @@ h3 {
 
 .club-network-preview::before {
   position: absolute;
-  inset: 18px 20px 22px;
-  border: 1px solid rgba(239, 197, 101, 0.18);
-  border-radius: 42% 58% 46% 48% / 34% 38% 58% 54%;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(215, 169, 77, 0.16), transparent 20%),
-    radial-gradient(circle at 76% 76%, rgba(74, 163, 255, 0.12), transparent 18%),
-    linear-gradient(145deg, rgba(215, 169, 77, 0.1), rgba(22, 163, 148, 0.05));
-  clip-path: polygon(
-    12% 34%,
-    23% 18%,
-    44% 14%,
-    59% 22%,
-    76% 20%,
-    91% 34%,
-    86% 50%,
-    76% 58%,
-    72% 76%,
-    59% 82%,
-    45% 74%,
-    31% 79%,
-    18% 68%,
-    8% 54%
-  );
+  inset: 4px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(239, 197, 101, 0.08), rgba(74, 163, 255, 0.06));
+  clip-path: none;
   content: '';
-  transform: rotate(2deg);
+  transform: none;
 }
 
 .club-node {
@@ -5209,9 +5284,8 @@ h3 {
   border: 1px solid rgba(239, 197, 101, 0.24);
   border-radius: 18px;
   background:
-    radial-gradient(circle at 24% 18%, rgba(239, 197, 101, 0.26), transparent 34%),
-    radial-gradient(circle at 82% 80%, rgba(74, 163, 255, 0.22), transparent 36%),
-    conic-gradient(from 45deg at 50% 50%, rgba(255, 255, 255, 0.08), transparent 18%, rgba(239, 197, 101, 0.12), transparent 44%, rgba(74, 163, 255, 0.1), transparent 72%, rgba(255, 255, 255, 0.08)),
+    linear-gradient(145deg, rgba(7, 10, 15, 0.74), rgba(7, 10, 15, 0.18)),
+    url('/chessClock-control.jpg') center / cover no-repeat,
     linear-gradient(145deg, rgba(11, 16, 24, 0.98), rgba(25, 31, 43, 0.92));
   box-shadow:
     0 14px 30px rgba(0, 0, 0, 0.24),
@@ -5222,15 +5296,16 @@ h3 {
 .event-flyer::before {
   position: absolute;
   z-index: -1;
-  inset: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
+  inset: 0;
+  border: 0;
+  border-radius: inherit;
   background:
-    radial-gradient(circle, transparent 45%, rgba(255, 255, 255, 0.08) 46% 48%, transparent 49%),
-    linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.08) 49% 51%, transparent 52%),
-    linear-gradient(0deg, transparent 48%, rgba(255, 255, 255, 0.08) 49% 51%, transparent 52%);
+    radial-gradient(circle at 29% 52%, rgba(215, 169, 77, 0.14), transparent 30%),
+    radial-gradient(circle at 70% 50%, rgba(74, 163, 255, 0.14), transparent 31%),
+    linear-gradient(135deg, rgba(4, 7, 12, 0.62), rgba(4, 7, 12, 0.12) 50%, rgba(4, 7, 12, 0.38)),
+    radial-gradient(circle at 18% 18%, rgba(239, 197, 101, 0.16), transparent 42%);
   content: '';
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .event-flyer::after {
@@ -5269,11 +5344,16 @@ h3 {
 }
 
 .event-flyer strong {
-  max-width: 58px;
+  position: absolute;
+  left: 11px;
+  top: 39%;
+  max-width: 62px;
   color: #fff8e8;
-  font-size: 13px;
-  line-height: 1.05;
-  text-shadow: 0 0 18px rgba(239, 197, 101, 0.2);
+  font-size: 14px;
+  line-height: 0.96;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.58),
+    0 0 18px rgba(239, 197, 101, 0.24);
 }
 
 .event-flyer em {
@@ -5294,38 +5374,40 @@ h3 {
 }
 
 .event-flyer-large strong {
-  max-width: 180px;
-  font-size: clamp(24px, 3vw, 34px);
-  line-height: 1;
+  left: 18px;
+  top: 39%;
+  max-width: 190px;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 0.92;
 }
 
 .event-flyer[data-tone='Junior'],
 .event-flyer[data-tone='Schools'] {
   background:
-    radial-gradient(circle at 22% 20%, rgba(239, 197, 101, 0.3), transparent 36%),
-    radial-gradient(circle at 86% 80%, rgba(22, 163, 148, 0.28), transparent 34%),
+    linear-gradient(145deg, rgba(10, 31, 28, 0.68), rgba(16, 33, 31, 0.18)),
+    url('/chessClock-control.jpg') center / cover no-repeat,
     linear-gradient(145deg, rgba(16, 33, 31, 0.98), rgba(42, 31, 16, 0.9));
 }
 
 .event-flyer[data-tone='Blitz'] {
   background:
-    radial-gradient(circle at 22% 18%, rgba(74, 163, 255, 0.34), transparent 34%),
-    radial-gradient(circle at 84% 82%, rgba(239, 197, 101, 0.24), transparent 32%),
+    linear-gradient(145deg, rgba(5, 12, 22, 0.68), rgba(20, 23, 45, 0.2)),
+    url('/chessClock-control.jpg') center / cover no-repeat,
     linear-gradient(145deg, rgba(5, 12, 22, 0.98), rgba(20, 23, 45, 0.94));
 }
 
 .event-flyer[data-tone='Classical'],
 .event-flyer[data-tone='Metro'] {
   background:
-    radial-gradient(circle at 24% 16%, rgba(215, 169, 77, 0.25), transparent 34%),
-    radial-gradient(circle at 82% 80%, rgba(91, 30, 45, 0.34), transparent 34%),
+    linear-gradient(145deg, rgba(12, 16, 23, 0.72), rgba(32, 20, 26, 0.2)),
+    url('/chessClock-control.jpg') center / cover no-repeat,
     linear-gradient(145deg, rgba(12, 16, 23, 0.98), rgba(32, 20, 26, 0.94));
 }
 
 .event-flyer[data-tone='Waterfront'] {
   background:
-    radial-gradient(circle at 22% 18%, rgba(74, 163, 255, 0.3), transparent 34%),
-    radial-gradient(circle at 80% 80%, rgba(22, 163, 148, 0.22), transparent 32%),
+    linear-gradient(145deg, rgba(7, 18, 28, 0.7), rgba(12, 37, 42, 0.2)),
+    url('/chessClock-control.jpg') center / cover no-repeat,
     linear-gradient(145deg, rgba(7, 18, 28, 0.98), rgba(12, 37, 42, 0.92));
 }
 
@@ -7923,6 +8005,15 @@ h3 {
     align-items: start;
   }
 
+  .tournament-control-preview {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .tournament-control-art img {
+    max-width: min(100%, 260px);
+  }
+
   .live-game-row {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -7988,6 +8079,7 @@ h3 {
   .admin-table-grid,
   .landing-card-grid,
   .platform-feature-grid,
+  .calendar-hero,
   .contact-layout,
   .about-section-grid,
   .events-hero,
@@ -8011,6 +8103,11 @@ h3 {
   .coach-detail-grid,
   .coach-testimonial-grid {
     grid-template-columns: 1fr;
+  }
+
+  .platform-hero-image {
+    justify-self: start;
+    width: min(100%, 300px);
   }
 
   .home-hero {
@@ -9217,5 +9314,592 @@ textarea {
   .footer-bottom {
     width: min(100% - 16px, 1180px);
     padding-inline: 14px;
+  }
+}
+
+/* Focused UI repair pass: Coaching, Blog, and Events. */
+.coaching-page {
+  overflow-x: clip;
+}
+
+.coaching-page .platform-feature-card,
+.coaching-progress-mockup,
+.student-insight-grid span,
+.mock-analysis-card {
+  min-width: 0;
+}
+
+.coaching-page .preview-card-heading {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.coaching-page .secondary-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.blog-hero {
+  overflow: hidden;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+}
+
+.blog-hero > div:first-child {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.blog-editorial-poster {
+  width: min(100%, 360px);
+  min-height: 0;
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 18%),
+    radial-gradient(circle at 22% 18%, rgba(239, 197, 101, 0.3), transparent 28%),
+    radial-gradient(circle at 84% 78%, rgba(20, 184, 166, 0.2), transparent 28%),
+    linear-gradient(145deg, rgba(8, 12, 18, 0.98), rgba(39, 25, 25, 0.94));
+  padding: 0;
+}
+
+.blog-editorial-poster::before {
+  display: none;
+}
+
+.blog-editorial-image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.editorial-poster-masthead,
+.editorial-poster-copy,
+.editorial-board-visual {
+  position: relative;
+  z-index: 1;
+}
+
+.editorial-poster-masthead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.editorial-poster-masthead small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.editorial-board-visual {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 210px);
+  aspect-ratio: 1;
+  align-self: center;
+  justify-self: center;
+  overflow: hidden;
+  border: 1px solid rgba(239, 197, 101, 0.22);
+  border-radius: 16px;
+  background:
+    linear-gradient(45deg, rgba(239, 197, 101, 0.24) 25%, transparent 25% 75%, rgba(239, 197, 101, 0.24) 75%),
+    linear-gradient(45deg, rgba(255, 248, 232, 0.08) 25%, transparent 25% 75%, rgba(255, 248, 232, 0.08) 75%),
+    rgba(6, 10, 16, 0.7);
+  background-position: 0 0, 18px 18px, 0 0;
+  background-size: 36px 36px;
+  box-shadow: inset 0 0 34px rgba(0, 0, 0, 0.28);
+}
+
+.editorial-board-visual span {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.editorial-poster-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.editorial-poster-copy strong {
+  max-width: 300px;
+  color: #fff8e8;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.02;
+}
+
+.article-card-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 118px;
+  border: 1px solid rgba(239, 197, 101, 0.16);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 24% 20%, rgba(239, 197, 101, 0.2), transparent 34%),
+    radial-gradient(circle at 82% 78%, rgba(74, 163, 255, 0.16), transparent 36%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012)),
+    rgba(8, 13, 20, 0.52);
+}
+
+.article-card-visual img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 118px;
+  object-fit: cover;
+}
+
+.article-card-visual::before {
+  position: absolute;
+  z-index: 2;
+  inset: 16px;
+  border-radius: 10px;
+  background:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.09) 25%, transparent 25% 75%, rgba(255, 255, 255, 0.09) 75%),
+    linear-gradient(45deg, transparent 25%, rgba(215, 169, 77, 0.14) 25% 75%, transparent 75%);
+  background-position: 0 0, 11px 11px;
+  background-size: 22px 22px;
+  content: '';
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+.article-card-visual span {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  color: rgba(255, 248, 232, 0.88);
+  font-size: 28px;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.blog-featured {
+  grid-template-columns: minmax(0, 0.72fr);
+  background:
+    radial-gradient(circle at 94% 8%, rgba(239, 197, 101, 0.14), transparent 16rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018)),
+    rgba(7, 12, 19, 0.76);
+}
+
+.events-room-preview {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  min-height: 230px;
+  align-items: start;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(239, 197, 101, 0.18), transparent 8rem),
+    radial-gradient(circle at 20% 90%, rgba(20, 184, 166, 0.12), transparent 8rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.012)),
+    rgba(8, 13, 20, 0.5);
+  padding: 16px;
+}
+
+.event-date-block {
+  display: grid;
+  width: 76px;
+  min-height: 96px;
+  place-items: center;
+  border: 1px solid rgba(239, 197, 101, 0.28);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(239, 197, 101, 0.2), rgba(239, 197, 101, 0.04)),
+    rgba(7, 12, 19, 0.7);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+}
+
+.event-date-block span,
+.event-date-block em {
+  color: var(--gold);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.event-date-block strong {
+  color: var(--text-strong);
+  font-size: 36px;
+  line-height: 1;
+}
+
+.event-room-copy {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.event-room-copy h2 {
+  color: var(--text-strong);
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.08;
+}
+
+.event-room-copy p:last-child {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.event-room-board {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.event-room-board span {
+  min-height: 52px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  background:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.08) 25%, transparent 25% 75%, rgba(255, 255, 255, 0.08) 75%),
+    linear-gradient(45deg, transparent 25%, rgba(215, 169, 77, 0.14) 25% 75%, transparent 75%),
+    rgba(8, 13, 20, 0.48);
+  background-position: 0 0, 10px 10px, 0 0;
+  background-size: 20px 20px;
+}
+
+.event-module-row span {
+  position: relative;
+  overflow: hidden;
+  align-content: start;
+  min-height: 82px;
+  border-color: rgba(148, 163, 184, 0.13);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.014)),
+    rgba(8, 13, 20, 0.38);
+}
+
+.event-module-row span::after {
+  position: absolute;
+  right: 12px;
+  bottom: 11px;
+  left: 12px;
+  height: 3px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgba(215, 169, 77, 0.88), rgba(20, 184, 166, 0.55) 58%, rgba(255, 255, 255, 0.08) 58%),
+    rgba(255, 255, 255, 0.06);
+  content: '';
+}
+
+.event-module-row small {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.event-module-row strong {
+  color: var(--text-strong);
+  font-size: 20px !important;
+  line-height: 1.05;
+}
+
+.event-module-row em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+:root[data-theme='light'] .blog-editorial-poster,
+:root[data-theme='light'] .article-card-visual,
+:root[data-theme='light'] .events-room-preview {
+  border-color: rgba(88, 63, 34, 0.15);
+  background:
+    radial-gradient(circle at 22% 18%, rgba(183, 121, 31, 0.16), transparent 28%),
+    radial-gradient(circle at 82% 80%, rgba(20, 120, 111, 0.08), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 250, 241, 0.68)),
+    rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 16px 38px rgba(88, 63, 34, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme='light'] .editorial-poster-copy strong,
+:root[data-theme='light'] .article-card-visual span {
+  color: var(--text-strong);
+}
+
+:root[data-theme='light'] .editorial-board-visual,
+:root[data-theme='light'] .event-date-block,
+:root[data-theme='light'] .event-room-board span,
+:root[data-theme='light'] .event-module-row span {
+  border-color: rgba(88, 63, 34, 0.14);
+  background-color: rgba(255, 255, 255, 0.56);
+}
+
+.territory-map-preview,
+.club-network-preview {
+  border-color: rgba(239, 197, 101, 0.18);
+  background:
+    linear-gradient(135deg, rgba(7, 12, 19, 0.1), rgba(7, 12, 19, 0.02)),
+    url('/ausTerritory-map.png') center / contain no-repeat,
+    rgba(8, 13, 20, 0.5) !important;
+}
+
+.events-page .territory-map-preview {
+  min-height: 310px;
+  overflow: hidden;
+  border-color: rgba(91, 141, 204, 0.22);
+  background:
+    radial-gradient(circle at 76% 46%, rgba(74, 163, 255, 0.32), transparent 11rem),
+    radial-gradient(circle at 32% 55%, rgba(215, 169, 77, 0.18), transparent 10rem),
+    linear-gradient(rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    url('/ausTerritory-map.png') 46% 52% / 112% auto no-repeat,
+    linear-gradient(145deg, #050911 0%, #0a1320 48%, #05070c 100%) !important;
+  background-size: auto, auto, 42px 42px, 42px 42px, 112% auto, auto !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.045),
+    inset 0 -70px 110px rgba(0, 0, 0, 0.42),
+    0 22px 58px rgba(0, 0, 0, 0.32);
+}
+
+.events-page .territory-map-preview::before {
+  position: absolute;
+  z-index: 0;
+  inset: -28% -8% -22%;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(ellipse at 68% 47%, transparent 0 18%, rgba(74, 163, 255, 0.16) 18.4% 18.8%, transparent 19.4% 30%, rgba(215, 169, 77, 0.12) 30.4% 30.8%, transparent 31.5% 45%, rgba(74, 163, 255, 0.1) 45.4% 45.8%, transparent 46.8%),
+    linear-gradient(115deg, transparent 0 50%, rgba(74, 163, 255, 0.08) 50.2%, transparent 50.7%),
+    linear-gradient(26deg, transparent 0 51%, rgba(215, 169, 77, 0.08) 51.2%, transparent 51.7%);
+  content: '';
+  opacity: 0.78;
+  transform: none;
+  pointer-events: none;
+}
+
+.events-page .territory-map-preview::after {
+  z-index: 0;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 74% 56%, rgba(74, 163, 255, 0.22), transparent 20%),
+    radial-gradient(circle at 28% 54%, rgba(215, 169, 77, 0.14), transparent 20%),
+    linear-gradient(90deg, rgba(3, 6, 11, 0.52), transparent 28%, transparent 72%, rgba(3, 6, 11, 0.6)),
+    linear-gradient(180deg, rgba(3, 6, 11, 0.58), transparent 24%, transparent 70%, rgba(3, 6, 11, 0.72));
+  filter: none;
+}
+
+.events-page .territory-map-preview .radar-marker {
+  z-index: 3;
+  gap: 9px;
+}
+
+.events-page .territory-map-preview .radar-marker::before {
+  position: absolute;
+  top: 50%;
+  left: -42px;
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74, 163, 255, 0.42));
+  content: '';
+  transform: translateY(-50%);
+}
+
+.events-page .territory-map-preview .radar-marker-dot {
+  width: 13px;
+  height: 13px;
+  border-color: rgba(255, 248, 232, 0.76);
+  background:
+    radial-gradient(circle, #fff4c7 0 18%, #d7a94d 19% 54%, rgba(215, 169, 77, 0.25) 55% 100%);
+  box-shadow:
+    0 0 0 5px rgba(215, 169, 77, 0.12),
+    0 0 20px rgba(215, 169, 77, 0.7),
+    0 0 36px rgba(74, 163, 255, 0.28);
+}
+
+.events-page .territory-map-preview .radar-marker-dot::after {
+  inset: -16px;
+  border-color: rgba(74, 163, 255, 0.32);
+  animation: radar-pulse 2.9s ease-out infinite;
+}
+
+.events-page .territory-map-preview .radar-marker-label {
+  min-width: 92px;
+  border-color: rgba(116, 164, 224, 0.24);
+  border-radius: 10px;
+  color: #f7d58a;
+  background:
+    linear-gradient(145deg, rgba(13, 24, 38, 0.78), rgba(5, 10, 18, 0.58)),
+    rgba(8, 13, 20, 0.74);
+  padding: 8px 10px;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.events-page .territory-map-preview .radar-marker-label strong {
+  color: #ffe2a1;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.events-page .territory-map-preview .radar-marker-label small {
+  color: #9fc2e6;
+  font-size: 11px;
+}
+
+.territory-map-preview::before,
+.club-network-preview::before {
+  opacity: 1;
+}
+
+:root[data-theme='light'] .territory-map-preview,
+:root[data-theme='light'] .club-network-preview {
+  border-color: rgba(88, 63, 34, 0.14);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 250, 241, 0.16)),
+    url('/ausTerritory-map.png') center / contain no-repeat,
+    rgba(255, 255, 255, 0.48) !important;
+}
+
+:root[data-theme='light'] .events-page .territory-map-preview {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(88, 63, 34, 0.18);
+  background:
+    linear-gradient(145deg, rgba(241, 236, 228, 0.92), rgba(238, 232, 223, 0.96));
+}
+
+:root[data-theme='light'] .events-page .territory-map-preview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/ausTerritory-map.png') 46% 52% / 108% auto no-repeat;
+  opacity: 0.82;
+  filter: brightness(0.82) contrast(1.06);
+  z-index: 1;
+  pointer-events: none;
+}
+
+:root[data-theme='light'] .events-page .territory-map-preview::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 68% 42%, rgba(74, 163, 255, 0.08), transparent 32%),
+    radial-gradient(circle at 38% 58%, rgba(215, 169, 77, 0.12), transparent 42%);
+  filter: blur(12px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+:root[data-theme='light'] .events-page .territory-map-preview .radar-marker-label {
+  border-color: rgba(88, 63, 34, 0.18);
+  color: var(--bronze);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 250, 241, 0.76)),
+    rgba(255, 255, 255, 0.8);
+  box-shadow: 0 14px 30px rgba(88, 63, 34, 0.12);
+}
+
+:root[data-theme='light'] .events-page .territory-map-preview .radar-marker-label strong {
+  color: var(--bronze);
+}
+
+:root[data-theme='light'] .events-page .territory-map-preview .radar-marker-label small {
+  color: #4f6f94;
+}
+
+@media (max-width: 900px) {
+  .coaching-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .coaching-progress-mockup,
+  .platform-feature-card {
+    width: 100%;
+  }
+
+  .blog-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-featured {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .coaching-page {
+    width: 100%;
+    padding-inline: 10px;
+  }
+
+  .coaching-hero,
+  .coaching-progress-mockup,
+  .coaching-page .platform-feature-card {
+    padding-inline: 16px;
+  }
+
+  .student-insight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mastery-track {
+    gap: 6px;
+  }
+
+  .blog-editorial-poster {
+    min-height: 310px;
+  }
+
+  .editorial-board-visual {
+    width: min(100%, 170px);
+  }
+
+  .events-room-preview {
+    grid-template-columns: 1fr;
+    min-height: 310px;
+  }
+
+  .event-date-block {
+    width: 100%;
+    min-height: 78px;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .event-room-board {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .coaching-page {
+    padding-inline: 8px;
+  }
+
+  .coaching-hero h1,
+  .platform-hero h1 {
+    overflow-wrap: anywhere;
+  }
+
+  .blog-editorial-poster {
+    width: 100%;
   }
 }

@@ -32,9 +32,15 @@ const relatedArticles = computed(() => (
         </div>
 
         <aside class="blog-editorial-poster" :data-tone="article.heroTone" aria-label="Article visual summary">
-          <span>{{ article.category }}</span>
-          <strong>{{ article.readingTime }}</strong>
-          <em>GambitForge guide</em>
+          <img
+            class="blog-editorial-image"
+            src="/blog.png"
+            :alt="`${article.title} editorial feature card`"
+            width="720"
+            height="720"
+            decoding="async"
+            fetchpriority="high"
+          />
         </aside>
       </header>
 
@@ -72,10 +78,15 @@ const relatedArticles = computed(() => (
           class="blog-card"
           :to="{ name: 'blog-detail', params: { slug: item.slug } }"
         >
-          <span class="coming-soon-badge">{{ item.category }}</span>
+          <div class="preview-card-heading">
+            <span class="coming-soon-badge">{{ item.category }}</span>
+            <small>{{ item.readingTime }}</small>
+          </div>
+          <div class="article-card-visual" :data-tone="item.heroTone" aria-hidden="true">
+            <img src="/blog.png" alt="" width="720" height="720" loading="lazy" decoding="async" />
+          </div>
           <h3>{{ item.title }}</h3>
           <p>{{ item.excerpt }}</p>
-          <small>{{ item.readingTime }}</small>
         </RouterLink>
       </div>
     </section>

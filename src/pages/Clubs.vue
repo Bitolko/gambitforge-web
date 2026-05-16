@@ -155,7 +155,9 @@ const filteredClubs = computed(() => {
         </div>
 
         <div class="club-card-main">
-          <div class="club-logo-placeholder" aria-hidden="true">{{ club.name.slice(0, 2) }}</div>
+          <div class="club-logo-placeholder" aria-hidden="true">
+            <img src="/club.png" alt="" width="58" height="58" loading="lazy" decoding="async" />
+          </div>
           <div>
             <h2 itemprop="name">{{ club.name }}</h2>
             <p itemprop="address">{{ club.location }}</p>

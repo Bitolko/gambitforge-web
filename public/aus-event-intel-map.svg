@@ -1,0 +1,39 @@
+<svg width="900" height="560" viewBox="0 0 900 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dark Australia event intelligence map">
+  <defs>
+    <linearGradient id="land" x1="164" y1="104" x2="716" y2="438" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172232"/>
+      <stop offset="0.52" stop-color="#0D1724"/>
+      <stop offset="1" stop-color="#1A2635"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="140" y1="102" x2="760" y2="454" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E4B45A" stop-opacity="0.34"/>
+      <stop offset="0.48" stop-color="#4AA3FF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#E4B45A" stop-opacity="0.18"/>
+    </linearGradient>
+    <radialGradient id="eastGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(655 309) rotate(118) scale(238 178)">
+      <stop stop-color="#4AA3FF" stop-opacity="0.34"/>
+      <stop offset="0.48" stop-color="#4AA3FF" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#4AA3FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="westGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(242 296) rotate(34) scale(212 152)">
+      <stop stop-color="#E4B45A" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#E4B45A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="95" y="52" width="710" height="448" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#02050A" flood-opacity="0.62"/>
+    </filter>
+  </defs>
+  <rect width="900" height="560" fill="none"/>
+  <g filter="url(#softShadow)">
+    <path d="M151 278L176 196L241 141L350 106L463 135L562 129L632 166L717 161L759 204L742 255L708 293L703 343L655 375L587 380L504 418L429 388L353 401L282 362L221 344L178 316L151 278Z" fill="url(#land)" stroke="url(#edge)" stroke-width="2"/>
+    <path d="M151 278L176 196L241 141L350 106L463 135L562 129L632 166L717 161L759 204L742 255L708 293L703 343L655 375L587 380L504 418L429 388L353 401L282 362L221 344L178 316L151 278Z" fill="url(#eastGlow)"/>
+    <path d="M151 278L176 196L241 141L350 106L463 135L562 129L632 166L717 161L759 204L742 255L708 293L703 343L655 375L587 380L504 418L429 388L353 401L282 362L221 344L178 316L151 278Z" fill="url(#westGlow)"/>
+    <path d="M331 118L319 388" stroke="#D7A94D" stroke-opacity="0.18" stroke-width="1.4"/>
+    <path d="M468 136L466 403" stroke="#D7A94D" stroke-opacity="0.13" stroke-width="1.2"/>
+    <path d="M583 132L570 383" stroke="#4AA3FF" stroke-opacity="0.14" stroke-width="1.2"/>
+    <path d="M639 169L609 377" stroke="#4AA3FF" stroke-opacity="0.18" stroke-width="1.2"/>
+    <path d="M222 344L705 292" stroke="#D7A94D" stroke-opacity="0.12" stroke-width="1.2"/>
+    <path d="M176 196L742 255" stroke="#4AA3FF" stroke-opacity="0.1" stroke-width="1"/>
+    <path d="M681 381L724 434L771 392L745 351L703 343L681 381Z" fill="#101B2A" stroke="#D7A94D" stroke-opacity="0.22" stroke-width="1.5"/>
+  </g>
+</svg>
