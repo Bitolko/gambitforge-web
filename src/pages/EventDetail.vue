@@ -334,7 +334,6 @@ const relatedEvents = computed(() => (
         <div class="event-flyer event-flyer-large" :data-tone="currentEvent.posterTone" aria-hidden="true">
           <span>{{ currentEvent.state }}</span>
           <strong>{{ currentEvent.timeControl }}</strong>
-          <em>{{ currentEvent.posterTone }}</em>
         </div>
         <p class="panel-label">Tournament landing page</p>
         <h2>Register interest</h2>
@@ -464,7 +463,6 @@ const relatedEvents = computed(() => (
             <div class="event-flyer" :data-tone="event.posterTone" aria-hidden="true">
               <span>{{ event.state }}</span>
               <strong>{{ event.timeControl }}</strong>
-              <em>{{ event.posterTone }}</em>
             </div>
             <div class="event-card-main">
               <p class="panel-label">{{ event.location }}</p>

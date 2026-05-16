@@ -5308,23 +5308,6 @@ h3 {
   opacity: 1;
 }
 
-.event-flyer::after {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  width: 26px;
-  height: 26px;
-  border: 1px solid rgba(239, 197, 101, 0.22);
-  border-radius: 8px;
-  background:
-    linear-gradient(45deg, rgba(255, 255, 255, 0.12) 25%, transparent 25% 75%, rgba(255, 255, 255, 0.12) 75%),
-    linear-gradient(45deg, transparent 25%, rgba(215, 169, 77, 0.16) 25% 75%, transparent 75%);
-  background-position: 0 0, 6px 6px;
-  background-size: 12px 12px;
-  content: '';
-  opacity: 0.78;
-}
-
 .event-flyer span,
 .event-flyer strong,
 .event-flyer em {
@@ -5374,9 +5357,9 @@ h3 {
 }
 
 .event-flyer-large strong {
-  left: 18px;
-  top: 39%;
-  max-width: 190px;
+  left: 22%;
+  top: 32%;
+  max-width: 150px;
   font-size: clamp(30px, 4vw, 46px);
   line-height: 0.92;
 }

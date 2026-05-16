@@ -243,7 +243,6 @@ const previewModules = [
       <div class="event-flyer event-flyer-large" :data-tone="featuredEvent.posterTone" aria-hidden="true">
         <span>{{ featuredEvent.state }}</span>
         <strong>{{ featuredEvent.timeControl }}</strong>
-        <em>{{ featuredEvent.posterTone }}</em>
       </div>
 
       <div class="events-featured-copy" itemscope itemtype="https://schema.org/Event">
@@ -318,7 +317,6 @@ const previewModules = [
           <div class="event-flyer" :data-tone="event.posterTone" aria-hidden="true">
             <span>{{ event.state }}</span>
             <strong>{{ event.timeControl }}</strong>
-            <em>{{ event.posterTone }}</em>
           </div>
           <div class="event-card-main">
             <p class="panel-label">{{ event.location }}</p>
