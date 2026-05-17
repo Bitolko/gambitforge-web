@@ -38,7 +38,7 @@ const profiles = {
       'Completed a 25-puzzle endgame set.',
       'Reviewed a tournament game with coach notes.',
     ],
-    role: 'Future student profile',
+    role: 'Student profile roadmap',
     roleCopy: 'Coach connections, lesson plans, assignments, and progress reviews will appear here when coaching persistence is connected.',
   },
   danielkovacs: {

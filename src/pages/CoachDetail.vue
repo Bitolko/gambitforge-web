@@ -111,7 +111,7 @@ const currentCoach = computed(() => (
 
       <article class="coach-detail-card">
         <p class="eyebrow">Availability</p>
-        <h2>Preview schedule</h2>
+        <h2>Typical schedule</h2>
         <ul>
           <li v-for="slot in currentCoach.availability" :key="slot">{{ slot }}</li>
         </ul>
@@ -121,12 +121,12 @@ const currentCoach = computed(() => (
     <section class="coach-testimonials-section" aria-labelledby="coach-testimonials-title">
       <div class="section-kicker">
         <p class="eyebrow">Testimonials</p>
-        <h2 id="coach-testimonials-title">Future student feedback preview</h2>
+        <h2 id="coach-testimonials-title">Student and parent feedback style</h2>
       </div>
 
       <div class="coach-testimonial-grid">
         <article v-for="quote in currentCoach.testimonials" :key="quote" class="coach-testimonial-card">
-          <span class="coming-soon-badge">Placeholder</span>
+          <span class="coming-soon-badge">Trust signal</span>
           <p>{{ quote }}</p>
         </article>
       </div>
@@ -134,15 +134,15 @@ const currentCoach = computed(() => (
 
     <section class="coach-booking-preview" aria-labelledby="coach-booking-title">
       <div>
-        <p class="eyebrow">Future booking tools</p>
+        <p class="eyebrow">Coaching workflow roadmap</p>
         <h2 id="coach-booking-title">A coaching request flow for players, parents, and clubs</h2>
       </div>
 
       <div class="event-tools-grid">
         <article v-for="tool in bookingTools" :key="tool" class="event-tool-card">
-          <span class="coming-soon-badge">Coming soon</span>
+          <span class="coming-soon-badge">Roadmap</span>
           <h3>{{ tool }}</h3>
-          <p>Frontend preview for future coach discovery, booking, and student management workflows.</p>
+          <p>Planned workflow for coach discovery, lesson enquiries, and student management.</p>
         </article>
       </div>
     </section>

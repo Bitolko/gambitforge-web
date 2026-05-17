@@ -13,6 +13,12 @@ const relatedArticles = computed(() => (
     .filter((item) => item.category === article.value.category || item.tags.some((tag) => article.value.tags.includes(tag)))
     .slice(0, 3)
 ))
+
+const articleContext = computed(() => [
+  { label: 'Category', value: article.value.category },
+  { label: 'Reading time', value: article.value.readingTime },
+  { label: 'Published', value: article.value.date },
+])
 </script>
 
 <template>
@@ -25,7 +31,7 @@ const relatedArticles = computed(() => (
           <h1 itemprop="headline">{{ article.title }}</h1>
           <p class="blog-article-intro" itemprop="description">{{ article.excerpt }}</p>
           <div class="blog-meta-row">
-            <span itemprop="author">{{ article.author }}</span>
+            <span itemprop="author">By {{ article.author }}</span>
             <time itemprop="datePublished">{{ article.date }}</time>
             <span>{{ article.readingTime }}</span>
           </div>
@@ -45,22 +51,31 @@ const relatedArticles = computed(() => (
       </header>
 
       <section class="blog-article-body" itemprop="articleBody">
-        <p class="blog-lead">{{ article.intro }}</p>
-
-        <aside v-if="article.takeaways?.length" class="article-takeaways" aria-label="Key takeaways">
-          <h2>Key takeaways</h2>
-          <ul>
-            <li v-for="takeaway in article.takeaways" :key="takeaway">{{ takeaway }}</li>
-          </ul>
+        <aside class="article-context-panel" aria-label="Article context">
+          <div v-for="item in articleContext" :key="item.label">
+            <span>{{ item.label }}</span>
+            <strong>{{ item.value }}</strong>
+          </div>
         </aside>
 
-        <section v-for="section in article.sections" :key="section.heading">
-          <h2>{{ section.heading }}</h2>
-          <p>{{ section.body }}</p>
-          <ul v-if="section.bullets?.length">
-            <li v-for="bullet in section.bullets" :key="bullet">{{ bullet }}</li>
-          </ul>
-        </section>
+        <div class="article-reading-column">
+          <p class="blog-lead">{{ article.intro }}</p>
+
+          <aside v-if="article.takeaways?.length" class="article-takeaways" aria-label="Key takeaways">
+            <h2>Key takeaways</h2>
+            <ul>
+              <li v-for="takeaway in article.takeaways" :key="takeaway">{{ takeaway }}</li>
+            </ul>
+          </aside>
+
+          <section v-for="section in article.sections" :key="section.heading">
+            <h2>{{ section.heading }}</h2>
+            <p>{{ section.body }}</p>
+            <ul v-if="section.bullets?.length">
+              <li v-for="bullet in section.bullets" :key="bullet">{{ bullet }}</li>
+            </ul>
+          </section>
+        </div>
       </section>
 
       <footer class="blog-share-panel">

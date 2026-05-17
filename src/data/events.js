@@ -12,7 +12,7 @@ export const events = [
     organiserType: 'Association event',
     organiserBio:
       'A state association coordinating rated tournaments, junior pathways, interclub events, and major weekenders across New South Wales.',
-    contact: 'events@nswchess.example',
+    contact: 'NSWCA event desk via gambitforgeinfo@gmail.com',
     timeControl: 'Classical 60+30',
     registrationStatus: 'Early bird closing soon',
     registrationTone: 'urgent',
@@ -56,7 +56,7 @@ export const events = [
     organiserType: 'Club organiser',
     organiserBio:
       'One of Australia\'s long-running chess clubs, hosting rated nights, city leagues, weekend tournaments, and interclub events.',
-    contact: 'rapid@melbournechess.example',
+    contact: 'Melbourne Chess Club organiser via gambitforgeinfo@gmail.com',
     timeControl: 'Rapid 15+10',
     registrationStatus: 'Registrations open',
     registrationTone: 'open',
@@ -99,7 +99,7 @@ export const events = [
     organiserType: 'Junior pathway',
     organiserBio:
       'A junior development network coordinating school chess, weekend events, and pathway tournaments across South East Queensland.',
-    contact: 'teams@qldjuniorchess.example',
+    contact: 'Queensland junior teams desk via gambitforgeinfo@gmail.com',
     timeControl: 'Rapid 10+5',
     registrationStatus: 'Waitlist active',
     registrationTone: 'waitlist',
@@ -142,7 +142,7 @@ export const events = [
     organiserType: 'Club night',
     organiserBio:
       'A city chess centre running weekly play, blitz nights, junior tables, and social chess events for Adelaide players.',
-    contact: 'blitz@sachess.example',
+    contact: 'South Australian Chess Centre via gambitforgeinfo@gmail.com',
     timeControl: 'Blitz 3+2',
     registrationStatus: 'Registrations open',
     registrationTone: 'open',
@@ -184,7 +184,7 @@ export const events = [
     organiserType: 'Club night',
     organiserBio:
       'A city club running weekly play, blitz nights, junior tables, and social chess events for Perth players.',
-    contact: 'blitz@perthcitychess.example',
+    contact: 'Perth City Chess Club via gambitforgeinfo@gmail.com',
     timeControl: 'Blitz 3+2',
     registrationStatus: 'Walk-ins welcome',
     registrationTone: 'open',
@@ -227,7 +227,7 @@ export const events = [
     organiserType: 'Association event',
     organiserBio:
       'The ACT association supports rated weekend tournaments, club collaboration, junior development, and regional chess growth.',
-    contact: 'open@actchess.example',
+    contact: 'ACT Chess Association event desk via gambitforgeinfo@gmail.com',
     timeControl: 'Classical 75+10',
     registrationStatus: 'Early bird open',
     registrationTone: 'open',
@@ -271,7 +271,7 @@ export const events = [
     organiserType: 'League organiser',
     organiserBio:
       'A Tasmanian league group supporting club events, regional rapid tournaments, juniors, and community chess days.',
-    contact: 'events@taschess.example',
+    contact: 'Tasmanian Chess League via gambitforgeinfo@gmail.com',
     timeControl: 'Rapid 20+5',
     registrationStatus: 'Community listing',
     registrationTone: 'listed',
@@ -334,13 +334,13 @@ const cityTravelNotes = {
 
 function buildPreview(event) {
   const standingsNames = {
-    NSW: ['A. Novak', 'S. Chen', 'M. Petrov', 'L. Garcia'],
-    VIC: ['M. Reid', 'E. Morris', 'J. Tan', 'A. Wilson'],
+    NSW: ['Norths Chess Club', 'Sydney Academy Squad', 'St George Chess Club', 'Canterbury Juniors'],
+    VIC: ['Melbourne Chess Club', 'Box Hill Chess Club', 'Hobsons Bay Chess Club', 'Dandenong Junior Squad'],
     QLD: ['Brisbane Grammar A', 'St Peters A', 'Somerville House', 'Churchie B'],
-    SA: ['N. Clarke', 'P. Singh', 'H. Martin', 'Z. Tran'],
-    WA: ['A. Ibrahim', 'C. Wright', 'L. Zhou', 'R. Kumar'],
-    ACT: ['D. Harper', 'M. Nguyen', 'C. Doyle', 'I. Foster'],
-    TAS: ['H. Bennett', 'O. Wright', 'S. Patel', 'M. Collins'],
+    SA: ['Adelaide Chess Centre', 'Norwood Chess Club', 'Modbury Junior Squad', 'Flinders University Chess'],
+    WA: ['Perth City Chess Club', 'Kingsley Chess Club', 'UWA Chess Association', 'Fremantle Junior Squad'],
+    ACT: ['Canberra Chess Club', 'ANU Chess Society', 'Telopea Park Juniors', 'Belconnen Chess Group'],
+    TAS: ['Hobart Chess Club', 'Launceston Chess Club', 'Tasmanian Junior Squad', 'Kingston Community Chess'],
   }
 
   const players = standingsNames[event.state] || standingsNames.NSW
@@ -366,7 +366,7 @@ function buildPreview(event) {
     pairingsPreview: [
       { board: 1, white: players[0], black: players[1], result: 'Pending' },
       { board: 2, white: players[2], black: players[3], result: 'Pending' },
-      { board: 3, white: event.divisions[0]?.name || 'Open', black: event.divisions[1]?.name || 'Reserve', result: 'Preview' },
+      { board: 3, white: event.divisions[0]?.name || 'Open', black: event.divisions[1]?.name || 'Reserve', result: 'Scheduled' },
     ],
     faqs: defaultEventFaqs,
   }

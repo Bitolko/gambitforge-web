@@ -39,10 +39,10 @@ const calendarFeatures = [
 
     <section class="platform-feature-grid" aria-label="Calendar features">
       <article v-for="feature in calendarFeatures" :key="feature.title" class="platform-feature-card">
-        <span class="coming-soon-badge">Coming soon</span>
+        <span class="coming-soon-badge">Roadmap</span>
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.description }}</p>
-        <button class="secondary-button" type="button" disabled>Coming soon</button>
+        <button class="secondary-button" type="button" disabled>Roadmap Feature</button>
       </article>
     </section>
   </main>

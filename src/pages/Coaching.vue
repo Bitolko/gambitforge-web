@@ -30,7 +30,7 @@ const coachingFeatures = [
       </div>
       <aside class="coaching-progress-mockup" aria-label="Coaching progress preview">
         <div class="preview-card-heading">
-          <span class="coming-soon-badge">Coming soon</span>
+          <span class="coming-soon-badge">Roadmap</span>
           <span class="status-badge badge-active">Insight panel</span>
         </div>
         <h2>Student Insight</h2>
@@ -55,7 +55,7 @@ const coachingFeatures = [
     <section class="platform-feature-grid" aria-label="Coaching features">
       <article v-for="feature in coachingFeatures" :key="feature.title" class="platform-feature-card">
         <div class="preview-card-heading">
-          <span class="coming-soon-badge">Coming soon</span>
+          <span class="coming-soon-badge">Roadmap</span>
           <span class="status-badge badge-coming-soon">{{ feature.metric }}</span>
         </div>
         <div class="feature-visual coaching-visual" aria-hidden="true">
@@ -67,7 +67,7 @@ const coachingFeatures = [
         </div>
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.description }}</p>
-        <button class="secondary-button" type="button" disabled>Coming soon</button>
+        <button class="secondary-button" type="button" disabled>Roadmap Feature</button>
       </article>
     </section>
   </main>

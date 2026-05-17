@@ -11,18 +11,27 @@ const filteredArticles = computed(() => (
     ? blogArticles
     : blogArticles.filter((article) => article.category === activeCategory.value)
 ))
+
+const editorialStats = [
+  'Australian events',
+  'Club calendars',
+  'Junior pathways',
+]
 </script>
 
 <template>
   <main class="blog-page">
     <section class="blog-hero" aria-labelledby="blog-title">
       <div>
-        <p class="eyebrow">GambitForge Blog</p>
-        <h1 id="blog-title">Chess Guides for Australia's Tournament Ecosystem</h1>
+        <p class="eyebrow">GambitForge Editorial</p>
+        <h1 id="blog-title">Australian chess writing for players who actually show up.</h1>
         <p>
-          Practical, searchable articles for players, parents, coaches, clubs, and organisers
-          building stronger chess communities across Australia.
+          Tournament guides, club notes, junior pathways, pairing explainers, and practical
+          preparation advice written for the Australian chess calendar.
         </p>
+        <div class="blog-editorial-stats" aria-label="Editorial focus areas">
+          <span v-for="item in editorialStats" :key="item">{{ item }}</span>
+        </div>
       </div>
 
       <aside class="blog-editorial-poster" :data-tone="featuredArticle.heroTone" aria-label="Featured editorial preview">
@@ -40,24 +49,30 @@ const filteredArticles = computed(() => (
 
     <section class="blog-featured" aria-labelledby="featured-blog-title" itemscope itemtype="https://schema.org/Article">
       <div>
-        <p class="eyebrow">Featured guide</p>
+        <p class="eyebrow">Featured analysis</p>
         <h2 id="featured-blog-title" itemprop="headline">{{ featuredArticle.title }}</h2>
         <p itemprop="description">{{ featuredArticle.excerpt }}</p>
         <div class="blog-meta-row">
-          <span itemprop="author">{{ featuredArticle.author }}</span>
+          <span itemprop="author">By {{ featuredArticle.author }}</span>
           <time>{{ featuredArticle.date }}</time>
+          <span>{{ featuredArticle.category }}</span>
           <span>{{ featuredArticle.readingTime }}</span>
         </div>
         <RouterLink class="hero-primary events-submit-button" :to="{ name: 'blog-detail', params: { slug: featuredArticle.slug } }">
           Read Feature
         </RouterLink>
       </div>
+      <aside class="blog-featured-brief" aria-label="Featured article notes">
+        <span>For parents, clubs, and junior coordinators</span>
+        <strong>How to judge whether an event is the right fit before entering.</strong>
+        <p>Venue clarity, section strength, supervision, time control, and the post-event learning loop.</p>
+      </aside>
     </section>
 
     <section class="blog-filter-section" aria-labelledby="blog-filter-title">
       <div class="section-kicker">
-        <p class="eyebrow">Browse articles</p>
-        <h2 id="blog-filter-title">Filter by topic</h2>
+        <p class="eyebrow">Edition index</p>
+        <h2 id="blog-filter-title">Browse by topic</h2>
       </div>
 
       <div class="events-filter-group" aria-label="Blog category filters">
@@ -92,12 +107,16 @@ const filteredArticles = computed(() => (
         </div>
         <h2 itemprop="headline">{{ article.title }}</h2>
         <p itemprop="description">{{ article.excerpt }}</p>
+        <div class="blog-card-meta-line">
+          <span>{{ article.author }}</span>
+          <time>{{ article.date }}</time>
+        </div>
         <div class="blog-tag-row">
           <span v-for="tag in article.tags" :key="tag">{{ tag }}</span>
         </div>
         <div class="blog-card-footer">
-          <span>{{ article.author }}</span>
-          <time>{{ article.date }}</time>
+          <span>Read article</span>
+          <span>{{ article.category }}</span>
         </div>
       </RouterLink>
     </section>

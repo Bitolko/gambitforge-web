@@ -12,8 +12,8 @@ const clubs = [
     state: 'NSW',
     description: 'A modern junior chess academy supporting school programs, private coaching, weekend competitions, and long-term player development across Sydney.',
     coaching: 'Group classes, private coaching, online training, school term programs, and holiday camps.',
-    contact: 'hello@sydneychess.example',
-    website: 'Coming soon',
+    contact: 'Sydney Academy enquiry via gambitforgeinfo@gmail.com',
+    website: 'Public profile through GambitForge',
     events: ['Sydney Junior Open', 'North Shore School Rapid', 'Harbour Academy Training Day'],
     tags: ['Junior', 'School', 'Community'],
   },
@@ -24,8 +24,8 @@ const clubs = [
     state: 'VIC',
     description: 'A central Melbourne chess community for club nights, rated tournaments, adult improvers, coaching sessions, and interclub teams.',
     coaching: 'Adult improvement groups, junior starters, opening workshops, and tournament preparation.',
-    contact: 'contact@melbournechess.example',
-    website: 'Coming soon',
+    contact: 'Melbourne Chess Club enquiry via gambitforgeinfo@gmail.com',
+    website: 'Public profile through GambitForge',
     events: ['Melbourne Rapid Championship', 'Victorian Club Teams', 'Friday Blitz Social'],
     tags: ['Adult', 'Community'],
   },
@@ -36,8 +36,8 @@ const clubs = [
     state: 'WA',
     description: 'A junior-focused association connecting schools, families, coaches, and organisers through regular training squads and competitions.',
     coaching: 'Junior squads, school coaching, beginner pathways, and representative event preparation.',
-    contact: 'junior@perthchess.example',
-    website: 'Coming soon',
+    contact: 'Perth junior chess enquiry via gambitforgeinfo@gmail.com',
+    website: 'Public profile through GambitForge',
     events: ['Perth Blitz Arena', 'WA School Teams', 'Perth Junior League'],
     tags: ['Junior', 'School'],
   },
@@ -48,8 +48,8 @@ const clubs = [
     state: 'QLD',
     description: 'A friendly academy for juniors, families, and club players with coaching groups, club nights, and regional tournament support.',
     coaching: 'Beginner classes, family chess sessions, junior squads, and club training nights.',
-    contact: 'academy@goldcoastchess.example',
-    website: 'Coming soon',
+    contact: 'Gold Coast academy enquiry via gambitforgeinfo@gmail.com',
+    website: 'Public profile through GambitForge',
     events: ['Gold Coast Open', 'Coastal Junior Rapid', 'Queensland Academy Camp'],
     tags: ['Junior', 'Adult', 'Community'],
   },
@@ -113,11 +113,11 @@ const currentClub = computed(() => (
         <article v-for="event in currentClub.events" :key="event" class="event-card">
           <div class="preview-card-heading">
             <p class="panel-label">{{ currentClub.location }}</p>
-            <span class="status-badge badge-active">Preview</span>
+            <span class="status-badge badge-active">Listed</span>
           </div>
           <div class="event-card-main">
             <h2>{{ event }}</h2>
-            <p>Future club event profile</p>
+            <p>Club-supported event profile for public discovery</p>
           </div>
           <RouterLink class="secondary-button club-card-link" to="/events">Browse Events</RouterLink>
         </article>
@@ -126,15 +126,15 @@ const currentClub = computed(() => (
 
     <section class="club-members-preview" aria-labelledby="club-members-title">
       <div>
-        <p class="eyebrow">Future club tools</p>
+        <p class="eyebrow">Club operations roadmap</p>
         <h2 id="club-members-title">Members and students, organised for real club life</h2>
       </div>
 
       <div class="event-tools-grid">
         <article v-for="tool in memberTools" :key="tool" class="event-tool-card">
-          <span class="coming-soon-badge">Coming soon</span>
+          <span class="coming-soon-badge">Roadmap</span>
           <h3>{{ tool }}</h3>
-          <p>Frontend preview for future club administration, coaching, and community workflows.</p>
+          <p>Planned workflow for club administration, coaching, and community communication.</p>
         </article>
       </div>
     </section>

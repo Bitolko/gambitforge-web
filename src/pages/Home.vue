@@ -3,27 +3,27 @@ import { RouterLink } from 'vue-router'
 
 const productCards = [
   {
-    label: 'Play',
-    title: 'Live Games',
-    description: 'Create invite links, join boards, play legal moves, track clocks, and continue games in one focused space.',
-    badge: 'Live',
-    meta: ['10:00', '09:42', '24 moves'],
-    icon: '/home-icons/chessboard-premium.webp',
-  },
-  {
-    label: 'Events',
-    title: 'Tournament Assistant',
-    description: 'Create tournaments, register players, generate rounds, enter results, and keep standings moving.',
+    label: 'Discovery',
+    title: 'Australian Event Pages',
+    description: 'Find real tournaments, club nights, junior events, venues, time controls, organisers, and registration status in one place.',
     badge: 'Active',
-    meta: ['Round 3', '16 players', '4 boards'],
+    meta: ['Sydney', 'Melbourne', 'Brisbane'],
     icon: '/home-icons/trophy-premium.webp',
   },
   {
-    label: 'Training',
-    title: 'Coaching Tools',
-    description: 'Prepare student plans, review games, assign training work, and keep progress visible as the platform grows.',
-    badge: 'Coming Soon',
-    meta: ['82% tactics', '3 reviews', '5 tasks'],
+    label: 'Organisers',
+    title: 'Submit Event Pipeline',
+    description: 'Give clubs and tournament directors a polished way to send event information for public discovery.',
+    badge: 'Beta',
+    meta: ['Venue', 'Divisions', 'Schedule'],
+    icon: '/home-icons/community-premium.webp',
+  },
+  {
+    label: 'Ecosystem',
+    title: 'Clubs, Coaches and Guides',
+    description: 'Support discovery with club profiles, coaching context, beginner guides, and practical tournament education.',
+    badge: 'Support',
+    meta: ['Clubs', 'Coaches', 'Blog'],
     icon: '/home-icons/graduation-cap-premium.webp',
   },
 ]
@@ -31,36 +31,36 @@ const productCards = [
 const reasons = [
   {
     icon: 'events',
-    title: 'Designed for real chess events',
-    description: 'Built around club nights, school tournaments, coaching academies, and the operational work behind them.',
+    title: 'Events are the front door',
+    description: 'Players should be able to understand what is happening, where it is, who runs it, and whether it fits them before they enter.',
     image: '/home-icons/community-premium.webp',
   },
   {
     icon: 'flow',
-    title: 'Simple tournament flow',
-    description: 'Start with registration, generate pairings, record results, and move from round to round without spreadsheet friction.',
+    title: 'Organiser context matters',
+    description: 'Venue notes, sections, time control, registration status, and organiser details build trust before backend workflows arrive.',
     image: '/home-icons/trophy-premium.webp',
   },
   {
     icon: 'growth',
-    title: 'Ready for growth',
-    description: 'A clean foundation for calendars, content, admin tools, coaching workflows, and richer player histories.',
+    title: 'A platform can grow around discovery',
+    description: 'Clubs, coaching, article guides, tournament rooms, standings, and pairings all make more sense once events are easy to find.',
     image: '/home-icons/growth-premium.webp',
   },
 ]
 
 const userTypes = [
   {
-    title: 'For Players',
-    description: 'Join games, follow tournament boards, review results, and keep your chess activity in one place.',
+    title: 'For Players and Parents',
+    description: 'Find upcoming chess opportunities with clear dates, venues, formats, sections, and preparation guidance.',
   },
   {
     title: 'For Coaches',
-    description: 'Organize students, connect training to games, and build structured improvement plans around real play.',
+    description: 'Connect training advice to actual events, first tournaments, junior pathways, and club opportunities.',
   },
   {
     title: 'For Organisers',
-    description: 'Run events, manage participants, publish pairings, enter results, and keep standings transparent.',
+    description: 'Promote events professionally now, then connect registrations, pairings, standings, and dashboards later.',
   },
 ]
 </script>
@@ -69,23 +69,22 @@ const userTypes = [
   <main class="home-page">
     <section class="home-hero">
       <div class="hero-copy">
-        <p class="eyebrow">Chess operations platform</p>
+        <p class="eyebrow">Australian chess events discovery</p>
         <h1>
-          Run chess tournaments.<br />
-          <span>Coach</span> players.<br />
-          Manage live games.
+          Find Australian chess events worth showing up for.
         </h1>
         <p class="hero-description">
-          GambitForge is a modern chess platform for clubs, coaches, players, and tournament organisers.
+          GambitForge is becoming the premium public calendar for Australian chess tournaments,
+          club nights, junior competitions, venues, organisers, and tournament-ready event pages.
         </p>
 
-        <div class="hero-actions">
+        <div class="hero-actions home-primary-actions">
           <RouterLink class="button-link hero-primary" to="/events">Browse Events</RouterLink>
-          <RouterLink class="button-link secondary-link" to="/contact">Request Early Access</RouterLink>
+          <RouterLink class="button-link secondary-link" to="/submit-event">Submit Event</RouterLink>
         </div>
 
         <p class="hero-supporting-line">
-          Built for local clubs, coaching academies, schools, and tournament directors.
+          Clubs, coaches, schools, and organisers support the ecosystem around the event directory.
         </p>
       </div>
 
@@ -100,56 +99,46 @@ const userTypes = [
           </div>
 
           <div class="hero-dashboard-grid">
-            <RouterLink class="hero-dashboard-panel hero-live-panel" to="/games">
+            <RouterLink class="hero-dashboard-panel hero-live-panel" to="/events/sydney-harbour-classical">
               <div class="preview-card-heading">
-                <p class="panel-label">Live board</p>
-                <span class="status-badge badge-live">Live</span>
+                <p class="panel-label">Featured event</p>
+                <span class="status-badge badge-live">Open</span>
               </div>
-              <div class="hero-live-content">
-                <div class="mini-board hero-mini-board" aria-hidden="true">
-                  <span>&#9820;</span><span>&#9823;</span><span>&#9821;</span><span>&#9818;</span>
-                  <span>&#9823;</span><span></span><span>&#9823;</span><span></span>
-                  <span></span><span>&#9817;</span><span></span><span>&#9816;</span>
-                  <span>&#9817;</span><span>&#9812;</span><span></span><span>&#9814;</span>
-                </div>
-                <div class="hero-move-list">
-                  <strong>Board 1</strong>
-                  <span>White to move</span>
-                  <small>21. Nc3 Nf6</small>
-                  <small>22. Bg5 Be7</small>
-                  <small>23. O-O O-O</small>
-                </div>
+              <div class="home-event-feature">
+                <span>27-28 Jun</span>
+                <strong>Sydney Harbour Classical</strong>
+                <small>UTS Building 11, Broadway / Classical 60+30</small>
               </div>
             </RouterLink>
 
-            <RouterLink class="hero-dashboard-panel hero-standings-panel" to="/tournaments">
+            <RouterLink class="hero-dashboard-panel hero-standings-panel" to="/events">
               <div class="preview-card-heading">
-                <p class="panel-label">Standings</p>
+                <p class="panel-label">Event map</p>
                 <span class="status-badge badge-active">Active</span>
               </div>
               <ol class="hero-standings-list">
-                <li><span>1. A. Novak</span><strong>3.0</strong></li>
-                <li><span>2. M. Petrov</span><strong>2.5</strong></li>
-                <li><span>3. S. Chen</span><strong>2.0</strong></li>
-                <li><span>4. L. Garcia</span><strong>2.0</strong></li>
+                <li><span>NSW</span><strong>Classical</strong></li>
+                <li><span>VIC</span><strong>Rapid</strong></li>
+                <li><span>QLD</span><strong>Junior</strong></li>
+                <li><span>WA</span><strong>Blitz</strong></li>
               </ol>
-              <span class="dashboard-panel-link">Full standings</span>
+              <span class="dashboard-panel-link">View calendar</span>
             </RouterLink>
 
-            <RouterLink class="hero-dashboard-panel hero-activity-panel" to="/tournaments">
-              <p class="panel-label">Tournament activity</p>
-              <h2>Round 3</h2>
-              <p>Pairings generated. 4 results pending.</p>
+            <RouterLink class="hero-dashboard-panel hero-activity-panel" to="/submit-event">
+              <p class="panel-label">Organiser intake</p>
+              <h2>Submit Event</h2>
+              <p>Send venue, schedule, divisions, organiser, and registration details.</p>
               <span class="progress-track"><span style="width: 56%"></span></span>
             </RouterLink>
 
-            <RouterLink class="hero-dashboard-panel hero-coaching-panel" to="/coaching">
-              <p class="panel-label">Coaching progress</p>
+            <RouterLink class="hero-dashboard-panel hero-coaching-panel" to="/blog">
+              <p class="panel-label">Editorial support</p>
               <div class="hero-progress-row">
-                <strong>82%</strong>
+                <strong>Guides</strong>
                 <span class="hero-sparkline" aria-hidden="true"></span>
               </div>
-              <p>Endgame review and tactics assigned.</p>
+              <p>Beginner tournament guides, Swiss pairing explainers, and club discovery advice.</p>
             </RouterLink>
           </div>
         </div>
@@ -158,8 +147,8 @@ const userTypes = [
 
     <section class="landing-section" aria-labelledby="product-snapshot-heading">
       <div class="section-kicker">
-        <p class="eyebrow">Product snapshot</p>
-        <h2 id="product-snapshot-heading">The core tools your chess room needs first</h2>
+        <p class="eyebrow">Product direction</p>
+        <h2 id="product-snapshot-heading">Start with the public event page. Grow the platform around it.</h2>
       </div>
 
       <div class="landing-card-grid">
@@ -179,22 +168,15 @@ const userTypes = [
             </span>
           </div>
           <div class="feature-visual" :class="`feature-visual-${index + 1}`" aria-hidden="true">
-            <div v-if="index === 0" class="feature-game-preview">
-              <div class="mini-board small-board">
-                <span>&#9820;</span><span></span><span>&#9821;</span><span></span>
-                <span></span><span>&#9823;</span><span></span><span>&#9822;</span>
-                <span>&#9817;</span><span></span><span>&#9816;</span><span></span>
-                <span></span><span>&#9812;</span><span></span><span>&#9814;</span>
-              </div>
-              <div class="feature-clock-list">
-                <span>A. Novak <strong>02:45</strong></span>
-                <span>M. Petrov <strong>02:31</strong></span>
-              </div>
+            <div v-if="index === 0" class="feature-game-preview home-event-mini">
+              <span>Sydney Harbour Classical</span>
+              <span>Melbourne Winter Rapid</span>
+              <span>Brisbane Scholastic Teams</span>
             </div>
             <ol v-else-if="index === 1" class="mock-standings compact">
-              <li><span>Round 3</span><strong>View pairings</strong></li>
-              <li><span>A. Novak</span><strong>3.0</strong></li>
-              <li><span>M. Petrov</span><strong>2.5</strong></li>
+              <li><span>Submission</span><strong>Reviewed</strong></li>
+              <li><span>NSW Chess Association</span><strong>Open</strong></li>
+              <li><span>Melbourne Chess Club</span><strong>Rapid</strong></li>
             </ol>
             <div v-else class="coach-bars">
               <span style="width: 82%"></span>

@@ -14,7 +14,7 @@ const steps = [
 const form = reactive({
   eventName: 'Sydney Winter Rapid Classic',
   organiser: 'Harbour Chess Academy',
-  email: 'events@harbourchess.example',
+  email: 'gambitforgeinfo@gmail.com',
   state: 'NSW',
   venue: 'Parramatta Town Hall, Centenary Square',
   date: '',
@@ -104,7 +104,7 @@ function submitEvent() {
         <div class="discovery-hero-metrics" aria-label="Submission workflow highlights">
           <span><strong>Review</strong> moderation queue</span>
           <span><strong>Public</strong> event preview</span>
-          <span><strong>Future</strong> analytics</span>
+          <span><strong>Roadmap</strong> analytics</span>
         </div>
       </div>
 
@@ -176,7 +176,7 @@ function submitEvent() {
 
             <label>
               <span>Email</span>
-              <input v-model="form.email" type="email" name="email" autocomplete="email" placeholder="organiser@example.com" required />
+              <input v-model="form.email" type="email" name="email" autocomplete="email" placeholder="organiser@club.org.au" required />
             </label>
 
             <label>
@@ -252,7 +252,7 @@ function submitEvent() {
 
           <label>
             <span>Registration link</span>
-            <input v-model="form.registrationLink" type="url" name="registrationLink" placeholder="https://example.com/register" />
+            <input v-model="form.registrationLink" type="url" name="registrationLink" placeholder="https://yourclub.org.au/events/register" />
           </label>
 
           <label>
@@ -306,8 +306,8 @@ function submitEvent() {
         </div>
         <div class="analytics-preview">
           <span><strong>Search</strong> State and format filters</span>
-          <span><strong>Traffic</strong> Future listing analytics</span>
-          <span><strong>Entries</strong> Future conversion view</span>
+          <span><strong>Traffic</strong> Listing analytics roadmap</span>
+          <span><strong>Entries</strong> Conversion view roadmap</span>
         </div>
       </aside>
     </section>
@@ -317,7 +317,7 @@ function submitEvent() {
         <p class="eyebrow">Moderation and review</p>
         <h2 id="review-process-title">A listing should feel trustworthy before it goes public</h2>
         <p>
-          Future submissions can enter a review queue for duplicate checks, venue clarity, organiser
+          Submitted events can enter a review queue for duplicate checks, venue clarity, organiser
           verification, safe public copy, and category quality before being published.
         </p>
       </div>

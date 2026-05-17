@@ -9,7 +9,7 @@ export const blogArticles = [
     category: 'Junior Chess',
     readingTime: '8 min read',
     date: 'June 12, 2026',
-    author: 'GambitForge Editorial',
+    author: 'Maya Chen, GambitForge Editorial',
     excerpt:
       'A parent-friendly guide to Sydney junior chess events, school competitions, rapid tournaments, and how to choose the right first event.',
     tags: ['Sydney', 'Junior', 'Tournaments'],
@@ -27,9 +27,9 @@ export const blogArticles = [
         body:
           'Most young players begin with school competitions, academy tournaments, or local rapid events. These formats are short enough to keep the day manageable and structured enough to teach tournament habits: checking pairings, finding boards, using clocks, and reporting results.',
         bullets: [
-          'School team days are ideal for confidence and community.',
-          'Junior rapid tournaments give newer players several games in one day.',
-          'Club opens are best once a junior can handle mixed-age opposition.',
+          'NSW Junior Chess League and school-team style events are ideal for confidence and community.',
+          'Academy and club rapid tournaments give newer players several games in one day.',
+          'Open club events at venues such as Sydney Academy of Chess partner clubs are best once a junior can handle mixed-age opposition.',
         ],
       },
       {
@@ -40,7 +40,7 @@ export const blogArticles = [
       {
         heading: 'Sydney event types to watch',
         body:
-          'Rapid tournaments are ideal for newer juniors because a full event can finish in one day. School team events build confidence and community, while open club events give stronger juniors experience against adults and older students.',
+          'Rapid tournaments are ideal for newer juniors because a full event can finish in one day. School team events build confidence and community, while open club events connected to NSWCA and local club calendars give stronger juniors experience against adults and older students.',
       },
       {
         heading: 'How to choose the right first event',
@@ -64,7 +64,7 @@ export const blogArticles = [
     category: 'Tournament Guide',
     readingTime: '9 min read',
     date: 'June 15, 2026',
-    author: 'GambitForge Editorial',
+    author: 'Daniel Reid, Tournament Desk',
     excerpt:
       'Everything a new player should know before entering a first chess tournament, from time controls to check-in and sportsmanship.',
     tags: ['Beginners', 'Events', 'Preparation'],
@@ -80,7 +80,7 @@ export const blogArticles = [
       {
         heading: 'Before you arrive',
         body:
-          'Confirm the venue, start time, time control, section, entry fee, and whether sets or clocks are provided. Bring water, snacks, a pen, and enough time to settle in before round one.',
+          'Confirm the venue, start time, time control, section, entry fee, and whether sets or clocks are provided. For Australian club events, also check whether the event is ACF-rated, FIDE-rated, or a casual community listing. Bring water, snacks, a pen, and enough time to settle in before round one.',
         bullets: [
           'Check whether the event is rapid, blitz, or classical.',
           'Know whether notation is expected.',
@@ -119,7 +119,7 @@ export const blogArticles = [
     category: 'Tournament Guide',
     readingTime: '10 min read',
     date: 'June 18, 2026',
-    author: 'GambitForge Editorial',
+    author: 'Priya Nair, Arbiter Notes',
     excerpt:
       'A practical explanation of Swiss-system chess pairings, score groups, colours, byes, floats, and why players usually meet opponents on similar scores.',
     tags: ['Swiss', 'Pairings', 'Arbiters'],
@@ -160,7 +160,7 @@ export const blogArticles = [
       {
         heading: 'Why software helps',
         body:
-          'Tournament software reduces manual errors by tracking previous opponents, colour history, byes, scores, and round status, then publishing pairings clearly for players.',
+          'Tournament software reduces manual errors by tracking previous opponents, colour history, byes, scores, and round status, then publishing pairings clearly for players. That matters at weekenders, school teams days, and club rapids where volunteers are often managing several jobs at once.',
       },
     ],
   },
@@ -174,7 +174,7 @@ export const blogArticles = [
     category: 'Clubs',
     readingTime: '8 min read',
     date: 'June 25, 2026',
-    author: 'GambitForge Editorial',
+    author: 'Alex Petrov, Club Network',
     excerpt:
       'A practical guide to finding the right Australian chess club, whether you are a junior, adult improver, casual player, or tournament regular.',
     tags: ['Clubs', 'Australia', 'Community'],
@@ -190,7 +190,7 @@ export const blogArticles = [
       {
         heading: 'Look for regular activity',
         body:
-          'Strong clubs publish clear calendars with club nights, rated events, coaching sessions, junior programs, and social play. Consistency matters more than hype because chess improvement depends on regular games.',
+          'Strong clubs publish clear calendars with club nights, rated events, coaching sessions, junior programs, and social play. Australian players often compare options such as Melbourne Chess Club, Norths Chess Club, Box Hill Chess Club, Adelaide Chess Centre, Brisbane Chess Club, and Perth club nights by schedule as much as by strength.',
       },
       {
         heading: 'Match the club to your level',
@@ -205,7 +205,7 @@ export const blogArticles = [
       {
         heading: 'Consider geography and schedule',
         body:
-          'A nearby club you can attend weekly is often better than a famous club you only visit once. Check public transport, parking, start times, finish times, and whether the club runs during school terms or holidays.',
+          'A nearby club you can attend weekly is often better than a famous club you only visit once. Check public transport, parking, start times, finish times, state association calendars, and whether the club runs during school terms or holidays.',
       },
       {
         heading: 'What good club communication looks like',
@@ -229,7 +229,7 @@ export const blogArticles = [
     category: 'Preparation',
     readingTime: '8 min read',
     date: 'June 28, 2026',
-    author: 'GambitForge Editorial',
+    author: 'Maya Chen, GambitForge Editorial',
     excerpt:
       'A simple preparation plan for first-time tournament players: openings, tactics, clock habits, sleep, food, and what to do between rounds.',
     tags: ['Preparation', 'Beginners', 'Tournament Day'],
@@ -265,7 +265,7 @@ export const blogArticles = [
       {
         heading: 'Plan the day',
         body:
-          'Check travel time, pack snacks, sleep well, and avoid heavy last-minute study. Between rounds, reset emotionally before looking at the next pairing.',
+          'Check travel time, pack snacks, sleep well, and avoid heavy last-minute study. For Sydney, Melbourne, Brisbane, Adelaide, Perth, Canberra, and Hobart events, confirm parking or public transport before the morning rush. Between rounds, reset emotionally before looking at the next pairing.',
       },
       {
         heading: 'Review after the event',
@@ -284,7 +284,7 @@ export const blogArticles = [
     category: 'Improvement',
     readingTime: '5 min read',
     date: 'June 22, 2026',
-    author: 'GambitForge Editorial',
+    author: 'Daniel Reid, Tournament Desk',
     excerpt:
       'Rapid and classical chess train different skills. Here is how to choose the right format for your goals, schedule, and tournament experience.',
     tags: ['Rapid', 'Classical', 'Training'],
@@ -320,7 +320,7 @@ export const blogArticles = [
     category: 'Coaching',
     readingTime: '6 min read',
     date: 'July 2, 2026',
-    author: 'GambitForge Editorial',
+    author: 'Priya Nair, Coaching Notes',
     excerpt:
       'Practical coaching ideas for juniors: build confidence, review losses well, create study routines, and make tournaments feel like learning opportunities.',
     tags: ['Coaching', 'Junior', 'Training'],

@@ -110,7 +110,7 @@ const mailtoHref = computed(() => {
 
         <label>
           <span>Email</span>
-          <input v-model="form.email" type="email" name="email" autocomplete="email" placeholder="you@example.com" />
+          <input v-model="form.email" type="email" name="email" autocomplete="email" placeholder="organiser@club.org.au" />
         </label>
 
         <label>

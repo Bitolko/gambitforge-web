@@ -3,31 +3,40 @@ import { RouterLink } from 'vue-router'
 
 const missionPillars = [
   {
-    title: 'Make chess operations calmer',
+    title: 'Make event discovery credible',
     description:
-      'Clubs and organisers should not need scattered spreadsheets, message threads, and manual updates to run a credible chess event.',
+      'Players and parents should see venue, organiser, divisions, time control, registration state, and practical arrival notes before they commit.',
   },
   {
     title: 'Help players find real opportunities',
     description:
-      'GambitForge is designed around practical discovery: events, clubs, coaches, formats, venues, and the next good reason to sit at a board.',
+      'GambitForge is designed around practical discovery: NSWCA-style weekenders, Melbourne club rapids, Queensland junior teams, school events, and local club nights.',
   },
   {
     title: 'Respect local chess communities',
     description:
-      'The product is shaped for Australian clubs, schools, academies, tournament directors, parents, juniors, and adult improvers.',
+      'The product is shaped for Australian clubs, schools, academies, tournament directors, arbiters, parents, juniors, and adult improvers.',
   },
 ]
 
 const targetUsers = [
-  'Tournament organisers',
-  'Chess clubs',
-  'Coaching academies',
-  'School coordinators',
+  'State association organisers',
+  'City chess clubs',
+  'Junior academies',
+  'School chess coordinators',
   'Junior players and parents',
   'Adult club players',
   'Arbiters and volunteers',
   'Community partners',
+]
+
+const ecosystemReferences = [
+  'Australian Chess Federation rating ecosystem',
+  'NSW Chess Association and state calendar patterns',
+  'Melbourne Chess Club style weekly event culture',
+  'Queensland junior and school-team tournament flow',
+  'Club venues, community halls, schools, and university spaces',
+  'Arbiter-led pairings, standings, results, and round communication',
 ]
 
 const roadmap = [
@@ -54,10 +63,10 @@ const roadmap = [
     <section class="platform-hero about-hero trust-hero" aria-labelledby="about-title">
       <div>
         <p class="eyebrow">About GambitForge</p>
-        <h1 id="about-title">A trusted operating layer for Australian chess communities.</h1>
+        <h1 id="about-title">A public front door for Australian chess events.</h1>
         <p>
-          GambitForge helps players discover events, clubs, and coaches while giving organisers
-          a clearer path toward registrations, tournament rooms, pairings, standings, and community workflows.
+          GambitForge helps players discover credible tournaments, club nights, junior events,
+          venues, organisers, and formats, while giving organisers a clearer path toward public event rooms.
         </p>
         <div class="hero-actions trust-hero-actions">
           <RouterLink class="hero-primary" to="/events">Explore Events</RouterLink>
@@ -82,8 +91,19 @@ const roadmap = [
       <p>
         Australian chess is full of excellent local energy: weekend opens, junior circuits, club nights,
         school teams, coaching groups, volunteers, and arbiters. GambitForge is being built to give that
-        ecosystem a more polished public front door and a stronger operational backbone.
+        ecosystem a more polished public front door first, then a stronger operational backbone
+        for entries, pairings, standings, and organiser communication.
       </p>
+    </section>
+
+    <section class="trust-users-section about-ecosystem-section" aria-labelledby="ecosystem-title">
+      <div>
+        <p class="eyebrow">Ecosystem signals</p>
+        <h2 id="ecosystem-title">Grounded in how Australian chess is actually organised.</h2>
+      </div>
+      <div class="trust-user-grid">
+        <span v-for="item in ecosystemReferences" :key="item">{{ item }}</span>
+      </div>
     </section>
 
     <section class="about-section-grid trust-card-grid" aria-label="Mission pillars">
