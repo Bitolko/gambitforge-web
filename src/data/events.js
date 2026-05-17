@@ -126,7 +126,7 @@ export const events = [
     prize: 'Trophies and board medals',
     arbiter: 'Queensland Junior Chess tournament desk',
     posterTone: 'Junior',
-    related: ['sydney-harbour-classical', 'adelaide-schools-chess-carnival', 'hobart-rapid-by-the-waterfront'],
+    related: ['sydney-harbour-classical', 'adelaide-blitz-night', 'hobart-rapid-by-the-waterfront'],
     tags: ['Junior', 'School', 'Teams'],
   },
   {
@@ -304,6 +304,76 @@ export const events = [
   },
 ]
 
+const defaultEventFaqs = [
+  {
+    question: 'Is registration handled inside GambitForge yet?',
+    answer:
+      'Not yet. These pages are public MVP event rooms. Native entries, payments, waitlists, and organiser approval can connect when the production backend is deployed.',
+  },
+  {
+    question: 'Should players bring a chess set or clock?',
+    answer:
+      'The sample event information notes whether equipment is expected. For most club and association events, organisers provide clocks and boards for the main playing room.',
+  },
+  {
+    question: 'Are pairings and standings live?',
+    answer:
+      'The pairings and standings shown here are previews of the tournament experience GambitForge is designed to support.',
+  },
+]
+
+const cityTravelNotes = {
+  NSW: 'Central Sydney public transport access with nearby food, parent waiting areas, and accessible building entry.',
+  VIC: 'Inner-city Melbourne location close to tram routes, cafes, university precincts, and club analysis rooms.',
+  QLD: 'School-friendly Brisbane venue with drop-off guidance, parent areas, and supervised junior flow.',
+  SA: 'CBD Adelaide venue near public transport, evening food options, and social post-game analysis space.',
+  WA: 'Central Perth club-room setting with casual analysis tables and public transport nearby.',
+  ACT: 'Quiet Canberra community venue with parking, accessible entry, and separate analysis space.',
+  TAS: 'Hobart waterfront location with nearby cafes, accessible entry, and a relaxed community playing room.',
+}
+
+function buildPreview(event) {
+  const standingsNames = {
+    NSW: ['A. Novak', 'S. Chen', 'M. Petrov', 'L. Garcia'],
+    VIC: ['M. Reid', 'E. Morris', 'J. Tan', 'A. Wilson'],
+    QLD: ['Brisbane Grammar A', 'St Peters A', 'Somerville House', 'Churchie B'],
+    SA: ['N. Clarke', 'P. Singh', 'H. Martin', 'Z. Tran'],
+    WA: ['A. Ibrahim', 'C. Wright', 'L. Zhou', 'R. Kumar'],
+    ACT: ['D. Harper', 'M. Nguyen', 'C. Doyle', 'I. Foster'],
+    TAS: ['H. Bennett', 'O. Wright', 'S. Patel', 'M. Collins'],
+  }
+
+  const players = standingsNames[event.state] || standingsNames.NSW
+
+  return {
+    ...event,
+    venueAmenities: [
+      cityTravelNotes[event.state] || 'Venue notes, access details, and player guidance will be published before round one.',
+      'Digital clocks and boards noted by organiser before event day.',
+      'Pairings, standings, and announcements designed to be visible from the public event room.',
+    ],
+    organiserHighlights: [
+      event.organiserType,
+      event.arbiter,
+      `${event.divisions.length} tournament divisions`,
+    ],
+    standingsPreview: players.map((name, index) => ({
+      rank: index + 1,
+      name,
+      score: ['3.0', '2.5', '2.0', '2.0'][index],
+      section: event.divisions[Math.min(index, event.divisions.length - 1)]?.name || 'Open',
+    })),
+    pairingsPreview: [
+      { board: 1, white: players[0], black: players[1], result: 'Pending' },
+      { board: 2, white: players[2], black: players[3], result: 'Pending' },
+      { board: 3, white: event.divisions[0]?.name || 'Open', black: event.divisions[1]?.name || 'Reserve', result: 'Preview' },
+    ],
+    faqs: defaultEventFaqs,
+  }
+}
+
+export const eventExperiences = events.map(buildPreview)
+
 export function findEventBySlug(slug) {
-  return events.find((event) => event.slug === slug)
+  return eventExperiences.find((event) => event.slug === slug)
 }

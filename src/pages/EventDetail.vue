@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import { events, findEventBySlug } from '../data/events'
+import { eventExperiences, findEventBySlug } from '../data/events'
 
 const route = useRoute()
 
@@ -17,7 +17,7 @@ const currentEvent = computed(() => findEventBySlug(route.params.slug))
 
 const relatedEvents = computed(() => (
   currentEvent.value?.related
-    .map((slug) => events.find((event) => event.slug === slug))
+    .map((slug) => eventExperiences.find((event) => event.slug === slug))
     .filter(Boolean) || []
 ))
 </script>
@@ -69,10 +69,7 @@ const relatedEvents = computed(() => (
           </div>
           <p class="panel-label">Registration status</p>
           <h2>{{ currentEvent.registrationStatus }}</h2>
-          <p>
-            {{ currentEvent.entries }} for {{ currentEvent.capacity }}. Native registration,
-            section caps, payment state, and organiser approval can connect in the backend phase.
-          </p>
+          <p>{{ currentEvent.entries }} for {{ currentEvent.capacity }}. Choose this event room as your model for organiser-ready public listings.</p>
           <dl class="event-registration-facts">
             <div>
               <dt>Entry</dt>
@@ -83,7 +80,7 @@ const relatedEvents = computed(() => (
               <dd>{{ currentEvent.prize }}</dd>
             </div>
           </dl>
-          <RouterLink class="hero-primary" to="/submit-event">Submit Event</RouterLink>
+          <RouterLink class="hero-primary" to="/submit-event">Submit Similar Event</RouterLink>
         </aside>
       </section>
 
@@ -95,7 +92,7 @@ const relatedEvents = computed(() => (
 
         <div class="event-info-grid event-info-grid-rich">
           <article class="event-info-card event-schedule-card">
-            <span>Schedule</span>
+            <span>Tournament schedule</span>
             <ol class="event-schedule-list">
               <li v-for="item in currentEvent.schedule" :key="`${item.time}-${item.label}`">
                 <strong>{{ item.time }}</strong>
@@ -105,7 +102,7 @@ const relatedEvents = computed(() => (
           </article>
 
           <article class="event-info-card event-divisions-card">
-            <span>Tournament divisions</span>
+            <span>Divisions</span>
             <div class="event-division-list">
               <div v-for="division in currentEvent.divisions" :key="division.name">
                 <strong>{{ division.name }}</strong>
@@ -115,11 +112,14 @@ const relatedEvents = computed(() => (
           </article>
 
           <article class="event-info-card event-organiser-card">
-            <span>Organiser profile</span>
+            <span>Organiser</span>
             <div class="organiser-avatar" aria-hidden="true">{{ currentEvent.organiser.slice(0, 2) }}</div>
             <h3>{{ currentEvent.organiser }}</h3>
             <p>{{ currentEvent.organiserBio }}</p>
             <small>{{ currentEvent.organiserType }} / {{ currentEvent.contact }}</small>
+            <div class="event-mini-list">
+              <span v-for="item in currentEvent.organiserHighlights" :key="item">{{ item }}</span>
+            </div>
           </article>
 
           <article class="event-info-card">
@@ -137,17 +137,40 @@ const relatedEvents = computed(() => (
         </div>
       </section>
 
-      <section class="event-tools-preview" aria-labelledby="event-tools-title">
+      <section class="event-live-preview-section" aria-labelledby="event-live-preview-title">
         <div>
-          <p class="eyebrow">Future live tools</p>
-          <h2 id="event-tools-title">Tournament operations ready for the next backend phase</h2>
+          <p class="eyebrow">Tournament room preview</p>
+          <h2 id="event-live-preview-title">Standings and pairings, ready for players to follow.</h2>
         </div>
 
-        <div class="event-tools-grid">
-          <article v-for="tool in liveTools" :key="tool.title" class="event-tool-card">
-            <span class="coming-soon-badge">Preview</span>
-            <h3>{{ tool.title }}</h3>
-            <p>{{ tool.detail }}</p>
+        <div class="event-live-preview-grid">
+          <article class="event-live-card">
+            <div class="preview-card-heading">
+              <span class="coming-soon-badge">Standings preview</span>
+              <small>{{ currentEvent.divisions[0]?.name || 'Open' }}</small>
+            </div>
+            <ol class="event-standings-preview">
+              <li v-for="row in currentEvent.standingsPreview" :key="`${row.rank}-${row.name}`">
+                <span>{{ row.rank }}</span>
+                <strong>{{ row.name }}</strong>
+                <em>{{ row.section }}</em>
+                <b>{{ row.score }}</b>
+              </li>
+            </ol>
+          </article>
+
+          <article class="event-live-card">
+            <div class="preview-card-heading">
+              <span class="coming-soon-badge">Pairings preview</span>
+              <small>Next round</small>
+            </div>
+            <div class="event-pairings-preview">
+              <div v-for="pairing in currentEvent.pairingsPreview" :key="`${pairing.board}-${pairing.white}`">
+                <span>Board {{ pairing.board }}</span>
+                <strong>{{ pairing.white }} vs {{ pairing.black }}</strong>
+                <em>{{ pairing.result }}</em>
+              </div>
+            </div>
           </article>
         </div>
       </section>
@@ -162,6 +185,37 @@ const relatedEvents = computed(() => (
           <h2 id="event-venue-title">{{ currentEvent.venue }}</h2>
           <p>{{ currentEvent.address }}</p>
           <p>{{ currentEvent.venueInfo }}</p>
+          <div class="event-mini-list">
+            <span v-for="item in currentEvent.venueAmenities" :key="item">{{ item }}</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="event-tools-preview" aria-labelledby="event-tools-title">
+        <div>
+          <p class="eyebrow">Event operations</p>
+          <h2 id="event-tools-title">A complete tournament experience around the listing</h2>
+        </div>
+
+        <div class="event-tools-grid">
+          <article v-for="tool in liveTools" :key="tool.title" class="event-tool-card">
+            <span class="coming-soon-badge">Preview</span>
+            <h3>{{ tool.title }}</h3>
+            <p>{{ tool.detail }}</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="event-faq-section" aria-labelledby="event-faq-title">
+        <div class="section-kicker">
+          <p class="eyebrow">Event FAQ</p>
+          <h2 id="event-faq-title">Questions players and organisers usually ask</h2>
+        </div>
+        <div class="event-faq-grid">
+          <article v-for="item in currentEvent.faqs" :key="item.question" class="event-faq-card">
+            <h3>{{ item.question }}</h3>
+            <p>{{ item.answer }}</p>
+          </article>
         </div>
       </section>
 
@@ -174,7 +228,7 @@ const relatedEvents = computed(() => (
             pairings, standings, organiser announcements, and post-event records later.
           </p>
         </div>
-        <RouterLink class="hero-primary" to="/submit-event">Submit Event</RouterLink>
+        <RouterLink class="hero-primary" to="/submit-event">Submit Similar Event</RouterLink>
       </section>
 
       <section class="related-events-section" aria-labelledby="related-events-title">
