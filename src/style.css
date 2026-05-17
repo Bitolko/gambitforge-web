@@ -10219,6 +10219,86 @@ textarea {
   color: #4f6f94;
 }
 
+/* MVP completion repair: make link CTAs render as buttons everywhere. */
+a.hero-primary,
+a.secondary-button,
+a.nav-cta,
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 8px;
+  padding: 11px 16px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+a.hero-primary {
+  color: #07100f;
+}
+
+a.secondary-button {
+  color: var(--text-strong);
+}
+
+.public-tournaments-page .platform-hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: clamp(22px, 3.4vw, 38px);
+  align-items: center;
+  min-height: 0;
+  border: 1px solid rgba(239, 197, 101, 0.18);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(215, 169, 77, 0.13), transparent 16rem),
+    radial-gradient(circle at 86% 16%, rgba(20, 184, 166, 0.08), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.014)),
+    rgba(8, 13, 20, 0.72);
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: clamp(24px, 3.2vw, 34px);
+  backdrop-filter: blur(20px);
+}
+
+.public-tournaments-page .platform-hero h1,
+.auth-page .auth-panel h1 {
+  font-size: clamp(36px, 4.4vw, 58px);
+  line-height: 1.02;
+}
+
+.public-tournaments-page .trust-intro-section h2 {
+  font-size: clamp(28px, 3.4vw, 42px);
+}
+
+:root[data-theme='light'] .public-tournaments-page .platform-hero {
+  border-color: rgba(88, 63, 34, 0.15);
+  background:
+    radial-gradient(circle at 16% 18%, rgba(183, 121, 31, 0.1), transparent 16rem),
+    radial-gradient(circle at 86% 16%, rgba(37, 99, 235, 0.06), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 241, 0.72)),
+    rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 24px 64px rgba(88, 63, 34, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme='light'] .auth-beta-panel {
+  border-color: rgba(88, 63, 34, 0.14);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(183, 121, 31, 0.08), transparent 12rem),
+    rgba(255, 255, 255, 0.62);
+  box-shadow:
+    0 14px 32px rgba(88, 63, 34, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
 /* Focused UI completion pass: calm, consistent, mobile-safe surfaces. */
 .auth-shell,
 .blog-hero,
@@ -10476,6 +10556,10 @@ textarea {
 }
 
 @media (max-width: 900px) {
+  .public-tournaments-page .platform-hero {
+    grid-template-columns: 1fr;
+  }
+
   .auth-shell,
   .blog-hero {
     grid-template-columns: 1fr;
