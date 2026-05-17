@@ -9,11 +9,18 @@ const auth = useAuthStore()
 
 const tournaments = ref([])
 const name = ref('GambitForge Arena')
+const selectedTimeControl = ref('10+0')
 const loading = ref(false)
 const creating = ref(false)
 const error = ref('')
 
 const hasTournaments = computed(() => tournaments.value.length > 0)
+const timeControls = [
+  { label: 'Blitz', value: '3+2', detail: 'Fast club night' },
+  { label: 'Rapid', value: '10+0', detail: 'Default arena' },
+  { label: 'Rapid+', value: '15+10', detail: 'Rated weekend' },
+  { label: 'Classical', value: '60+30', detail: 'Serious event' },
+]
 
 async function loadTournaments() {
   loading.value = true
@@ -36,7 +43,7 @@ async function createTournament() {
   try {
     const response = await api.post('/tournaments', {
       name: name.value,
-      time_control: '10+0',
+      time_control: selectedTimeControl.value,
     })
 
     router.push({ name: 'tournament', params: { id: response.data.id } })
@@ -98,6 +105,22 @@ onMounted(async () => {
             Name
             <input v-model="name" required maxlength="255" />
           </label>
+
+          <fieldset class="time-control-picker" aria-label="Tournament time control">
+            <legend>Time control</legend>
+            <button
+              v-for="control in timeControls"
+              :key="control.value"
+              class="time-control-card"
+              :class="{ active: selectedTimeControl === control.value }"
+              type="button"
+              @click="selectedTimeControl = control.value"
+            >
+              <span>{{ control.label }}</span>
+              <strong>{{ control.value }}</strong>
+              <small>{{ control.detail }}</small>
+            </button>
+          </fieldset>
 
           <button class="gold-button" type="submit" :disabled="creating">
             {{ creating ? 'Creating...' : 'Create Tournament' }}
