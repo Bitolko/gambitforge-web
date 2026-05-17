@@ -1,4 +1,5 @@
 import { findEventBySlug } from '../data/events'
+import { getArticleBySlug } from '../data/blogArticles'
 
 const siteName = 'GambitForge'
 const defaultImage = '/gambitforge-logo-web.png'
@@ -101,9 +102,11 @@ const pageMeta = {
     structuredType: 'Blog',
   },
   'blog-detail': {
-    title: ({ params }) => `${titleFromSlug(params.slug)} | Chess Guide | GambitForge`,
+    title: ({ params }) => getArticleBySlug(params.slug).metaTitle || `${titleFromSlug(params.slug)} | Chess Guide | GambitForge`,
     description: ({ params }) =>
+      getArticleBySlug(params.slug).metaDescription ||
       `Read ${titleFromSlug(params.slug)} on GambitForge, with practical guidance for Australian chess players, parents, coaches, clubs, and tournament organisers.`,
+    image: ({ params }) => getArticleBySlug(params.slug).ogImage,
     type: 'article',
     structuredType: 'Article',
   },
@@ -285,14 +288,19 @@ function buildStructuredData(route, meta, title, description, canonicalUrl) {
   }
 
   if (meta.structuredType === 'Article') {
+    const article = getArticleBySlug(route.params.slug)
+
     return {
       ...base,
       mainEntity: {
         '@type': 'Article',
-        headline: titleFromSlug(route.params.slug),
+        headline: article.title || titleFromSlug(route.params.slug),
+        description: article.metaDescription || article.excerpt || description,
+        datePublished: article.date,
+        image: absoluteUrl(article.ogImage || defaultImage),
         author: {
           '@type': 'Organization',
-          name: siteName,
+          name: article.author || siteName,
         },
         publisher: {
           '@type': 'Organization',
@@ -335,7 +343,7 @@ export function applySeo(route) {
   const title = routeValue(meta.title, route)
   const description = routeValue(meta.description, route) || defaultDescription
   const canonicalUrl = absoluteUrl(route.fullPath || '/')
-  const imageUrl = absoluteUrl(defaultImage)
+  const imageUrl = absoluteUrl(routeValue(meta.image, route) || defaultImage)
 
   document.title = title
 

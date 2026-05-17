@@ -34,7 +34,7 @@ const relatedArticles = computed(() => (
         <aside class="blog-editorial-poster" :data-tone="article.heroTone" aria-label="Article visual summary">
           <img
             class="blog-editorial-image"
-            src="/blog.png"
+            :src="article.ogImage || '/blog.png'"
             :alt="`${article.title} editorial feature card`"
             width="720"
             height="720"
@@ -47,9 +47,19 @@ const relatedArticles = computed(() => (
       <section class="blog-article-body" itemprop="articleBody">
         <p class="blog-lead">{{ article.intro }}</p>
 
+        <aside v-if="article.takeaways?.length" class="article-takeaways" aria-label="Key takeaways">
+          <h2>Key takeaways</h2>
+          <ul>
+            <li v-for="takeaway in article.takeaways" :key="takeaway">{{ takeaway }}</li>
+          </ul>
+        </aside>
+
         <section v-for="section in article.sections" :key="section.heading">
           <h2>{{ section.heading }}</h2>
           <p>{{ section.body }}</p>
+          <ul v-if="section.bullets?.length">
+            <li v-for="bullet in section.bullets" :key="bullet">{{ bullet }}</li>
+          </ul>
         </section>
       </section>
 

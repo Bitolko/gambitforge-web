@@ -3,64 +3,156 @@
   <!-- Core public pages -->
   <url>
     <loc>https://gambitforge.com/</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://gambitforge.com/events</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://gambitforge.com/clubs</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://gambitforge.com/coaches</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gambitforge.com/tournaments</loc>
-    <lastmod>2026-05-14</lastmod>
+    <loc>https://gambitforge.com/blog</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/submit-event</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gambitforge.com/blog</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://gambitforge.com/coaching</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/calendar</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://gambitforge.com/contact</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://gambitforge.com/about</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://gambitforge.com/faq</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Future dynamic sitemap generation should append public, canonical detail URLs here:
-       /events/{slug}
-       /blog/{slug}
-       /u/{username}
-       /clubs/{slug}
-       /coaches/{slug}
-       Keep admin, dashboard, auth, games, API, and private room URLs excluded. -->
+  <!-- Public article pages -->
+  <url>
+    <loc>https://gambitforge.com/blog/top-junior-chess-tournaments-in-sydney</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/blog/beginner-guide-to-chess-tournaments</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/blog/how-swiss-pairings-work</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/blog/best-chess-clubs-in-australia</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/blog/how-to-prepare-for-your-first-tournament</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/blog/rapid-vs-classical-chess</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.74</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/blog/coaching-tips-for-junior-players</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.74</priority>
+  </url>
+
+  <!-- Public event pages -->
+  <url>
+    <loc>https://gambitforge.com/events/sydney-harbour-classical</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/events/melbourne-winter-rapid</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/events/brisbane-scholastic-teams</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/events/adelaide-blitz-night</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/events/perth-friday-night-blitz-arena</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/events/canberra-winter-classical-open</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gambitforge.com/events/hobart-rapid-by-the-waterfront</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
