@@ -176,10 +176,6 @@ const relatedEvents = computed(() => (
       </section>
 
       <section class="event-venue-section" aria-labelledby="event-venue-title">
-        <div class="event-map-card" aria-hidden="true">
-          <span class="map-pin pin-nsw">{{ currentEvent.state }}</span>
-          <span class="event-map-label">{{ currentEvent.location }}</span>
-        </div>
         <div class="event-venue-copy">
           <p class="eyebrow">Venue and arrival</p>
           <h2 id="event-venue-title">{{ currentEvent.venue }}</h2>
