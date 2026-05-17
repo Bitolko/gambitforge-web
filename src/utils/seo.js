@@ -71,9 +71,9 @@ const pageMeta = {
     structuredType: 'Person',
   },
   tournaments: {
-    title: 'Chess Tournament Management | GambitForge',
+    title: 'Chess Tournament Management for Australian Events | GambitForge',
     description:
-      'Create chess tournaments, manage registration, pairings, standings, results, and organiser workflows in GambitForge.',
+      'Explore GambitForge tournament management for Australian chess events, including registration, pairings, standings, time controls, and organiser workflows in beta.',
     type: 'website',
   },
   games: {
@@ -126,6 +126,18 @@ const pageMeta = {
     title: 'Contact GambitForge | Club, Organiser and Coaching Enquiries',
     description:
       'Contact GambitForge about club onboarding, chess event submissions, tournament organiser workflows, coaching academies, school programs, and early access.',
+    type: 'website',
+  },
+  privacy: {
+    title: 'Privacy Policy | GambitForge',
+    description:
+      'Read the GambitForge privacy policy for the public MVP, including event submissions, contact enquiries, early access requests, and beta account features.',
+    type: 'website',
+  },
+  terms: {
+    title: 'Terms of Service | GambitForge',
+    description:
+      'Read the GambitForge terms of service for the public MVP, event listings, submitted content, beta features, and Australian chess platform usage.',
     type: 'website',
   },
   login: {

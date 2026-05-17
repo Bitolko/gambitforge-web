@@ -2,7 +2,6 @@
 import { RouterLink } from 'vue-router'
 
 const platformLinks = [
-  { label: 'Games', to: '/games' },
   { label: 'Tournaments', to: '/tournaments' },
   { label: 'Events', to: '/events' },
   { label: 'Clubs', to: '/clubs' },
@@ -14,16 +13,16 @@ const platformLinks = [
 const resourceLinks = [
   { label: 'Blog', to: '/blog' },
   { label: 'FAQ', to: '/faq' },
-  { label: 'Tournament Guide', to: '/blog' },
+  { label: 'Tournament Guide', to: '/blog/beginner-guide-to-chess-tournaments' },
   { label: 'Coaching Tools', to: '/coaching' },
-  { label: 'Support' },
+  { label: 'Support', to: '/contact' },
 ]
 
 const companyLinks = [
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
-  { label: 'Privacy' },
-  { label: 'Terms' },
+  { label: 'Privacy', to: '/privacy' },
+  { label: 'Terms', to: '/terms' },
 ]
 </script>
 
@@ -37,7 +36,7 @@ const companyLinks = [
           </span>
           <span>GambitForge</span>
         </RouterLink>
-        <p>Modern chess platform for live games, coaching, tournaments, and club management.</p>
+        <p>Australian chess discovery, event submissions, club and coach profiles, articles, and beta tournament operations.</p>
       </section>
 
       <nav class="footer-columns" aria-label="Footer navigation">

@@ -1,223 +1,119 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue'
-import { RouterLink, useRouter } from 'vue-router'
-import api from '../services/api'
-import { useAuthStore } from '../stores/auth'
+import { RouterLink } from 'vue-router'
 
-const router = useRouter()
-const auth = useAuthStore()
-
-const tournaments = ref([])
-const name = ref('GambitForge Arena')
-const selectedTimeControl = ref('10+0')
-const loading = ref(false)
-const creating = ref(false)
-const error = ref('')
-
-const hasTournaments = computed(() => tournaments.value.length > 0)
 const timeControls = [
-  { label: 'Blitz', value: '3+2', detail: 'Fast club night' },
-  { label: 'Rapid', value: '10+0', detail: 'Default arena' },
-  { label: 'Rapid+', value: '15+10', detail: 'Rated weekend' },
-  { label: 'Classical', value: '60+30', detail: 'Serious event' },
+  { label: 'Blitz', value: '3+2', detail: 'Fast club nights and social events' },
+  { label: 'Rapid', value: '10+0', detail: 'Beginner-friendly one-day tournaments' },
+  { label: 'Rapid+', value: '15+10', detail: 'Rated weekend and junior events' },
+  { label: 'Classical', value: '60+30', detail: 'Serious opens and championship sections' },
 ]
 
-async function loadTournaments() {
-  loading.value = true
-  error.value = ''
+const workflowCards = [
+  {
+    title: 'Registration',
+    description: 'Collect player details, divisions, waitlists, and organiser review state before round one.',
+  },
+  {
+    title: 'Pairings',
+    description: 'Publish board numbers, colours, byes, floats, and round status in a player-friendly room.',
+  },
+  {
+    title: 'Standings',
+    description: 'Show scores, tie-breaks, rating groups, teams, and section leaders without spreadsheet chaos.',
+  },
+]
 
-  try {
-    const response = await api.get('/tournaments')
-    tournaments.value = response.data
-  } catch (requestError) {
-    error.value = requestError.response?.data?.message || 'Could not load tournaments'
-  } finally {
-    loading.value = false
-  }
-}
-
-async function createTournament() {
-  creating.value = true
-  error.value = ''
-
-  try {
-    const response = await api.post('/tournaments', {
-      name: name.value,
-      time_control: selectedTimeControl.value,
-    })
-
-    router.push({ name: 'tournament', params: { id: response.data.id } })
-  } catch (requestError) {
-    error.value = requestError.response?.data?.message || 'Could not create tournament'
-  } finally {
-    creating.value = false
-  }
-}
-
-function playerStatus(tournament) {
-  return tournament.players?.some((player) => player.user_id === auth.user?.id)
-    ? 'Joined'
-    : 'Open'
-}
-
-function statusBadgeClass(status) {
-  return `badge-${status === 'registration' ? 'waiting' : status || 'waiting'}`
-}
-
-function openTournament(tournament) {
-  router.push({ name: 'tournament', params: { id: tournament.id } })
-}
-
-onMounted(async () => {
-  if (!auth.user) {
-    await auth.fetchUser()
-  }
-
-  await loadTournaments()
-})
+const audienceCards = [
+  'Club rapid nights',
+  'Junior school events',
+  'Weekend classical opens',
+  'State association tournaments',
+  'Coaching academy events',
+  'Community chess festivals',
+]
 </script>
 
 <template>
-  <main class="dashboard-page tournaments-page">
-    <header class="app-header">
+  <main class="platform-page public-tournaments-page trust-page">
+    <section class="platform-hero public-tournaments-hero trust-hero" aria-labelledby="tournaments-title">
       <div>
-        <p class="eyebrow">Control center</p>
-        <h1>Tournaments</h1>
-        <p class="app-header-description">Create events, track registration, and open the room where pairings and standings move.</p>
+        <p class="eyebrow">Tournament management</p>
+        <h1 id="tournaments-title">Run Australian chess tournaments with less friction.</h1>
+        <p>
+          GambitForge tournament rooms are being shaped for organisers who need clear registration,
+          pairings, standings, results, and public event communication. Backend tournament operations
+          are currently private beta.
+        </p>
+        <div class="hero-actions trust-hero-actions">
+          <RouterLink class="hero-primary" to="/contact">Request Organiser Access</RouterLink>
+          <RouterLink class="secondary-button" to="/events">View Public Events</RouterLink>
+        </div>
       </div>
 
-      <RouterLink class="button-link secondary-link" to="/dashboard">Dashboard</RouterLink>
-    </header>
-
-    <div v-if="error" class="state-panel error-state">
-      <p class="panel-label">Needs attention</p>
-      <h2>{{ error }}</h2>
-      <button class="secondary-button" type="button" @click="loadTournaments">Try again</button>
-    </div>
-
-    <section class="dashboard-grid">
-      <article class="profile-panel tournament-create-card">
-        <p class="panel-label">Create</p>
-        <h2>New tournament</h2>
-        <p>Set up an organiser workspace with registration, pairings, standings, and live result entry.</p>
-        <form class="auth-form" @submit.prevent="createTournament">
-          <label>
-            Name
-            <input v-model="name" required maxlength="255" />
-          </label>
-
-          <fieldset class="time-control-picker" aria-label="Tournament time control">
-            <legend>Time control</legend>
-            <button
-              v-for="control in timeControls"
-              :key="control.value"
-              class="time-control-card"
-              :class="{ active: selectedTimeControl === control.value }"
-              type="button"
-              @click="selectedTimeControl = control.value"
-            >
-              <span>{{ control.label }}</span>
-              <strong>{{ control.value }}</strong>
-              <small>{{ control.detail }}</small>
-            </button>
-          </fieldset>
-
-          <button class="gold-button" type="submit" :disabled="creating">
-            {{ creating ? 'Creating...' : 'Create Tournament' }}
-          </button>
-        </form>
-      </article>
-
-      <article class="next-module tournament-control-preview">
-        <div class="tournament-control-art">
-          <img
-            src="/clockIcon.png"
-            alt="Rapid 15+10 tournament control preview"
-            width="760"
-            height="428"
-            loading="lazy"
-            decoding="async"
-          />
+      <aside class="tournament-public-panel trust-signal-panel" aria-label="Tournament room preview">
+        <span class="coming-soon-badge">Demo/Beta</span>
+        <h2>Round 3 control room</h2>
+        <div class="control-preview-list">
+          <span>Registrations reviewed</span>
+          <span>Pairings generated</span>
+          <span>Results pending</span>
+          <span>Standings ready</span>
         </div>
-        <div class="tournament-control-copy">
-          <p class="panel-label">Organizer flow</p>
-          <h2>Round control</h2>
-          <div class="control-preview-list">
-            <span>Registration open</span>
-            <span>Pairings generated</span>
-            <span>Results entered</span>
-            <span>Standings updated</span>
-          </div>
-        </div>
+      </aside>
+    </section>
+
+    <section class="trust-intro-section" aria-labelledby="tournament-mission-title">
+      <div>
+        <p class="eyebrow">Public MVP status</p>
+        <h2 id="tournament-mission-title">Tournament tools are real product direction, not a public account promise yet.</h2>
+      </div>
+      <p>
+        Public visitors can discover events and contact GambitForge now. Organiser dashboards, live tournament
+        rooms, player entries, and admin workflows will open through early access once the production backend is deployed.
+      </p>
+    </section>
+
+    <section class="trust-roadmap-section" aria-labelledby="time-control-title">
+      <div class="section-kicker">
+        <p class="eyebrow">Supported formats</p>
+        <h2 id="time-control-title">Time controls for the way Australian events actually run.</h2>
+      </div>
+      <div class="time-control-picker public-time-control-grid">
+        <article v-for="control in timeControls" :key="control.value" class="time-control-card public-time-control-card">
+          <span>{{ control.label }}</span>
+          <strong>{{ control.value }}</strong>
+          <small>{{ control.detail }}</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-section-grid trust-card-grid" aria-label="Tournament workflow preview">
+      <article v-for="card in workflowCards" :key="card.title" class="trust-card">
+        <span class="coming-soon-badge">Workflow</span>
+        <h2>{{ card.title }}</h2>
+        <p>{{ card.description }}</p>
       </article>
     </section>
 
-    <section class="my-games-section">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">Events</p>
-          <h2>Open tournaments</h2>
-        </div>
-
-        <button class="secondary-button" type="button" :disabled="loading" @click="loadTournaments">
-          {{ loading ? 'Loading...' : 'Refresh' }}
-        </button>
+    <section class="trust-users-section" aria-labelledby="tournament-audience-title">
+      <div>
+        <p class="eyebrow">Built for</p>
+        <h2 id="tournament-audience-title">From club rooms to school halls.</h2>
       </div>
-
-      <div v-if="loading" class="state-panel compact-state">
-        <p class="panel-label">Loading</p>
-        <h2>Finding tournaments</h2>
-        <p>Checking active, open, and finished events.</p>
+      <div class="trust-user-grid">
+        <span v-for="audience in audienceCards" :key="audience">{{ audience }}</span>
       </div>
+    </section>
 
-      <div v-else-if="!hasTournaments" class="state-panel compact-state">
-        <p class="panel-label">Empty</p>
-        <h2>No tournaments yet</h2>
-        <p>Create the first event to generate invite links, standings, and pairings.</p>
+    <section class="final-cta-section trust-final-cta" aria-labelledby="tournament-cta-title">
+      <div>
+        <p class="eyebrow">Early access</p>
+        <h2 id="tournament-cta-title">Planning an Australian chess tournament?</h2>
+        <p>Tell us about your event, sections, venue, and current workflow so GambitForge can support the right organiser tools first.</p>
       </div>
-
-      <div v-else class="games-list">
-        <article
-          v-for="tournament in tournaments"
-          :key="tournament.id"
-          class="tournament-card"
-          role="link"
-          tabindex="0"
-          @click="openTournament(tournament)"
-          @keydown.enter.prevent="openTournament(tournament)"
-          @keydown.space.prevent="openTournament(tournament)"
-        >
-          <div class="tournament-row-main">
-            <span class="tournament-mark" aria-hidden="true">
-              <img src="/tournament.png" alt="" width="48" height="48" loading="lazy" decoding="async" />
-            </span>
-
-            <div class="tournament-row-copy">
-              <div class="tournament-row-kicker">
-                <span>{{ playerStatus(tournament) }}</span>
-                <span class="status-badge" :class="statusBadgeClass(tournament.status)">
-                  {{ tournament.status }}
-                </span>
-              </div>
-              <h3>{{ tournament.name }}</h3>
-              <p>{{ tournament.players_count }} players / {{ tournament.time_control }}</p>
-            </div>
-          </div>
-
-          <div class="tournament-row-metrics" aria-label="Tournament tools">
-            <span>Standings</span>
-            <span>Pairings</span>
-            <span>Results</span>
-          </div>
-
-          <RouterLink
-            class="button-link hero-primary"
-            :to="{ name: 'tournament', params: { id: tournament.id } }"
-            @click.stop
-          >
-            Open
-          </RouterLink>
-        </article>
+      <div class="hero-actions final-cta-actions">
+        <RouterLink class="hero-primary" to="/contact">Contact GambitForge</RouterLink>
+        <RouterLink class="secondary-button" to="/submit-event">Submit Event</RouterLink>
       </div>
     </section>
   </main>

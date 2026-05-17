@@ -21,9 +21,11 @@ import Home from '../pages/Home.vue'
 import Coaching from '../pages/Coaching.vue'
 import Login from '../pages/Login.vue'
 import NotFound from '../pages/NotFound.vue'
+import Privacy from '../pages/Privacy.vue'
 import Profile from '../pages/Profile.vue'
 import Register from '../pages/Register.vue'
 import SubmitEvent from '../pages/SubmitEvent.vue'
+import Terms from '../pages/Terms.vue'
 import Tournament from '../pages/Tournament.vue'
 import Tournaments from '../pages/Tournaments.vue'
 
@@ -106,6 +108,16 @@ const router = createRouter({
       component: Faq,
     },
     {
+      path: '/privacy',
+      name: 'privacy',
+      component: Privacy,
+    },
+    {
+      path: '/terms',
+      name: 'terms',
+      component: Terms,
+    },
+    {
       path: '/login',
       name: 'login',
       component: Login,
@@ -150,7 +162,6 @@ const router = createRouter({
       path: '/tournaments',
       name: 'tournaments',
       component: Tournaments,
-      meta: { requiresAuth: true },
     },
     {
       path: '/tournaments/:id',
