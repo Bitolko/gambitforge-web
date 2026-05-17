@@ -1,3 +1,5 @@
+import { findEventBySlug } from '../data/events'
+
 const siteName = 'GambitForge'
 const defaultImage = '/gambitforge-logo-web.png'
 const defaultDescription =
@@ -11,16 +13,25 @@ const pageMeta = {
     type: 'website',
   },
   events: {
-    title: 'Chess Events Across Australia | GambitForge',
+    title: 'Australian Chess Events, Tournaments and Club Nights | GambitForge',
     description:
-      'Discover Australian chess tournaments, junior competitions, club events, school chess activities, and coaching programs.',
+      'Discover Australian chess tournaments, junior competitions, club nights, school events, rapid tournaments, classical opens, and blitz nights.',
     type: 'website',
     structuredType: 'EventDirectory',
   },
   'event-detail': {
-    title: ({ params }) => `${titleFromSlug(params.slug)} | Australian Chess Event | GambitForge`,
-    description: ({ params }) =>
-      `View details, venue information, organiser notes, registration previews, and future live tools for ${titleFromSlug(params.slug)} on GambitForge.`,
+    title: ({ params }) => {
+      const event = findEventBySlug(params.slug)
+      return `${event?.title || titleFromSlug(params.slug)} | Australian Chess Event | GambitForge`
+    },
+    description: ({ params }) => {
+      const event = findEventBySlug(params.slug)
+      if (!event) {
+        return `View Australian chess event details, venues, organisers, divisions, and registration previews on GambitForge.`
+      }
+
+      return `${event.title} is a ${event.timeControl} chess event at ${event.venue}, ${event.location} on ${event.date}. ${event.registrationStatus}.`
+    },
     type: 'article',
     structuredType: 'Event',
   },
@@ -97,21 +108,21 @@ const pageMeta = {
     structuredType: 'Article',
   },
   about: {
-    title: 'About GambitForge | Modern Chess Platform',
+    title: 'About GambitForge | Australian Chess Community Platform',
     description:
-      'Learn about GambitForge, a modern chess platform built for live games, tournament management, coaching, clubs, and school events.',
+      'Learn about GambitForge, the mission for Australian chess communities, target users, and the roadmap for events, tournaments, coaching, clubs, and schools.',
     type: 'website',
   },
   faq: {
-    title: 'Frequently Asked Questions | GambitForge',
+    title: 'GambitForge FAQ | Events, Tournaments, Coaching and Early Access',
     description:
-      'Find answers about GambitForge, tournaments, live games, coaching tools, club features, pricing direction, and contact options.',
+      'Find answers about GambitForge events, tournament tools, coaching features, club workflows, pricing direction, early access, and public discovery pages.',
     type: 'website',
   },
   contact: {
-    title: 'Contact GambitForge | Clubs, Coaches, Schools and Events',
+    title: 'Contact GambitForge | Club, Organiser and Coaching Enquiries',
     description:
-      'Contact GambitForge about using the platform for your chess club, coaching academy, school event, or tournament.',
+      'Contact GambitForge about club onboarding, chess event submissions, tournament organiser workflows, coaching academies, school programs, and early access.',
     type: 'website',
   },
   login: {
@@ -221,22 +232,32 @@ function buildStructuredData(route, meta, title, description, canonicalUrl) {
   }
 
   if (meta.structuredType === 'Event') {
+    const event = findEventBySlug(route.params.slug)
+
     return {
       ...base,
       mainEntity: {
         '@type': 'Event',
-        name: titleFromSlug(route.params.slug),
+        name: event?.title || titleFromSlug(route.params.slug),
+        startDate: event?.dateISO,
+        endDate: event?.endDateISO,
         eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
         eventStatus: 'https://schema.org/EventScheduled',
         location: {
           '@type': 'Place',
-          name: 'Australian chess venue placeholder',
-          address: 'Australia',
+          name: event?.venue || 'Australian chess venue',
+          address: event?.address || 'Australia',
         },
         organizer: {
           '@type': 'Organization',
-          name: siteName,
+          name: event?.organiser || siteName,
         },
+        offers: event ? {
+          '@type': 'Offer',
+          price: event.entryFee,
+          availability: 'https://schema.org/InStock',
+          url: canonicalUrl,
+        } : undefined,
       },
     }
   }

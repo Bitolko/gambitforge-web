@@ -1,48 +1,63 @@
 <script setup>
 import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const openIndex = ref(0)
 
 const faqItems = [
   {
+    category: 'Platform',
     question: 'What is GambitForge?',
     answer:
-      'GambitForge is a modern chess platform for live games, tournament management, coaching, calendars, content, and club event workflows.',
+      'GambitForge is a modern chess platform for Australian chess communities. It brings together public discovery pages, event listings, club and coach profiles, live games, tournament workflows, and future organiser tools.',
   },
   {
-    question: 'Who is GambitForge for?',
+    category: 'Events',
+    question: 'Can I list a chess event on GambitForge?',
     answer:
-      'GambitForge is built for players, coaches, tournament directors, club organisers, academies, schools, and chess communities that need practical digital tools.',
+      'Yes. The Submit Event page currently previews the listing workflow for tournaments, club nights, school carnivals, junior events, rapid tournaments, blitz nights, and coaching programs. Backend moderation and persistence can be connected later.',
   },
   {
-    question: 'Can I run tournaments on GambitForge?',
+    category: 'Events',
+    question: 'What information should an event listing include?',
     answer:
-      'Yes. GambitForge is building tournament tools for creating events, managing players, generating rounds, entering results, and tracking standings.',
+      'A useful listing should include the venue, suburb and state, date, time control, organiser, divisions, entry fee, prize information, registration status, schedule, capacity, and any arrival notes players or parents need before round one.',
   },
   {
-    question: 'Does GambitForge support live games?',
+    category: 'Tournaments',
+    question: 'Can GambitForge run tournaments?',
     answer:
-      'Yes. Live games are part of the platform direction, with game rooms, invite links, legal moves, clocks, and a focused playing experience.',
+      'Tournament rooms are part of the platform direction. The goal is to support entries, player lists, divisions, pairings, results, standings, byes, organiser announcements, and live public pages from one workflow.',
   },
   {
-    question: 'Are coaching tools available?',
+    category: 'Coaching',
+    question: 'What coaching features are planned?',
     answer:
-      'Coaching tools are part of the roadmap, including student management, training assignments, game review, and progress tracking for coaches and academies.',
+      'GambitForge is designed to support coach profiles now and future workflows such as student groups, training assignments, game review, progress notes, program pages, and academy-level visibility.',
   },
   {
-    question: 'Can clubs use GambitForge?',
+    category: 'Clubs',
+    question: 'How can a chess club use GambitForge?',
     answer:
-      'Yes. GambitForge is designed for club nights, school events, coaching programs, local tournaments, and the recurring operations behind chess communities.',
+      'A club can use GambitForge to build a stronger public presence, promote events and club nights, connect players with coaches, and prepare for future member, calendar, event, and tournament operations.',
   },
   {
+    category: 'Pricing',
     question: 'Is GambitForge free?',
     answer:
-      'GambitForge is still growing. Pricing and access options will become clearer as more club, tournament, and coaching features are released.',
+      'GambitForge is still in an early product stage. Public discovery pages and previews are being shaped first. Pricing for clubs, organisers, coaches, and advanced tournament tools will be clarified as those workflows become production-ready.',
   },
   {
-    question: 'How do I contact GambitForge?',
+    category: 'Early access',
+    question: 'How do I request early access?',
     answer:
-      'Use the Contact page to get in touch about clubs, coaching academies, school events, tournaments, or early platform interest.',
+      'Use the Contact page and describe your club, academy, school, tournament, or organiser workflow. Early access is best suited to groups with real events, recurring chess activity, or a clear operational need.',
+  },
+  {
+    category: 'Trust',
+    question: 'Is backend registration active yet?',
+    answer:
+      'Not yet for these public trust and discovery flows. Current event submission and registration surfaces are frontend previews, so backend storage, payments, moderation, and email notifications are intentionally not changed in this phase.',
   },
 ]
 
@@ -52,18 +67,26 @@ function toggleItem(index) {
 </script>
 
 <template>
-  <main class="platform-page faq-page">
-    <section class="platform-hero faq-hero" aria-labelledby="faq-title">
+  <main class="platform-page faq-page trust-page">
+    <section class="platform-hero faq-hero trust-hero" aria-labelledby="faq-title">
       <div>
         <p class="eyebrow">FAQ</p>
-        <h1 id="faq-title">Answers Before Your First Move</h1>
-        <p>Quick guidance for clubs, coaches, organisers, and players exploring GambitForge.</p>
+        <h1 id="faq-title">Straight answers for clubs, coaches, organisers, and players.</h1>
+        <p>
+          Learn how GambitForge handles events, tournaments, coaching, pricing direction,
+          and early access while the platform grows.
+        </p>
+        <div class="hero-actions trust-hero-actions">
+          <RouterLink class="hero-primary" to="/contact">Request Early Access</RouterLink>
+          <RouterLink class="secondary-button" to="/events">View Events</RouterLink>
+        </div>
       </div>
-      <div class="faq-hero-stack" aria-label="FAQ topics">
-        <span>Platform</span>
+      <div class="faq-hero-stack trust-signal-panel" aria-label="FAQ topics">
+        <span>Events</span>
         <span>Tournaments</span>
         <span>Coaching</span>
-        <span>Clubs</span>
+        <span>Pricing</span>
+        <span>Early access</span>
       </div>
     </section>
 
@@ -76,7 +99,10 @@ function toggleItem(index) {
           :aria-controls="`faq-answer-${index}`"
           @click="toggleItem(index)"
         >
-          <span>{{ item.question }}</span>
+          <span>
+            <small>{{ item.category }}</small>
+            {{ item.question }}
+          </span>
           <span class="faq-toggle-mark" aria-hidden="true">{{ openIndex === index ? '-' : '+' }}</span>
         </button>
 

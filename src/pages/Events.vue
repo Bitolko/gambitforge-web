@@ -1,11 +1,13 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { events } from '../data/events'
 
-const stateFilters = ['All', 'NSW', 'VIC', 'QLD', 'WA', 'SA', 'ACT', 'TAS']
+const stateFilters = ['All', 'NSW', 'VIC', 'QLD', 'WA', 'SA', 'ACT', 'TAS', 'NT']
 const categoryFilters = ['All', 'Junior', 'Open', 'Rapid', 'Blitz', 'Classical', 'School', 'Teams']
 
 const activeState = ref('All')
 const activeCategory = ref('All')
+const isLoading = ref(false)
 
 const radarMarkers = [
   { state: 'WA', label: 'Perth', style: { left: '24%', top: '54%' } },
@@ -14,143 +16,7 @@ const radarMarkers = [
   { state: 'NSW', label: 'Sydney', style: { left: '74%', top: '62%' } },
   { state: 'VIC', label: 'Melbourne', style: { left: '69%', top: '76%' } },
   { state: 'ACT', label: 'Canberra', style: { left: '71%', top: '68%' } },
-]
-
-const events = [
-  {
-    title: 'Sydney Winter Rapid Classic',
-    slug: 'sydney-winter-rapid-classic',
-    date: 'Saturday, 20 June 2026',
-    dateISO: '2026-06-20',
-    location: 'Parramatta, NSW',
-    venue: 'Parramatta Town Hall, Centenary Square',
-    state: 'NSW',
-    timeControl: 'Rapid 15+10',
-    organiser: 'Harbour Chess Academy',
-    organiserType: 'Academy organiser',
-    divisions: ['Open', 'Under 1600', 'Junior U12'],
-    schedule: 'Check-in 8:30 AM / Round 1 9:30 AM / Awards 5:10 PM',
-    capacity: '96 players',
-    entries: '62 interested',
-    prize: '$1,200 prize pool',
-    posterTone: 'Harbour',
-    tags: ['Open', 'Rapid', 'Junior'],
-    featured: true,
-  },
-  {
-    title: 'Melbourne Club Teams Weekend',
-    slug: 'melbourne-club-teams-weekend',
-    date: 'Saturday, 27 June 2026',
-    dateISO: '2026-06-27',
-    location: 'Carlton, VIC',
-    venue: 'Melbourne Chess Club, Leicester Street',
-    state: 'VIC',
-    timeControl: 'Classical 60+10',
-    organiser: 'Melbourne Chess Club',
-    organiserType: 'Club organiser',
-    divisions: ['Premier', 'Reserve', 'Junior board'],
-    schedule: 'Captains meeting 9:10 AM / Two rounds daily',
-    capacity: '24 teams',
-    entries: '14 teams forming',
-    prize: 'Team trophies and board prizes',
-    posterTone: 'Metro',
-    tags: ['Teams', 'Classical', 'Club'],
-  },
-  {
-    title: 'Queensland Junior Grand Prix',
-    slug: 'queensland-junior-grand-prix',
-    date: 'Sunday, 5 July 2026',
-    dateISO: '2026-07-05',
-    location: 'Brisbane, QLD',
-    venue: 'Queensland Chess Hub, Woolloongabba',
-    state: 'QLD',
-    timeControl: 'Rapid 10+5',
-    organiser: 'Queensland Junior Chess Network',
-    organiserType: 'Junior pathway',
-    divisions: ['Under 8', 'Under 10', 'Under 12', 'Under 16'],
-    schedule: 'Arrival 8:45 AM / Six rounds / Medal ceremony 3:45 PM',
-    capacity: '120 juniors',
-    entries: 'Schools invited',
-    prize: 'Grand Prix points',
-    posterTone: 'Junior',
-    tags: ['Junior', 'School', 'Rapid'],
-  },
-  {
-    title: 'Perth Friday Night Blitz Arena',
-    slug: 'perth-friday-night-blitz-arena',
-    date: 'Friday, 10 July 2026',
-    dateISO: '2026-07-10',
-    location: 'Northbridge, WA',
-    venue: 'Perth City Chess Club Rooms',
-    state: 'WA',
-    timeControl: 'Blitz 3+2',
-    organiser: 'Perth City Chess Club',
-    organiserType: 'Club night',
-    divisions: ['Open arena', 'Junior arena', 'Beginner table'],
-    schedule: 'Doors 6:00 PM / Arena 6:30 PM / Prizes 9:00 PM',
-    capacity: '64 players',
-    entries: 'Walk-ins likely',
-    prize: 'Club prizes',
-    posterTone: 'Blitz',
-    tags: ['Open', 'Blitz', 'Club'],
-  },
-  {
-    title: 'Adelaide Schools Chess Carnival',
-    slug: 'adelaide-schools-chess-carnival',
-    date: 'Tuesday, 21 July 2026',
-    dateISO: '2026-07-21',
-    location: 'Adelaide, SA',
-    venue: 'Adelaide Convention Centre, Riverbank Rooms',
-    state: 'SA',
-    timeControl: 'Rapid 12+3',
-    organiser: 'South Australian School Chess',
-    organiserType: 'School organiser',
-    divisions: ['Primary teams', 'Secondary teams', 'Girls teams'],
-    schedule: 'Teacher check-in 8:30 AM / Round 1 9:20 AM / Trophies 3:30 PM',
-    capacity: '40 teams',
-    entries: 'Expression of interest',
-    prize: 'School shields',
-    posterTone: 'Schools',
-    tags: ['School', 'Teams', 'Junior'],
-  },
-  {
-    title: 'Canberra Winter Classical Open',
-    slug: 'canberra-winter-classical-open',
-    date: 'Saturday, 1 August 2026',
-    dateISO: '2026-08-01',
-    location: 'Canberra, ACT',
-    venue: 'Griffith Community Centre',
-    state: 'ACT',
-    timeControl: 'Classical 75+10',
-    organiser: 'ACT Chess Association',
-    organiserType: 'Association event',
-    divisions: ['Open', 'Under 1800', 'Under 1400'],
-    schedule: 'Round 1 Saturday 10:00 AM / Round 5 Sunday 2:30 PM',
-    capacity: '72 players',
-    entries: 'Early bird open',
-    prize: '$900 plus rating prizes',
-    posterTone: 'Classical',
-    tags: ['Open', 'Classical', 'Club'],
-  },
-  {
-    title: 'Hobart Rapid by the Waterfront',
-    slug: 'hobart-rapid-by-the-waterfront',
-    date: 'Sunday, 16 August 2026',
-    dateISO: '2026-08-16',
-    location: 'Hobart, TAS',
-    venue: 'Waterside Pavilion, Salamanca',
-    state: 'TAS',
-    timeControl: 'Rapid 20+5',
-    organiser: 'Tasmanian Chess League',
-    organiserType: 'League organiser',
-    divisions: ['Open', 'Junior', 'Novice friendly'],
-    schedule: 'Check-in 9:00 AM / Five rounds / Casual analysis after awards',
-    capacity: '56 players',
-    entries: 'Community listing',
-    prize: 'Local sponsor prizes',
-    posterTone: 'Waterfront',
-    tags: ['Open', 'Rapid', 'Junior'],
-  },
+  { state: 'TAS', label: 'Hobart', style: { left: '72%', top: '88%' } },
 ]
 
 const filteredEvents = computed(() => (
@@ -163,36 +29,45 @@ const filteredEvents = computed(() => (
 ))
 
 const featuredEvent = computed(() => events.find((event) => event.featured) || events[0])
+const hasFilteredEvents = computed(() => filteredEvents.value.length > 0)
 
 const previewModules = [
-  { title: 'Standings', copy: 'Rankings, tie-breaks, and section tables prepared for live event rooms.' },
-  { title: 'Pairings', copy: 'Round publishing, board numbers, byes, and late-entry workflows.' },
-  { title: 'Registration', copy: 'Player entries, division selection, waitlists, and organiser review.' },
-  { title: 'Venue map', copy: 'Arrival notes, parking, accessibility, and board-room directions.' },
+  { title: 'Standings', copy: 'Section tables, tie-breaks, and rating group ladders for live event rooms.' },
+  { title: 'Pairings', copy: 'Board numbers, byes, floats, and late-entry workflows shaped around Swiss events.' },
+  { title: 'Registration', copy: 'Entry status, divisions, waitlists, organiser review, and future payment state.' },
+  { title: 'Venue Notes', copy: 'Arrival instructions, accessibility, parking, public transport, and parent areas.' },
 ]
+
+function resetFilters() {
+  activeState.value = 'All'
+  activeCategory.value = 'All'
+}
 </script>
 
 <template>
   <main class="events-page discovery-page">
     <section class="events-hero" aria-labelledby="events-title">
       <div class="events-hero-copy">
-        <p class="eyebrow">Australian chess events</p>
-        <h1 id="events-title">A National Calendar for Real Chess Communities</h1>
+        <p class="eyebrow">Australian chess event discovery</p>
+        <h1 id="events-title">Find the right tournament before you pack the clock.</h1>
         <p>
-          Discover rated opens, junior circuits, school carnivals, club nights, and team events
-          across Australia, with future-ready tools for registration, pairings, standings, and live results.
+          Browse realistic Australian chess events with the details players actually need:
+          venue, date, time control, organiser, divisions, entry signal, and registration status.
         </p>
         <div class="discovery-hero-metrics" aria-label="Event discovery highlights">
-          <span><strong>{{ events.length }}</strong> curated events</span>
+          <span><strong>{{ events.length }}</strong> sample events</span>
           <span><strong>7</strong> states and territories</span>
-          <span><strong>Live</strong> operations previews</span>
+          <span><strong>{{ filteredEvents.length }}</strong> matching now</span>
         </div>
-        <RouterLink class="hero-primary events-submit-button" to="/submit-event">Submit Event</RouterLink>
+        <div class="hero-actions events-hero-actions">
+          <RouterLink class="hero-primary events-submit-button" to="/submit-event">Submit Event</RouterLink>
+          <a class="secondary-button" href="#featured-events">Browse Events</a>
+        </div>
       </div>
 
       <aside class="events-hero-panel" aria-label="Events discovery preview">
         <div class="preview-card-heading">
-          <p class="panel-label">Featured event room</p>
+          <p class="panel-label">National event radar</p>
           <span class="status-badge badge-live">Australia</span>
         </div>
 
@@ -215,25 +90,25 @@ const previewModules = [
           <span class="coming-soon-badge">Featured</span>
           <div>
             <h2>{{ featuredEvent.title }}</h2>
-            <p>{{ featuredEvent.timeControl }} / {{ featuredEvent.venue }} / {{ featuredEvent.prize }}</p>
+            <p>{{ featuredEvent.date }} / {{ featuredEvent.timeControl }} / {{ featuredEvent.registrationStatus }}</p>
           </div>
         </div>
 
         <div class="events-hero-stats event-module-row">
           <span>
-            <small>Next phase</small>
-            <strong>Pairings</strong>
-            <em>Swiss tools</em>
+            <small>Venue</small>
+            <strong>{{ featuredEvent.city }}</strong>
+            <em>{{ featuredEvent.state }}</em>
           </span>
           <span>
-            <small>Next phase</small>
-            <strong>Standings</strong>
-            <em>Live tables</em>
+            <small>Format</small>
+            <strong>{{ featuredEvent.timeControl }}</strong>
+            <em>{{ featuredEvent.divisions.length }} divisions</em>
           </span>
           <span>
-            <small>Next phase</small>
-            <strong>Entries</strong>
-            <em>Player flow</em>
+            <small>Entries</small>
+            <strong>{{ featuredEvent.entries }}</strong>
+            <em>{{ featuredEvent.capacity }}</em>
           </span>
         </div>
       </aside>
@@ -246,12 +121,9 @@ const previewModules = [
       </div>
 
       <div class="events-featured-copy" itemscope itemtype="https://schema.org/Event">
-        <p class="eyebrow">Featured tournament</p>
+        <p class="eyebrow">Featured event</p>
         <h2 id="featured-event-title" itemprop="name">{{ featuredEvent.title }}</h2>
-        <p itemprop="description">
-          {{ featuredEvent.organiser }} is preparing {{ featuredEvent.divisions.join(', ') }} divisions at
-          {{ featuredEvent.venue }} with {{ featuredEvent.capacity }} capacity.
-        </p>
+        <p itemprop="description">{{ featuredEvent.format }}</p>
         <dl class="event-featured-meta">
           <div>
             <dt>Date</dt>
@@ -259,15 +131,15 @@ const previewModules = [
           </div>
           <div>
             <dt>Venue</dt>
-            <dd itemprop="location">{{ featuredEvent.location }}</dd>
+            <dd itemprop="location">{{ featuredEvent.venue }}, {{ featuredEvent.location }}</dd>
           </div>
           <div>
-            <dt>Entry signal</dt>
-            <dd>{{ featuredEvent.entries }}</dd>
+            <dt>Registration</dt>
+            <dd>{{ featuredEvent.registrationStatus }}</dd>
           </div>
         </dl>
         <RouterLink class="hero-primary events-submit-button" :to="{ name: 'event-detail', params: { slug: featuredEvent.slug } }">
-          View Event Room
+          View Event Details
         </RouterLink>
       </div>
     </section>
@@ -305,72 +177,108 @@ const previewModules = [
       </div>
     </section>
 
-    <section class="events-grid" aria-label="Featured Australian chess events">
-      <article
-        v-for="event in filteredEvents"
-        :key="event.title"
-        class="event-card event-card-rich"
-        itemscope
-        itemtype="https://schema.org/Event"
-      >
-        <div class="event-card-topline">
-          <div class="event-flyer" :data-tone="event.posterTone" aria-hidden="true">
-            <span>{{ event.state }}</span>
-            <strong>{{ event.timeControl }}</strong>
-          </div>
-          <div class="event-card-main">
-            <p class="panel-label">{{ event.location }}</p>
-            <h2 itemprop="name">{{ event.title }}</h2>
-            <p itemprop="startDate" :datetime="event.dateISO">{{ event.date }}</p>
-          </div>
-        </div>
+    <section id="featured-events" class="events-grid" aria-label="Featured Australian chess events">
+      <template v-if="isLoading">
+        <article v-for="index in 6" :key="index" class="event-card event-card-rich event-card-skeleton" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </article>
+      </template>
 
-        <dl class="event-meta-list event-meta-list-rich">
-          <div>
-            <dt>Venue</dt>
-            <dd itemprop="location" itemscope itemtype="https://schema.org/Place">
-              <span itemprop="name">{{ event.venue }}</span>
-            </dd>
-          </div>
-          <div>
-            <dt>Organiser</dt>
-            <dd itemprop="organizer" itemscope itemtype="https://schema.org/Organization">
-              <span itemprop="name">{{ event.organiser }}</span>
-            </dd>
-          </div>
-          <div>
-            <dt>Schedule</dt>
-            <dd>{{ event.schedule }}</dd>
-          </div>
-        </dl>
-
-        <div class="event-division-row" aria-label="Tournament divisions">
-          <span v-for="division in event.divisions" :key="division">{{ division }}</span>
-        </div>
-
-        <div class="event-card-status-row">
-          <span>{{ event.capacity }}</span>
-          <span>{{ event.entries }}</span>
-          <span>{{ event.prize }}</span>
-        </div>
-
-        <div class="event-tag-row" aria-label="Event tags">
-          <span v-for="tag in event.tags" :key="tag">{{ tag }}</span>
-        </div>
-
+      <article v-else-if="!hasFilteredEvents" class="event-empty-state">
+        <span class="coming-soon-badge">No matches</span>
+        <h2>No events match those filters yet</h2>
+        <p>
+          Try another state or format, or submit a tournament so Australian players can find it here.
+        </p>
         <div class="event-card-actions">
-          <button class="hero-primary" type="button" disabled>Register Interest</button>
-          <RouterLink class="secondary-button" :to="{ name: 'event-detail', params: { slug: event.slug } }">
-            View Details
-          </RouterLink>
+          <button class="hero-primary" type="button" @click="resetFilters">Reset Filters</button>
+          <RouterLink class="secondary-button" to="/submit-event">Submit Event</RouterLink>
         </div>
       </article>
+
+      <template v-else>
+        <article
+          v-for="event in filteredEvents"
+          :key="event.slug"
+          class="event-card event-card-rich"
+          itemscope
+          itemtype="https://schema.org/Event"
+        >
+          <div class="event-card-topline">
+            <div class="event-flyer" :data-tone="event.posterTone" aria-hidden="true">
+              <span>{{ event.state }}</span>
+              <strong>{{ event.timeControl }}</strong>
+            </div>
+            <div class="event-card-main">
+              <div class="event-card-title-row">
+                <p class="panel-label">{{ event.location }}</p>
+                <span class="event-registration-status" :data-status="event.registrationTone">
+                  {{ event.registrationStatus }}
+                </span>
+              </div>
+              <h2 itemprop="name">{{ event.title }}</h2>
+              <p itemprop="startDate" :datetime="event.dateISO">{{ event.date }}</p>
+            </div>
+          </div>
+
+          <p class="event-card-summary" itemprop="description">{{ event.format }}</p>
+
+          <dl class="event-meta-list event-meta-list-rich">
+            <div>
+              <dt>Venue</dt>
+              <dd itemprop="location" itemscope itemtype="https://schema.org/Place">
+                <span itemprop="name">{{ event.venue }}</span>
+              </dd>
+            </div>
+            <div>
+              <dt>Organiser</dt>
+              <dd itemprop="organizer" itemscope itemtype="https://schema.org/Organization">
+                <span itemprop="name">{{ event.organiser }}</span>
+              </dd>
+            </div>
+            <div>
+              <dt>Entry</dt>
+              <dd>{{ event.entryFee }}</dd>
+            </div>
+            <div>
+              <dt>Prize</dt>
+              <dd>{{ event.prize }}</dd>
+            </div>
+          </dl>
+
+          <div class="event-division-row" aria-label="Tournament divisions">
+            <span v-for="division in event.divisions" :key="division.name">{{ division.name }}</span>
+          </div>
+
+          <div class="event-card-status-row">
+            <span>{{ event.capacity }}</span>
+            <span>{{ event.entries }}</span>
+            <span>{{ event.timeControl }}</span>
+          </div>
+
+          <div class="event-tag-row" aria-label="Event tags">
+            <span v-for="tag in event.tags" :key="tag">{{ tag }}</span>
+          </div>
+
+          <div class="event-card-actions">
+            <RouterLink class="hero-primary" :to="{ name: 'event-detail', params: { slug: event.slug } }">
+              View Details
+            </RouterLink>
+            <RouterLink class="secondary-button" to="/submit-event">
+              Submit Event
+            </RouterLink>
+          </div>
+        </article>
+      </template>
     </section>
 
     <section class="event-detail-preview" aria-labelledby="event-detail-preview-title">
       <div>
         <p class="eyebrow">Event rooms roadmap</p>
-        <h2 id="event-detail-preview-title">The operating layer behind every tournament listing</h2>
+        <h2 id="event-detail-preview-title">The operating layer behind every public listing</h2>
       </div>
 
       <div class="event-preview-grid event-preview-grid-rich">
