@@ -129,14 +129,14 @@ const pageMeta = {
     type: 'website',
   },
   login: {
-    title: 'Login | GambitForge',
-    description: 'Log in to GambitForge to manage chess games, tournaments, coaching tools, and event workflows.',
+    title: 'Beta Login | GambitForge',
+    description: 'GambitForge account login is in private beta while the public MVP focuses on events, articles, contact, and event submissions.',
     type: 'website',
     robots: 'noindex,follow',
   },
   register: {
-    title: 'Create Account | GambitForge',
-    description: 'Create a GambitForge account to access chess games, tournaments, coaching tools, and organiser features.',
+    title: 'Early Access | GambitForge',
+    description: 'Request early access to GambitForge while public account creation remains in beta.',
     type: 'website',
     robots: 'noindex,follow',
   },

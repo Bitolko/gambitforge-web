@@ -1,33 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-import { RouterLink, useRouter } from 'vue-router'
-import { useAuthStore } from '../stores/auth'
+import { RouterLink } from 'vue-router'
 
-const router = useRouter()
-const auth = useAuthStore()
-
-const email = ref('tester@example.com')
-const password = ref('password123')
-const error = ref('')
-const loading = ref(false)
-
-async function submit() {
-  error.value = ''
-  loading.value = true
-
-  try {
-    await auth.login({
-      email: email.value,
-      password: password.value,
-    })
-
-    router.push({ name: 'dashboard' })
-  } catch (requestError) {
-    error.value = requestError.response?.data?.message || 'Login failed'
-  } finally {
-    loading.value = false
-  }
-}
+const contactEmail = 'gambitforgeinfo@gmail.com'
+const mailtoHref = `mailto:${contactEmail}?subject=GambitForge%20beta%20access`
 </script>
 
 <template>
@@ -42,54 +17,50 @@ async function submit() {
         </RouterLink>
 
         <div>
-          <p class="eyebrow">Secure platform access</p>
-          <h1 id="login-title">Welcome back</h1>
-          <p class="lede">Sign in to manage games, tournaments, events, and coaching tools.</p>
+          <p class="eyebrow">Beta access</p>
+          <h1 id="login-title">Account login is not public yet</h1>
+          <p class="lede">
+            GambitForge is currently open for public event discovery, articles, contact enquiries,
+            and event submissions. Games, tournaments, dashboards, and admin tools are private beta
+            until the production backend is connected.
+          </p>
         </div>
 
-        <form class="auth-form" @submit.prevent="submit">
-          <label>
-            <span>Email</span>
-            <input v-model="email" type="email" autocomplete="email" required />
-          </label>
-
-          <label>
-            <span>Password</span>
-            <input v-model="password" type="password" autocomplete="current-password" required />
-          </label>
-
-          <p v-if="error" class="form-error">{{ error }}</p>
-
-          <button class="auth-submit-button" type="submit" :disabled="loading">
-            {{ loading ? 'Logging in...' : 'Login' }}
-          </button>
-        </form>
+        <div class="auth-beta-panel" role="note">
+          <span class="coming-soon-badge">Demo/Beta</span>
+          <h2>No account required for the public MVP</h2>
+          <p>Use the public pages below while authenticated features are being prepared for production.</p>
+          <div class="auth-beta-actions">
+            <RouterLink class="hero-primary" to="/events">Browse Events</RouterLink>
+            <RouterLink class="secondary-button" to="/submit-event">Submit Event</RouterLink>
+            <a class="secondary-button" :href="mailtoHref">Request Beta Access</a>
+          </div>
+        </div>
 
         <p class="auth-switch">
-          New to GambitForge?
-          <RouterLink to="/register">Create an account</RouterLink>
+          Questions? Email <a :href="`mailto:${contactEmail}`">{{ contactEmail }}</a>
         </p>
       </div>
 
-      <aside class="auth-visual-panel" aria-label="GambitForge platform preview">
-        <p class="eyebrow">Premium chess operations</p>
-        <h2>One command room for your chess ecosystem</h2>
+      <aside class="auth-visual-panel" aria-label="GambitForge beta preview">
+        <p class="eyebrow">Public MVP</p>
+        <h2>Discover Australian chess now. Accounts arrive with the backend.</h2>
         <div class="auth-visual-grid">
           <article>
-            <span>Live Games</span>
-            <strong>12 boards</strong>
+            <span>Live now</span>
+            <strong>Events</strong>
           </article>
           <article>
-            <span>Tournaments</span>
-            <strong>Swiss rooms</strong>
+            <span>Live now</span>
+            <strong>Articles</strong>
           </article>
           <article>
-            <span>Events</span>
-            <strong>NSW rapid</strong>
+            <span>Beta</span>
+            <strong>Games</strong>
           </article>
           <article>
-            <span>Coaching</span>
-            <strong>Junior plans</strong>
+            <span>Beta</span>
+            <strong>Tournaments</strong>
           </article>
         </div>
       </aside>

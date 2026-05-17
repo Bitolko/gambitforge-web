@@ -1,35 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-import { RouterLink, useRouter } from 'vue-router'
-import { useAuthStore } from '../stores/auth'
+import { RouterLink } from 'vue-router'
 
-const router = useRouter()
-const auth = useAuthStore()
-
-const name = ref('GambitForge Tester')
-const email = ref('tester3@example.com')
-const password = ref('password123')
-const error = ref('')
-const loading = ref(false)
-
-async function submit() {
-  error.value = ''
-  loading.value = true
-
-  try {
-    await auth.register({
-      name: name.value,
-      email: email.value,
-      password: password.value,
-    })
-
-    router.push({ name: 'dashboard' })
-  } catch (requestError) {
-    error.value = requestError.response?.data?.message || 'Registration failed'
-  } finally {
-    loading.value = false
-  }
-}
+const contactEmail = 'gambitforgeinfo@gmail.com'
+const mailtoHref = `mailto:${contactEmail}?subject=GambitForge%20early%20access%20request`
 </script>
 
 <template>
@@ -44,59 +17,53 @@ async function submit() {
         </RouterLink>
 
         <div>
-          <p class="eyebrow">Join the platform</p>
-          <h1 id="register-title">Create your GambitForge account</h1>
-          <p class="lede">Join the platform for chess events, live games, clubs, coaches, and tournaments.</p>
+          <p class="eyebrow">Early access</p>
+          <h1 id="register-title">Public account creation is in beta</h1>
+          <p class="lede">
+            Registration will open once the production backend, email, moderation, and account
+            workflows are ready. For now, use GambitForge as a public Australian chess discovery
+            platform and contact us for early access.
+          </p>
         </div>
 
-        <form class="auth-form" @submit.prevent="submit">
-          <label>
-            <span>Name</span>
-            <input v-model="name" autocomplete="name" required />
-          </label>
-
-          <label>
-            <span>Email</span>
-            <input v-model="email" type="email" autocomplete="email" required />
-          </label>
-
-          <label>
-            <span>Password</span>
-            <input v-model="password" type="password" autocomplete="new-password" required minlength="8" />
-          </label>
-
-          <p v-if="error" class="form-error">{{ error }}</p>
-
-          <button class="auth-submit-button" type="submit" :disabled="loading">
-            {{ loading ? 'Creating account...' : 'Create account' }}
-          </button>
-        </form>
+        <div class="auth-beta-panel" role="note">
+          <span class="coming-soon-badge">Demo/Beta</span>
+          <h2>Join the public MVP without creating an account</h2>
+          <p>
+            Explore events, read tournament guides, submit event details, or tell us about your club,
+            academy, school, or tournament workflow.
+          </p>
+          <div class="auth-beta-actions">
+            <RouterLink class="hero-primary" to="/contact">Contact GambitForge</RouterLink>
+            <RouterLink class="secondary-button" to="/events">Browse Events</RouterLink>
+            <a class="secondary-button" :href="mailtoHref">Request Early Access</a>
+          </div>
+        </div>
 
         <p class="auth-switch">
-          Already registered?
-          <RouterLink to="/login">Login</RouterLink>
+          Direct email: <a :href="`mailto:${contactEmail}`">{{ contactEmail }}</a>
         </p>
       </div>
 
-      <aside class="auth-visual-panel" aria-label="GambitForge platform preview">
-        <p class="eyebrow">Australian chess network</p>
-        <h2>Build your profile across play, events, and coaching</h2>
+      <aside class="auth-visual-panel" aria-label="GambitForge early access preview">
+        <p class="eyebrow">Beta roadmap</p>
+        <h2>Accounts will unlock private chess operations when backend deployment is ready.</h2>
         <div class="auth-visual-grid">
           <article>
-            <span>Live Games</span>
-            <strong>Legal moves</strong>
+            <span>Public</span>
+            <strong>Events</strong>
           </article>
           <article>
-            <span>Tournaments</span>
-            <strong>Pairings</strong>
+            <span>Public</span>
+            <strong>Contact</strong>
           </article>
           <article>
-            <span>Events</span>
-            <strong>Listings</strong>
+            <span>Beta</span>
+            <strong>Dashboards</strong>
           </article>
           <article>
-            <span>Coaching</span>
-            <strong>Pathways</strong>
+            <span>Beta</span>
+            <strong>Admin</strong>
           </article>
         </div>
       </aside>

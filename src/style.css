@@ -682,6 +682,37 @@ h3 {
   color: var(--gold-strong);
 }
 
+.auth-beta-panel {
+  display: grid;
+  gap: 14px;
+  max-width: 560px;
+  border: 1px solid rgba(215, 169, 77, 0.2);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(215, 169, 77, 0.12), transparent 12rem),
+    rgba(8, 13, 20, 0.38);
+  padding: clamp(18px, 3vw, 24px);
+}
+
+.auth-beta-panel h2 {
+  font-size: clamp(22px, 3vw, 30px);
+}
+
+.auth-beta-panel p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.auth-beta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.auth-beta-actions > * {
+  min-height: 44px;
+}
+
 .auth-visual-panel {
   position: relative;
   overflow: hidden;
@@ -2484,6 +2515,18 @@ h3 {
   border: 1px solid rgba(215, 169, 77, 0.24);
 }
 
+.contact-mail-button {
+  width: fit-content;
+}
+
+.contact-form-note {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.55;
+}
+
 .contact-info-card {
   display: grid;
   gap: 20px;
@@ -2517,6 +2560,11 @@ h3 {
   overflow-wrap: anywhere;
   color: var(--text-strong);
   font-size: 17px;
+}
+
+.contact-email-block strong a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .about-page {
@@ -10391,9 +10439,20 @@ textarea {
   }
 
   .auth-visual-grid,
+  .auth-beta-actions,
   .time-control-picker,
   .blog-grid {
     grid-template-columns: 1fr;
+  }
+
+  .auth-beta-actions {
+    display: grid;
+    width: 100%;
+  }
+
+  .auth-beta-actions > *,
+  .contact-mail-button {
+    width: 100%;
   }
 
   .time-control-card {

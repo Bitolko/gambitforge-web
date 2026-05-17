@@ -1,4 +1,16 @@
 <script setup>
+import { computed, reactive } from 'vue'
+
+const contactEmail = 'gambitforgeinfo@gmail.com'
+
+const form = reactive({
+  name: '',
+  email: '',
+  organization: '',
+  role: 'Club onboarding',
+  message: '',
+})
+
 const enquiryFlows = [
   {
     title: 'Clubs',
@@ -19,8 +31,8 @@ const enquiryFlows = [
 ]
 
 const contactPlaceholders = [
-  { label: 'Email', value: 'hello@gambitforge.com' },
-  { label: 'Events desk', value: 'events@gambitforge.com' },
+  { label: 'Email', value: contactEmail },
+  { label: 'Events desk', value: contactEmail },
   { label: 'LinkedIn', value: 'linkedin.com/company/gambitforge' },
   { label: 'Instagram', value: '@gambitforge' },
 ]
@@ -31,6 +43,23 @@ const flowSteps = [
   'Review the best starting workflow',
   'Join early access when ready',
 ]
+
+const mailtoHref = computed(() => {
+  const subject = encodeURIComponent(`GambitForge enquiry: ${form.role || 'Public MVP'}`)
+  const body = encodeURIComponent(
+    [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Organisation or club: ${form.organization}`,
+      `Enquiry type: ${form.role}`,
+      '',
+      'Message:',
+      form.message,
+    ].join('\n'),
+  )
+
+  return `mailto:${contactEmail}?subject=${subject}&body=${body}`
+})
 </script>
 
 <template>
@@ -76,22 +105,22 @@ const flowSteps = [
 
         <label>
           <span>Name</span>
-          <input type="text" name="name" autocomplete="name" placeholder="Your name" />
+          <input v-model="form.name" type="text" name="name" autocomplete="name" placeholder="Your name" />
         </label>
 
         <label>
           <span>Email</span>
-          <input type="email" name="email" autocomplete="email" placeholder="you@example.com" />
+          <input v-model="form.email" type="email" name="email" autocomplete="email" placeholder="you@example.com" />
         </label>
 
         <label>
           <span>Organisation or club</span>
-          <input type="text" name="organization" autocomplete="organization" placeholder="Club, academy, school, or event name" />
+          <input v-model="form.organization" type="text" name="organization" autocomplete="organization" placeholder="Club, academy, school, or event name" />
         </label>
 
         <label>
           <span>Enquiry type</span>
-          <select name="role" autocomplete="organization-title">
+          <select v-model="form.role" name="role" autocomplete="organization-title">
             <option>Club onboarding</option>
             <option>Tournament organiser</option>
             <option>Submit an event</option>
@@ -105,13 +134,17 @@ const flowSteps = [
         <label>
           <span>Message</span>
           <textarea
+            v-model="form.message"
             name="message"
             rows="6"
             placeholder="Tell us your location, audience, event format, current workflow, and what you want GambitForge to help with."
           ></textarea>
         </label>
 
-        <button type="submit" disabled>Frontend Preview</button>
+        <a class="button-link hero-primary contact-mail-button" :href="mailtoHref">Email GambitForge</a>
+        <p class="contact-form-note">
+          This opens your email app and sends the enquiry to {{ contactEmail }} while backend email delivery is not connected.
+        </p>
       </form>
 
       <aside class="contact-info-card">
@@ -126,7 +159,10 @@ const flowSteps = [
         <div class="contact-social-list" aria-label="Contact and social placeholders">
           <div v-for="item in contactPlaceholders" :key="item.label" class="contact-email-block">
             <span>{{ item.label }}</span>
-            <strong>{{ item.value }}</strong>
+            <strong>
+              <a v-if="item.value === contactEmail" :href="`mailto:${contactEmail}`">{{ item.value }}</a>
+              <span v-else>{{ item.value }}</span>
+            </strong>
           </div>
         </div>
       </aside>

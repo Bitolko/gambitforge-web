@@ -92,8 +92,8 @@ function closeMenu() {
         <RouterLink to="/calendar" @click="closeMenu">Calendar</RouterLink>
         <RouterLink to="/blog" @click="closeMenu">Blog</RouterLink>
         <RouterLink to="/contact" @click="closeMenu">Contact</RouterLink>
-        <RouterLink to="/login" @click="closeMenu">Login</RouterLink>
-        <RouterLink class="nav-cta" to="/register" @click="closeMenu">Get Started</RouterLink>
+        <RouterLink to="/submit-event" @click="closeMenu">Submit Event</RouterLink>
+        <RouterLink class="nav-cta" to="/contact" @click="closeMenu">Early Access</RouterLink>
       </template>
 
       <button

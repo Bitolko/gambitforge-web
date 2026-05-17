@@ -80,8 +80,8 @@ const userTypes = [
         </p>
 
         <div class="hero-actions">
-          <RouterLink class="button-link hero-primary" to="/register">Get Started</RouterLink>
-          <RouterLink class="button-link secondary-link" to="/tournaments">View Tournaments</RouterLink>
+          <RouterLink class="button-link hero-primary" to="/events">Browse Events</RouterLink>
+          <RouterLink class="button-link secondary-link" to="/contact">Request Early Access</RouterLink>
         </div>
 
         <p class="hero-supporting-line">
@@ -259,8 +259,8 @@ const userTypes = [
       </div>
 
       <div class="hero-actions final-cta-actions">
-        <RouterLink class="button-link hero-primary" to="/register">Create Account</RouterLink>
-        <RouterLink class="button-link secondary-link" to="/tournaments">Explore Tournaments</RouterLink>
+        <RouterLink class="button-link hero-primary" to="/submit-event">Submit Event</RouterLink>
+        <RouterLink class="button-link secondary-link" to="/contact">Contact GambitForge</RouterLink>
       </div>
     </section>
   </main>
